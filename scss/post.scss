@@ -1,0 +1,120 @@
+// This file is intentionally empty.
+
+.pagelayout-frontpage {
+    #region-main {
+        border: initial;
+        padding: initial;
+    }
+}
+
+.header-image {
+    max-height: $navbar-height;
+}
+
+#page-wrapper {
+    nav.navbar {
+        max-height: $navbar-height;
+        height: $navbar-height;
+
+        .logo img {
+            max-height: 70px;
+        }
+
+        .rf-logo {
+            width: 165px;
+        }
+
+        @include media-breakpoint-down(sm) {
+            .logo img {
+                max-width: 35px;
+            }
+            .rf-logo {
+                width: 100px;
+            }
+        }
+
+
+        .nav-left-region {
+            width: $nav-drawer-width;
+        }
+    }
+
+    [data-region="drawer"] {
+        top: $navbar-height;
+        width: $nav-drawer-width;
+    }
+}
+
+#page {
+    margin-top: $navbar-height;
+}
+
+// Navbar
+
+
+.navbar-brand {
+    font-size: 1rem; // Normal font.
+    padding-top: initial;
+    padding-bottom: initial;
+}
+
+.site-name, .custom-menu {
+    color: $gray-600;
+    min-width: 30%;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    &:focus, &:hover {
+        color: $gray-900;
+        font-weight: bold;
+        text-decoration: $primary underline;
+    }
+
+    color: $gray-900;
+}
+
+#page-footer {
+
+    a,
+    a:hover,
+    a:active,
+    a:visited {
+        color: $gray-600;
+        text-decoration: none;
+    }
+
+    a:focus {
+        color: $gray-900;
+    }
+
+
+    .logos-footer {
+        padding-top: 3em;
+        padding-bottom: 3em;
+    }
+
+    // Hide starting at `min-width: 0`, and then show at the `sm` breakpoint
+    @include media-breakpoint-up(sm) {
+        .logos-footer {
+            padding-top: 120px;
+            padding-bottom: 120px;
+        }
+    }
+
+    .logos-footer img {
+        padding: 1em;
+    }
+
+    img.ma-logo {
+        width: 221px;
+    }
+
+    img.envf-logo {
+        max-height: 70px;
+    }
+
+    .infos-footer {
+        border-top: 1px solid $gray-600;
+        padding-top: 2em;
+    }
+}

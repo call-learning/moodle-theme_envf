@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'Work Sans';
+    src: local('Work Sans'), local('WorkSans-Regular'), url([[font:theme|WorkSans-Regular.ttf]]) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Work Sans Bold';
+    src: local('Work Sans Bold'), local('WorkSans-Bold'), url([[font:theme|WorkSans-Bold.ttf]]) format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat SemiBold';
+    src: local('Montserrat SemiBold'), local('Montserrat-SemiBold'), url([[font:theme|Montserrat-SemiBold.ttf]]) format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}

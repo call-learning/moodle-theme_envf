@@ -1,0 +1,68 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    Page navbar.
+
+    Note that we use additionalinfo from the clboost template engine settings.
+}}
+<nav class="fixed-top navbar navbar-light bg-white navbar-expand moodle-has-zindex" aria-label="{{#str}}sitemenubar, admin{{/str}}">
+    <div class="nav-left-region">
+        {{# additionalinfo.isloggedin }}
+            <div data-region="drawer-toggle" class="d-block">
+                <button
+                        aria-expanded="{{#navdraweropen}}true{{/navdraweropen}}{{^navdraweropen}}false{{/navdraweropen}}"
+                        aria-controls="nav-drawer"
+                        type="button" class="btn nav-link align-bottom d-inline-block"
+                        data-action="toggle-drawer"
+                        data-side="left"
+                        data-preference="drawer-open-nav">{{#pix}}i/menubars{{/pix}}<span class="sr-only">{{#str}}sidepanel, core{{/str}}</span>
+                </button>
+            </div>
+        {{/ additionalinfo.isloggedin }}
+
+        {{^ additionalinfo.isloggedin }}
+            <img class="rf-logo" src="{{{ config.wwwroot }}}/theme/envf/pix/rf.png" role="presentation"
+                 alt="{{#str}}republiquefrancaise, theme_envf{{/str}}">
+        {{/ additionalinfo.isloggedin }}
+    </div>
+    <div class="d-flex flex-row flex-grow-1 nav-main-content">
+        <a href="{{{ config.wwwroot }}}" class="navbar-brand aabtn {{# output.should_display_navbar_logo }}has-logo{{/ output.should_display_navbar_logo }}">
+             <span class="logo">
+                    <img src="{{output.get_compact_logo_url}}" alt="{{sitename}}">
+             </span>
+            <span class="site-name d-none d-md-inline pl-3">{{{ sitename }}}</span>
+        </a>
+
+        <ul class="navbar-nav d-none d-md-flex m-auto m-r-1 custom-menu justify-content-around">
+            <!-- custom_menu -->
+            {{{ output.custom_menu }}}
+            <!-- page_heading_menu -->
+            {{{ output.page_heading_menu }}}
+        </ul>
+    </div>
+    <ul class="nav navbar-nav ml-auto">
+        <li class="d-none d-lg-block">
+            {{{ output.search_box }}}
+        </li>
+        <!-- user_menu -->
+        <li class="nav-item d-flex align-items-center">
+            {{{ output.user_menu }}}
+        </li>
+    </ul>
+    <!-- search_box -->
+</nav>
+
