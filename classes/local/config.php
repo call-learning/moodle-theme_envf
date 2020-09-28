@@ -15,17 +15,33 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Theme plugin version definition.
+ * All constant in one place
  *
- * @package   theme_envf
+ * @package   theme_clboost
  * @copyright 2020 - CALL Learning - Laurent David <laurent@call-learning>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-use theme_envf\local\config;
+namespace theme_envf\local;
 
-defined('MOODLE_INTERNAL') || die();
+defined('MOODLE_INTERNAL') || die;
 
-require_once(__DIR__ . '/lib.php');
+/**
+ * Theme constants. In one place.
+ *
+ * @package   theme_clboost
+ * @copyright 2020 - CALL Learning - Laurent David <laurent@call-learning>
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+class config extends \theme_clboost\local\config {
+    public static function get_layouts() {
+        $layouts = parent::get_layouts();
+        $layouts[\local_mcms\page_utils::PAGE_LAYOUT_NAME] = array(
+            'file' => 'mcmspage.php',
+            'regions' => array('content'),
+            'defaultregion' => 'content',
+        );
+        return $layouts;
+    }
 
-config::setup_config($THEME,'envf');
+}

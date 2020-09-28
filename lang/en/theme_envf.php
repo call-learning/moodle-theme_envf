@@ -49,3 +49,5 @@ $string['vetagro:address'] = '1 avenue Bourgelat, 69280 Marcy-l\'Etoile';
 $string['cookiesrgpd'] = 'Gestion des cookies et des données';
 $string['mentionlegales'] = 'Mentions légales';
 $string['copyright'] = '© ENVF  2020';
+
+$string['region-side-pre'] = 'Right';

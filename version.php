@@ -31,5 +31,6 @@ $plugin->maturity  = MATURITY_ALPHA;
 $plugin->component = 'theme_envf';
 $plugin->dependencies = [
     'theme_boost' => ANY_VERSION,
-    'theme_clboost' => '2020092300'
+    'theme_clboost' => '2020092300',
+    'local_mcms' => ANY_VERSION
 ];

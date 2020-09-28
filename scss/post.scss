@@ -73,6 +73,10 @@
     color: $gray-900;
 }
 
+
+.navbar {
+    box-shadow: none;
+}
 #page-footer {
 
     a,
@@ -117,4 +121,48 @@
         border-top: 1px solid $gray-600;
         padding-top: 2em;
     }
+}
+
+// MCMS Pages
+.mcms-header-container {
+    margin-left: 15%;
+    margin-right: 15%;
+    min-height: 20em;
+    max-width: 940px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    h3 {
+        color: white;
+        align-self: flex-end;
+        font-size: 3.5em;
+        text-align: center;
+        margin: 1em;
+    }
+    &::before {
+        content: url([[pix:theme|bg/singlesquare]]);
+        position: absolute;
+        margin-top: -40px;
+        margin-left: -180px;
+        width: 460px;
+        z-index: -1;
+    }
+    &::after {
+        content: url([[pix:theme|bg/dualsquare]]);
+        position: absolute;
+        margin-top: -100px;
+        right: -140px;
+        width: 460px;
+        z-index: -1;
+    }
+
+}
+// Fixes
+
+// Fix the issue with block menus partially hidden
+
+#region-main {
+    overflow-x: visible;
 }
