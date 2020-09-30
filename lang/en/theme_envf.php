@@ -51,3 +51,4 @@ $string['mentionlegales'] = 'Mentions légales';
 $string['copyright'] = '© ENVF  2020';
 
 $string['region-side-pre'] = 'Right';
+$string['region-content'] = 'Content';

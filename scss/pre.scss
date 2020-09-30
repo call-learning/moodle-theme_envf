@@ -41,6 +41,11 @@ $danger:        #850f18 !default;
 $light:         #18d9c9 !default;
 $dark:          #052e2a !default;
 
+$enva: #913493 !default;
+$oniris: #3697d9 !default;
+$vetagrosup: #cad516 !default;
+$envt: #e6332a !default;
+
 // Other
 $info-outline:    #1f7e9a;
 $warning-outline: #a6670e;
@@ -48,17 +53,17 @@ $warning-outline: #a6670e;
 // Fonts
 // See fonts.css (as we cannot import them in the scss)
 
-$font-family-sans-serif:        "Work Sans", sans-serif !default;
-$font-family-button:            "Montserrat SemiBold", sans-serif !default;
+$font-family-sans-serif:        "WorkSans", sans-serif !default;
+$font-family-button:            "Montserrat", sans-serif !default;
 
-$headings-font-family:        "Work Sans", sans-serif !default;
+$headings-font-family:        "Montserrat", sans-serif !default;
 $headings-font-weight:        600 !default;
 $headings-line-height:        1.1 !default;
 
 // Buttons
 
 $input-btn-padding-x:         1rem !default;
-$button-font-weight:        600 !default;
+$button-font-weight:          600 !default;
 
 // Navbar
 
@@ -118,10 +123,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.navbar {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .08);
-}
-
 // Rounded user pictures
 .userpicture {
     border-radius: 50%;
@@ -144,11 +145,3 @@ body {
 }
 
 @include bg-variant(".bg-gray", $gray-200, true);
-
-// Adjustments to make bootstrap 4 work better with some variables from bootstrap 3 bootswatches
-
-$navbar-height: 200px !default;
-
-.navbar {
-    max-height: $navbar-height;
-}

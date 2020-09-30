@@ -19,7 +19,7 @@
 
     Note that we use additionalinfo from the clboost template engine settings.
 }}
-<nav class="fixed-top navbar navbar-light navbar-expand moodle-has-zindex" aria-label="{{#str}}sitemenubar, admin{{/str}}">
+<nav class="fixed-top navbar navbar-light bg-white navbar-expand moodle-has-zindex" aria-label="{{#str}}sitemenubar, admin{{/str}}">
     <div class="nav-left-region">
         {{# additionalinfo.isloggedin }}
             <div data-region="drawer-toggle" class="d-block">
@@ -35,7 +35,7 @@
         {{/ additionalinfo.isloggedin }}
 
         {{^ additionalinfo.isloggedin }}
-            <img class="rf-logo" src="{{{ config.wwwroot }}}/theme/envf/pix/rf.png" role="presentation"
+            <img class="rf-logo pt-3" src="{{{ config.wwwroot }}}/theme/envf/pix/rf.png" role="presentation"
                  alt="{{#str}}republiquefrancaise, theme_envf{{/str}}">
         {{/ additionalinfo.isloggedin }}
     </div>
@@ -49,7 +49,7 @@
 
         <ul class="navbar-nav d-none d-md-flex m-auto m-r-1 custom-menu justify-content-around">
             <!-- custom_menu -->
-            {{{ output.custom_menu }}}
+            {{{ output.mcms_menu }}}
             <!-- page_heading_menu -->
             {{{ output.page_heading_menu }}}
         </ul>

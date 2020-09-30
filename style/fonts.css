@@ -1,20 +1,42 @@
 @font-face {
-    font-family: 'Work Sans';
-    src: local('Work Sans'), local('WorkSans-Regular'), url([[font:theme|WorkSans-Regular.ttf]]) format('truetype');
+    font-family: 'WorkSans';
+    src: url([[font:theme|WorkSans-Regular.eot]]);
+    src: url([[font:theme|WorkSans-Regular.eot]]) format('embedded-opentype'),
+        url([[font:theme|WorkSans-Regular.ttf]])  format('truetype'),
+        url([[font:theme|WorkSans-Regular.woff]]) format('woff'),
+        url([[font:theme|WorkSans-Regular.woff2]]) format('woff2');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Work Sans Bold';
-    src: local('Work Sans Bold'), local('WorkSans-Bold'), url([[font:theme|WorkSans-Bold.ttf]]) format('truetype');
-    font-weight: 600;
+    font-family: 'WorkSans';
+    src: url([[font:theme|WorkSans-Bold.eot]]);
+    src: url([[font:theme|WorkSans-Bold.eot]]) format('embedded-opentype'),
+    url([[font:theme|WorkSans-Bold.ttf]])  format('truetype'),
+    url([[font:theme|WorkSans-Bold.woff]]) format('woff'),
+    url([[font:theme|WorkSans-Bold.woff2]]) format('woff2');
+    font-weight: bold;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Montserrat SemiBold';
-    src: local('Montserrat SemiBold'), local('Montserrat-SemiBold'), url([[font:theme|Montserrat-SemiBold.ttf]]) format('truetype');
-    font-weight: 600;
+    font-family: 'Montserrat';
+    src: url([[font:theme|Montserrat-Regular.eot]]);
+    src: url([[font:theme|Montserrat-Regular.eot]]) format('embedded-opentype'),
+    url([[font:theme|Montserrat-Regular.ttf]])  format('truetype'),
+    url([[font:theme|Montserrat-Regular.woff]]) format('woff'),
+    url([[font:theme|Montserrat-Regular.woff2]]) format('woff2');    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url([[font:theme|Montserrat-SemiBold.eot]]);
+    src: url([[font:theme|Montserrat-SemiBold.eot]]) format('embedded-opentype'),
+    url([[font:theme|Montserrat-SemiBold.ttf]])  format('truetype'),
+    url([[font:theme|Montserrat-SemiBold.woff]]) format('woff'),
+    url([[font:theme|Montserrat-SemiBold.woff2]]) format('woff2');
+    font-weight: bold;
     font-style: normal;
 }

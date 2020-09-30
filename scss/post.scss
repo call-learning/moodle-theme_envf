@@ -14,7 +14,9 @@
 #page-wrapper {
     nav.navbar {
         max-height: $navbar-height;
-        height: $navbar-height;
+        height: $navbar-height/2;
+        padding-top: $navbar-height/4;
+        margin-bottom: $navbar-height/4;
 
         .logo img {
             max-height: 70px;
@@ -77,6 +79,7 @@
 .navbar {
     box-shadow: none;
 }
+
 #page-footer {
 
     a,
@@ -123,41 +126,281 @@
     }
 }
 
+// Block decoration
+
+.pagelayout-mcmslayout {
+    .block, #region-main {
+        border: none;
+        background: transparent !important;
+    }
+}
+
+// This is absolute positioning in a relative positioned container.
+.square-top-left {
+    top: -100px;
+    left: -180px;
+}
+
+.square-top-right {
+    top: -100px;
+    right: -180px;
+}
+
+.square-bottom-left {
+    bottom: -100px;
+    left: -180px;
+}
+
+.square-bottom-right {
+    bottom: -100px;
+    right: -180px;
+}
+
+.mcms-square {
+    z-index: -1;
+    position: absolute;
+    width: 460px;
+}
+
+.square-single-blue {
+    content: url([[pix:theme|bg/singlesquare-blue]]);
+}
+
+.square-dual-blue {
+    content: url([[pix:theme|bg/dualsquare-blue]]);
+}
+
+.square-single-green {
+    content: url([[pix:theme|bg/singlesquare-green]]);
+}
+
+.square-dual-green {
+    content: url([[pix:theme|bg/dualsquare-green]]);
+}
+
+.square-single-violet {
+    content: url([[pix:theme|bg/singlesquare-violet]]);
+}
+
+.square-dual-violet {
+    content: url([[pix:theme|bg/dualsquare-violet]]);
+}
+
+.square-single-red {
+    content: url([[pix:theme|bg/singlesquare-red]]);
+}
+
+.square-dual-red {
+    content: url([[pix:theme|bg/dualsquare-red]]);
+}
+
+
+.square-top-stronger {
+    top: -180px;
+}
+
+.square-bottom-stronger {
+    bottom: -180px;
+}
+
 // MCMS Pages
 .mcms-header-container {
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-right: auto;
+    margin-left: auto;
     min-height: 20em;
-    max-width: 940px;
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     flex-direction: column;
+    position: relative;
+
     h3 {
+        font-family: $font-family-sans-serif;
+        font-weight: bold;
         color: white;
         align-self: flex-end;
         font-size: 3.5em;
         text-align: center;
         margin: 1em;
     }
+
     &::before {
-        content: url([[pix:theme|bg/singlesquare]]);
-        position: absolute;
-        margin-top: -40px;
-        margin-left: -180px;
-        width: 460px;
-        z-index: -1;
-    }
-    &::after {
-        content: url([[pix:theme|bg/dualsquare]]);
-        position: absolute;
-        margin-top: -100px;
-        right: -140px;
-        width: 460px;
-        z-index: -1;
+        @extend .square-single-violet;
+        @extend .mcms-square;
+        @extend .square-top-left;
     }
 
+    &::after {
+        @extend .square-dual-red;
+        @extend .mcms-square;
+        @extend .square-top-right;
+    }
+}
+
+
+// A bit of a hack here: the definition in the core block does
+// not fit our needs, so we reset it.
+.pagelayout-mcmslayout, #page-site-index {
+    .block, #region-main {
+        border: none;
+        background: transparent !important;
+    }
+
+    .block_mcms .card-body.p-3 {
+        padding: unset !important;
+    }
+
+    .block_mcms .card-text.mt-3 {
+        margin-top: auto !important;
+    }
+
+    .block_mcms.mb-3 {
+        margin-bottom: auto !important;
+    }
+}
+
+.card {
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.15);
+    border: none;
+}
+.block_mcms {
+    &.card {
+        box-shadow: unset;
+    }
+    h3 {
+        font-size: xx-large;
+        font-weight: bold;
+    }
+
+    &.site-head-block {
+        h3 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            font-family: $font-family-sans-serif;
+        }
+
+        .side-text {
+            text-align: left !important; // Only for the site header.
+        }
+    }
+
+    li::before {
+        content: "\2022";
+        font-size: 2.5em;
+        vertical-align: middle;
+        line-height: normal;
+        margin: 0.25em;
+    }
+
+    li {
+        list-style: none;
+
+        &.bullet-fp-enva::before {
+            color: $enva;
+        }
+
+        &.bullet-fp-oniris::before {
+            color: $oniris;
+        }
+
+        &.bullet-fp-vetagrosup::before {
+            color: $vetagrosup;
+        }
+
+        &.bullet-fp-envt::before {
+            color: $envt;
+        }
+    }
+
+    &.layout-two {
+        .block-mcms {
+            background-size: cover;
+            background-position: 50% 50%;
+        }
+    }
+
+    &.layout-one {
+        .text-content {
+            max-width: 620px;
+        }
+    }
+
+    // Specific style for heading with right arrow.
+    &.with-arrow-heading {
+        .text-content {
+            margin-left: 2em;
+
+            .no-overflow {
+                overflow: visible !important; // To counter the no overflow automatically inserted by atto.
+            }
+
+            h4::before {
+                content: "\f18e";
+                font-family: "FontAwesome";
+                margin-left: -2em;
+                margin-right: 1em;
+                color: $primary;
+                font-size: xx-large;
+                vertical-align: middle;
+            }
+        }
+    }
+    // Block Icons.
+    .blockicon {
+        width: 80px;
+        height: 80px;
+        margin-right: 3em;
+        background: no-repeat;
+    }
+
+}
+
+// Atto Styles
+
+.atto-strong-primary {
+    font-weight: bold;
+    color: $primary;
+}
+
+.atto-envf-cta a {
+    @extend .btn;
+    @extend .btn-primary;
+    font-weight: bold;
+}
+
+.atto-envf-cta-outline a {
+    color: $primary;
+    @extend .btn;
+    @extend .btn-outline-primary;
+    font-weight: bold;
+}
+
+.atto-envf-cta-outline-white a {
+    @extend .btn;
+    @include button-outline-variant(#fff);
+    font-weight: bold;
+}
+.atto-envf-quote {
+    font-size: 2em;
+    padding-left: 2em;
+    display: block;
+    position: relative;
+    &::before {
+        display: block;
+        content: "\201C";
+        font-size: 3.5em;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        color: $gray-600;
+    }
+}
+
+#page-footer {
+    .addresses {
+        font-size: xx-small;
+    }
 }
 // Fixes
 
@@ -165,4 +408,7 @@
 
 #region-main {
     overflow-x: visible;
+}
+.breadcrumb {
+    background-color: transparent;
 }

@@ -35,7 +35,6 @@ defined('MOODLE_INTERNAL') || die;
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class core_renderer extends \theme_clboost\output\core_renderer {
-
     /**
      * Return false (no compact logo)
      *
@@ -56,7 +55,7 @@ class core_renderer extends \theme_clboost\output\core_renderer {
             $additionalinfo->orglist [] = (object) [
                 'fullname' => get_string($item . ':fullname', 'theme_envf'),
                 'path' => "logos/{$item}.png",
-                'link' => get_string($item . ':link','theme_envf'),
+                'link' => get_string($item . ':link', 'theme_envf'),
                 'address' => get_string($item . ':address', 'theme_envf')
             ];
         }
@@ -75,5 +74,21 @@ class core_renderer extends \theme_clboost\output\core_renderer {
             ]
         ];
         return $additionalinfo;
+    }
+
+    // Menus
+
+    public function mcms_menu() {
+        $renderer = $this->page->get_renderer('local_mcms', 'menu');
+        return $renderer->mcms_menu();
+    }
+
+    /**
+     * We want to show the custom menus as a list of links in the footer on small screens.
+     * Just return the menu object exported so we can render it differently.
+     */
+    public function mcms_menu_menu_flat() {
+        $renderer = $this->page->get_renderer('local_mcms', 'menu');
+        return $renderer->mcms_menu_menu_flat();
     }
 }
