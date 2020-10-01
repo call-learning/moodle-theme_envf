@@ -263,6 +263,9 @@
 .card {
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.15);
     border: none;
+    &.border-0 {
+        box-shadow: unset;
+    }
 }
 .block_mcms {
     &.card {
