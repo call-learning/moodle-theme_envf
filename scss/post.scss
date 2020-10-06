@@ -226,11 +226,8 @@
     h3 {
         font-family: $font-family-sans-serif;
         font-weight: bold;
-        color: white;
         align-self: flex-end;
         font-size: 3.5em;
-        text-align: center;
-        margin: 1em;
     }
 
     &::before {
@@ -276,12 +273,11 @@
         box-shadow: unset;
     }
 }
+.block.card {
+    box-shadow: unset;
+}
 
 .block_mcms {
-    &.card {
-        box-shadow: unset;
-    }
-
     h3 {
         font-size: xx-large;
         font-weight: bold;
@@ -506,4 +502,13 @@
             position: absolute;
         }
     }
+}
+
+// H5P Customisation
+.vco-timeline .vco-navigation .timenav-background {
+    background-color: $primary !important;
+}
+html.h5p-iframe,
+html.h5p-iframe > body {
+    font-family: $font-family-sans-serif !important;
 }

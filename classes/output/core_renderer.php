@@ -24,6 +24,8 @@
 
 namespace theme_envf\output;
 
+use html_writer;
+
 defined('MOODLE_INTERNAL') || die;
 
 /**
@@ -47,7 +49,7 @@ class core_renderer extends \theme_clboost\output\core_renderer {
     }
 
     public function get_template_additional_information() {
-        global $CFG;
+        global $CFG, $OUTPUT, $PAGE;
         $additionalinfo = parent::get_template_additional_information();
 
         $additionalinfo->orglist = [];
@@ -73,6 +75,16 @@ class core_renderer extends \theme_clboost\output\core_renderer {
                 'link' => ''
             ]
         ];
+        $attributes = array('rel'=>'stylesheet', 'type'=>'text/css');
+        $urls = $this->page->theme->css_urls($this->page);
+        $code = '';
+        foreach ($urls as $url) {
+            $attributes['href'] = $url;
+            $code .= html_writer::empty_tag('link', $attributes);
+            // This id is needed in first sheet only so that theme may override YUI sheets loaded on the fly.
+            unset($attributes['id']);
+        }
+        $additionalinfo->h5p_extra_css = $code;;
         return $additionalinfo;
     }
 
