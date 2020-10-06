@@ -36,14 +36,6 @@
         }
 
 
-        .nav-left-region {
-            width: $nav-drawer-width;
-        }
-    }
-
-    [data-region="drawer"] {
-        top: $navbar-height;
-        width: $nav-drawer-width;
     }
 }
 
@@ -75,6 +67,22 @@
     color: $gray-900;
 }
 
+#nav-drawer {
+    background-color: white;
+
+    .list-group li {
+        margin-bottom: 0.5rem;
+    }
+
+    .list-group {
+        margin-top: 0.5rem !important;
+    }
+
+    .list-group-item {
+        box-shadow: 0 2px 0.5rem 0 rgba(0, 0, 0, 0.15);
+        border: none;
+    }
+}
 
 .navbar {
     box-shadow: none;
@@ -263,14 +271,17 @@
 .card {
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.15);
     border: none;
+
     &.border-0 {
         box-shadow: unset;
     }
 }
+
 .block_mcms {
     &.card {
         box-shadow: unset;
     }
+
     h3 {
         font-size: xx-large;
         font-weight: bold;
@@ -349,6 +360,7 @@
             }
         }
     }
+
     // Block Icons.
     .blockicon {
         width: 80px;
@@ -384,11 +396,13 @@
     @include button-outline-variant(#fff);
     font-weight: bold;
 }
+
 .atto-envf-quote {
     font-size: 2em;
     padding-left: 2em;
     display: block;
     position: relative;
+
     &::before {
         display: block;
         content: "\201C";
@@ -405,6 +419,7 @@
         font-size: xx-small;
     }
 }
+
 // Fixes
 
 // Fix the issue with block menus partially hidden
@@ -412,6 +427,83 @@
 #region-main {
     overflow-x: visible;
 }
+
 .breadcrumb {
     background-color: transparent;
+}
+
+*:focus {
+    outline-color: lightgray;
+    outline-style: dashed;
+    outline-width: thin;
+}
+
+// FAQ
+
+.block_faq {
+    .nav-pills {
+        -webkit-margin-start: 0px;
+        .nav-link.active {
+            position: relative;
+            box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.15);
+
+            &::after {
+                background-color: #fff;
+                height: 10px;
+                content: "";
+                position: absolute;
+                bottom: 0px;
+                right: 0px;
+                width: 100%;
+            }
+        }
+
+        .nav-link.active,
+        .show > .nav-link {
+            background-color: white;
+            color: $dark;
+        }
+
+        .cat-title {
+            color: $dark;
+            font-size: x-large;
+        }
+    }
+
+    .btn.btn-link {
+        &::before {
+            content: $fa-var-plus;
+            display: inline-block;
+            font-family: "FontAwesome";
+            margin-right: 1em;
+        }
+        &.collapsed::before {
+            content: $fa-var-minus;
+        }
+
+    }
+    .tab-content {
+        box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.15);
+    }
+
+    .card {
+        -webkit-box-shadow: initial;
+        box-shadow: initial;
+    }
+    .card-body {
+        padding-left: 10%;
+    }
+    .card-header {
+        border-bottom: none;
+        position: relative;
+        &::after {
+            background-color: lighten($primary, 60%);
+            height: 1px;
+            content: "";
+            bottom: 0px;
+            right: 5%;
+            width: 90%;
+            position: absolute;
+        }
+    }
 }
