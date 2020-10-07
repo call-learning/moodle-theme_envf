@@ -24,6 +24,7 @@
 
         .rf-logo {
             width: 165px;
+            padding-top: 20px; // Seen the size of the logo the X padding is 20px.
         }
 
         @include media-breakpoint-down(sm) {
@@ -468,12 +469,14 @@
 
     .btn.btn-link {
         &::before {
-            content: $fa-var-plus;
             display: inline-block;
             font-family: "FontAwesome";
             margin-right: 1em;
         }
-        &.collapsed::before {
+        &[aria-expanded="false"]::before {
+            content: $fa-var-plus;
+        }
+        &[aria-expanded="true"]::before {
             content: $fa-var-minus;
         }
 
@@ -508,6 +511,28 @@
 .vco-timeline .vco-navigation .timenav-background {
     background-color: $primary !important;
 }
+.vco-storyjs,
+.vco-storyjs .vco-feature h1,
+.vco-storyjs .vco-feature h2,
+.vco-storyjs .vco-feature h3,
+.vco-storyjs .vco-feature h4,
+.vco-storyjs .vco-feature h5,
+.vco-storyjs .vco-feature h6 {
+    font-family: $font-family-sans-serif !important;
+}
+.vco-storyjs,
+.vco-storyjs .vco-feature h1,
+.vco-storyjs .vco-feature h2,
+.vco-storyjs .vco-feature h3,
+.vco-storyjs .vco-feature h4,
+.vco-storyjs .vco-feature h5,
+.vco-storyjs .vco-feature h6 {
+    font-family: $font-family-sans-serif !important;
+}
+.timeline-tooltip {
+    font-family: $font-family-button !important;
+}
+
 html.h5p-iframe,
 html.h5p-iframe > body {
     font-family: $font-family-sans-serif !important;
