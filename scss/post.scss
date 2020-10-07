@@ -13,18 +13,16 @@
 
 #page-wrapper {
     nav.navbar {
-        max-height: $navbar-height;
-        height: $navbar-height/2;
-        padding-top: $navbar-height/4;
-        margin-bottom: $navbar-height/4;
+        height: $navbar-height;
 
         .logo img {
-            max-height: 70px;
+            max-height: 60px;
         }
 
         .rf-logo {
             width: 165px;
-            padding-top: 20px; // Seen the size of the logo the X padding is 20px.
+            padding: 30px 30px 0px 0px; // Seen the size of the logo the X padding is 30px.
+            vertical-align: top;
         }
 
         @include media-breakpoint-down(sm) {
@@ -33,6 +31,8 @@
             }
             .rf-logo {
                 width: 100px;
+                height: auto;
+                padding-top: 0px;
             }
         }
 
@@ -42,6 +42,10 @@
 
 #page {
     margin-top: $navbar-height;
+}
+
+#page-header {
+    padding-top: 80px; // A bit of space at the top.
 }
 
 // Navbar
@@ -170,6 +174,28 @@
     position: absolute;
     width: 460px;
 }
+@include media-breakpoint-down(xs) {
+    .mcms-square {
+        display: none;
+    }
+}
+.mcms-square-big {
+    width: 560px;
+    &.square-top-right {
+        top: -100px;
+        right: -280px;
+    }
+
+    &.square-bottom-left {
+        bottom: -100px;
+        left: -280px;
+    }
+
+    &.square-bottom-right {
+        bottom: -100px;
+        right: -280px;
+    }
+}
 
 .square-single-blue {
     content: url([[pix:theme|bg/singlesquare-blue]]);
@@ -208,9 +234,18 @@
     top: -180px;
 }
 
+.square-left-stronger {
+    left: -280px;
+}
+
+.square-right-stronger {
+    right: -280px;
+}
+
 .square-bottom-stronger {
     bottom: -180px;
 }
+
 
 // MCMS Pages
 .mcms-header-container {
@@ -227,10 +262,19 @@
     h3 {
         font-family: $font-family-sans-serif;
         font-weight: bold;
-        align-self: flex-end;
+        align-self: center;
         font-size: 3.5em;
+        max-width: 75%;
+        @include media-breakpoint-down(xs) {
+            max-width: 100%;
+        }
     }
 
+    &.page-style-image-side {
+        h3 {
+            max-width: 100%;
+        }
+    }
     &::before {
         @extend .square-single-violet;
         @extend .mcms-square;
@@ -240,6 +284,7 @@
     &::after {
         @extend .square-dual-red;
         @extend .mcms-square;
+        @extend .mcms-square-big;
         @extend .square-top-right;
     }
 }
@@ -284,6 +329,18 @@
         font-weight: bold;
     }
 
+    .side-image {
+        box-shadow: 0 6px 18px 0 rgba(0, 0, 0, 0.15);
+    }
+    @include media-breakpoint-down(xs) {
+        .side-image {
+            display: none;
+        }
+    }
+    &.images-no-shadow img {
+        box-shadow: initial;
+    }
+
     &.site-head-block {
         h3 {
             font-size: 3.5rem;
@@ -300,7 +357,7 @@
         content: "\2022";
         font-size: 2.5em;
         vertical-align: middle;
-        line-height: normal;
+        line-height: 1.5rem;
         margin: 0.25em;
     }
 
@@ -379,6 +436,9 @@
     @extend .btn;
     @extend .btn-primary;
     font-weight: bold;
+    &:focus {
+        outline: none;
+    }
 }
 
 .atto-envf-cta-outline a {
@@ -409,6 +469,20 @@
         top: 0px;
         color: $gray-600;
     }
+}
+
+.atto-text-square-white {
+    box-shadow: 0 26px 15px -14px rgba(59, 87, 85, 0.23);
+    background-color: white;
+    max-width: 75%;
+    margin: auto;
+    padding:1rem;
+    color: $dark;
+}
+
+.atto_image_shadow img {
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.15);
+    background-color: var(--white);
 }
 
 #page-footer {
