@@ -63,8 +63,9 @@
 }
 
 .navbar-light .navbar-nav .nav-link {
-    &:focus, &:hover {
-        color: $gray-900;
+    &:focus,
+    &:hover {
+        color: rgba($primary, 0.6);
         font-weight: bold;
         text-decoration: $primary underline;
     }
@@ -174,13 +175,16 @@
     position: absolute;
     width: 460px;
 }
+
 @include media-breakpoint-down(xs) {
     .mcms-square {
         display: none;
     }
 }
+
 .mcms-square-big {
     width: 560px;
+
     &.square-top-right {
         top: -100px;
         right: -280px;
@@ -275,6 +279,7 @@
             max-width: 100%;
         }
     }
+
     &::before {
         @extend .square-single-violet;
         @extend .mcms-square;
@@ -319,6 +324,7 @@
         box-shadow: unset;
     }
 }
+
 .block.card {
     box-shadow: unset;
 }
@@ -332,11 +338,13 @@
     .side-image {
         box-shadow: 0 6px 18px 0 rgba(0, 0, 0, 0.15);
     }
+
     @include media-breakpoint-down(xs) {
         .side-image {
             display: none;
         }
     }
+
     &.images-no-shadow img {
         box-shadow: initial;
     }
@@ -436,6 +444,7 @@
     @extend .btn;
     @extend .btn-primary;
     font-weight: bold;
+
     &:focus {
         outline: none;
     }
@@ -476,7 +485,7 @@
     background-color: white;
     max-width: 75%;
     margin: auto;
-    padding:1rem;
+    padding: 1rem;
     color: $dark;
 }
 
@@ -514,6 +523,7 @@
 .block_faq {
     .nav-pills {
         -webkit-margin-start: 0px;
+
         .nav-link.active {
             position: relative;
             box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.15);
@@ -547,14 +557,17 @@
             font-family: "FontAwesome";
             margin-right: 1em;
         }
+
         &[aria-expanded="false"]::before {
             content: $fa-var-plus;
         }
+
         &[aria-expanded="true"]::before {
             content: $fa-var-minus;
         }
 
     }
+
     .tab-content {
         box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.15);
     }
@@ -563,12 +576,15 @@
         -webkit-box-shadow: initial;
         box-shadow: initial;
     }
+
     .card-body {
         padding-left: 10%;
     }
+
     .card-header {
         border-bottom: none;
         position: relative;
+
         &::after {
             background-color: lighten($primary, 60%);
             height: 1px;
@@ -585,6 +601,7 @@
 .vco-timeline .vco-navigation .timenav-background {
     background-color: $primary !important;
 }
+
 .vco-storyjs,
 .vco-storyjs .vco-feature h1,
 .vco-storyjs .vco-feature h2,
@@ -594,6 +611,7 @@
 .vco-storyjs .vco-feature h6 {
     font-family: $font-family-sans-serif !important;
 }
+
 .vco-storyjs,
 .vco-storyjs .vco-feature h1,
 .vco-storyjs .vco-feature h2,
@@ -603,6 +621,7 @@
 .vco-storyjs .vco-feature h6 {
     font-family: $font-family-sans-serif !important;
 }
+
 .timeline-tooltip {
     font-family: $font-family-button !important;
 }

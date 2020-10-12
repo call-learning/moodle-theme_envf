@@ -88,7 +88,13 @@ $drawer-toggle-width: 50px;
 $navbar-height: 80px;
 
 
-.btn, button {
+// Button and link : box shadow for accessibility
+$input-btn-focus-width:       .1rem !default;
+$input-btn-focus-color:       rgba($secondary, .10) !default;
+$input-btn-focus-box-shadow:  0 0 0 $input-btn-focus-width $input-btn-focus-color !default;
+
+.btn,
+button {
     font-family: $font-family-button;
     font-weight: $button-font-weight;
 }
