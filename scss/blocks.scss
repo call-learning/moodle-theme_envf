@@ -1,0 +1,188 @@
+// FAQ
+
+.block_faq {
+    .nav-pills {
+        -webkit-margin-start: 0px;
+
+        .nav-link.active {
+            position: relative;
+            box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.15);
+
+            &::after {
+                background-color: #fff;
+                height: 10px;
+                content: "";
+                position: absolute;
+                bottom: 0px;
+                right: 0px;
+                width: 100%;
+            }
+        }
+
+        .nav-link.active,
+        .show > .nav-link {
+            background-color: white;
+            color: $dark;
+        }
+
+        .cat-title {
+            color: $dark;
+            font-size: x-large;
+        }
+    }
+
+    .btn.btn-link {
+        &::before {
+            display: inline-block;
+            font-family: "FontAwesome";
+            margin-right: 1em;
+        }
+
+        &[aria-expanded="false"]::before {
+            content: $fa-var-plus;
+        }
+
+        &[aria-expanded="true"]::before {
+            content: $fa-var-minus;
+        }
+
+    }
+
+    .tab-content {
+        box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.15);
+    }
+
+    .card {
+        -webkit-box-shadow: initial;
+        box-shadow: initial;
+    }
+
+    .card-body {
+        padding-left: 10%;
+    }
+
+    .card-header {
+        border-bottom: none;
+        position: relative;
+
+        &::after {
+            background-color: lighten($primary, 60%);
+            height: 1px;
+            content: "";
+            bottom: 0px;
+            right: 5%;
+            width: 90%;
+            position: absolute;
+        }
+    }
+}
+
+
+
+.block.card {
+    box-shadow: unset;
+}
+
+.block_mcms {
+    h3 {
+        font-size: xx-large;
+        font-weight: bold;
+    }
+
+    .side-image {
+        box-shadow: 0 6px 18px 0 rgba(0, 0, 0, 0.15);
+    }
+
+    @include media-breakpoint-down(xs) {
+        .side-image {
+            display: none;
+        }
+    }
+
+    &.images-no-shadow img {
+        box-shadow: initial;
+    }
+
+    &.site-head-block {
+        h3 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            font-family: $font-family-sans-serif;
+        }
+
+        .side-text {
+            text-align: left !important; // Only for the site header.
+        }
+    }
+
+    li::before {
+        content: "\2022";
+        font-size: 2.5em;
+        vertical-align: middle;
+        line-height: 1.5rem;
+        margin: 0.25em;
+    }
+
+    li {
+        list-style: none;
+
+        &.bullet-fp-enva::before {
+            color: $enva;
+        }
+
+        &.bullet-fp-oniris::before {
+            color: $oniris;
+        }
+
+        &.bullet-fp-vetagrosup::before {
+            color: $vetagrosup;
+        }
+
+        &.bullet-fp-envt::before {
+            color: $envt;
+        }
+    }
+
+    &.layout-two {
+        .block-mcms {
+            background-size: cover;
+            background-position: 50% 50%;
+        }
+    }
+
+    &.layout-one {
+        .text-content {
+            max-width: 41rem;
+        }
+    }
+
+    // Specific style for heading with right arrow.
+    &.with-arrow-heading {
+        .text-content {
+            margin-left: 2em;
+
+            .no-overflow {
+                overflow: visible !important; // To counter the no overflow automatically inserted by atto.
+            }
+
+            h4::before {
+                content: "\f18e";
+                font-family: "FontAwesome";
+                margin-left: -2em;
+                margin-right: 1em;
+                color: $primary;
+                font-size: xx-large;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    // Block Icons.
+    .blockicon {
+        width: 80px;
+        height: 80px;
+        margin-right: 3em;
+        background: no-repeat;
+    }
+
+}

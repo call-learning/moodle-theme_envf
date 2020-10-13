@@ -1,0 +1,33 @@
+// H5P Customisation
+.vco-timeline .vco-navigation .timenav-background {
+    background-color: $primary !important;
+}
+
+.vco-storyjs,
+.vco-storyjs .vco-feature h1,
+.vco-storyjs .vco-feature h2,
+.vco-storyjs .vco-feature h3,
+.vco-storyjs .vco-feature h4,
+.vco-storyjs .vco-feature h5,
+.vco-storyjs .vco-feature h6 {
+    font-family: $font-family-sans-serif !important;
+}
+
+.vco-storyjs,
+.vco-storyjs .vco-feature h1,
+.vco-storyjs .vco-feature h2,
+.vco-storyjs .vco-feature h3,
+.vco-storyjs .vco-feature h4,
+.vco-storyjs .vco-feature h5,
+.vco-storyjs .vco-feature h6 {
+    font-family: $font-family-sans-serif !important;
+}
+
+.timeline-tooltip {
+    font-family: $font-family-button !important;
+}
+
+html.h5p-iframe,
+html.h5p-iframe > body {
+    font-family: $font-family-sans-serif !important;
+}

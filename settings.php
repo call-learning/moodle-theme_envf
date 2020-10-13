@@ -25,5 +25,5 @@
 defined('MOODLE_INTERNAL') || die();
 
 if ($ADMIN->fulltree) {
-    $settings = \theme_clboost\local\settings::create_settings('envf'); // Create relevant settings.
+    $settings = \theme_envf\local\settings::create_settings('envf'); // Create relevant settings.
 }

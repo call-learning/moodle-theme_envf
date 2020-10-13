@@ -25,6 +25,15 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['nobootswatch'] = 'None';
+$string['additionalinfo'] = 'Additional information';
+$string['addresses'] = 'Addresses for Footer';
+$string['addresses_desc'] = 'Addresses for Footer.  <br/>Structure:
+     <ul>
+     <li>fullname;logourl;url;address</li>
+     <li>Exemple: Oniris;[[pix:theme_envf|logos/oniris]];https://www.oniris-nantes.fr/;Rue de la Géraudière 44322 NANTES 
+     Cedex 3</li>
+     </ul>';
+
 $string['pluginname'] = 'ENVF';
 $string['configtitle'] = 'ENV Theme';
 $string['envf'] = "Ecole Nationales Vétérinaires de France";
@@ -33,18 +42,18 @@ $string['ministereagriculture'] = 'Ministère de l\'agriculture et de l\'aliment
 $string['logos'] = 'Logos';
 $string['logos_desc'] = 'Logos from associated organisations, mostly displayed on the footer.';
 
-$string['enva:fullname'] = 'Ecole Nationale Vétérinaire d\'Alfort';
-$string['enva:link'] = 'https://www.vet-alfort.fr/';
-$string['enva:address'] = '7, avenue du Général de Gaulle, 94700 Maisons-Alfort';
-$string['envt:fullname'] = 'Ecole Nationale Vétérinaire de Toulouse';
-$string['envt:link'] = 'http://www.envt.fr/';
-$string['envt:address'] = '23 Chemin des Capelles – BP 87614 – 31 076 – Toulouse Cedex 3 – France';
-$string['oniris:fullname'] = 'Oniris';
-$string['oniris:link'] = 'https://www.oniris-nantes.fr/';
-$string['oniris:address'] = 'Rue de la Géraudière 44322 NANTES Cedex 3';
-$string['vetagro:fullname'] = 'VetAgro Sup';
-$string['vetagro:link'] = 'http://www.vetagro-sup.fr/';
-$string['vetagro:address'] = '1 avenue Bourgelat, 69280 Marcy-l\'Etoile';
+$string['legallinks'] = 'Legal links';
+$string['legallinks_desc'] = 'Legal links for Footer.  <br/>Structure:
+     <ul>
+     <li>languagestringid|url</li>
+     <li>Exemple:  mentionlegales|local/mcms/index.php?p=mentions-legales</li>
+     </ul>';
+
+
+
+$string['ganalytics'] = 'Google Analytics';
+$string['ganalytics_desc'] = 'Google Analytics ID (UA-XXXXX-1)';
+
 
 $string['cookiesrgpd'] = 'Gestion des cookies et des données';
 $string['mentionlegales'] = 'Mentions légales';

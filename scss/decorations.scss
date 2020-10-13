@@ -1,0 +1,115 @@
+
+// This is absolute positioning in a relative positioned container.
+.square-top-left {
+    top: -100px;
+    left: -180px;
+}
+
+.square-top-right {
+    top: -100px;
+    right: -180px;
+}
+
+.square-bottom-left {
+    bottom: -100px;
+    left: -180px;
+}
+
+.square-bottom-right {
+    bottom: -100px;
+    right: -180px;
+}
+
+.mcms-square {
+    z-index: -1;
+    position: absolute;
+    width: 460px;
+}
+
+
+.mcms-square-big {
+    width: 560px;
+
+    &.square-top-right {
+        top: -100px;
+        right: -280px;
+    }
+
+    &.square-bottom-left {
+        bottom: -100px;
+        left: -280px;
+    }
+
+    &.square-bottom-right {
+        bottom: -100px;
+        right: -280px;
+    }
+}
+
+.square-single-blue {
+    content: url([[pix:theme|bg/singlesquare-blue]]);
+}
+
+.square-dual-blue {
+    content: url([[pix:theme|bg/dualsquare-blue]]);
+}
+
+.square-single-green {
+    content: url([[pix:theme|bg/singlesquare-green]]);
+}
+
+.square-dual-green {
+    content: url([[pix:theme|bg/dualsquare-green]]);
+}
+
+.square-single-violet {
+    content: url([[pix:theme|bg/singlesquare-violet]]);
+}
+
+.square-dual-violet {
+    content: url([[pix:theme|bg/dualsquare-violet]]);
+}
+
+.square-single-red {
+    content: url([[pix:theme|bg/singlesquare-red]]);
+}
+
+.square-dual-red {
+    content: url([[pix:theme|bg/dualsquare-red]]);
+}
+
+
+.square-top-stronger {
+    top: -180px;
+}
+
+.square-left-stronger {
+    left: -280px;
+}
+
+.square-right-stronger {
+    right: -280px;
+}
+
+.square-bottom-stronger {
+    bottom: -180px;
+}
+
+
+@include media-breakpoint-down(xs) {
+
+    .mcms-square.square-top-right,
+    .mcms-square.square-bottom-right {
+        display: none;
+    }
+
+    .mcms-square,
+    .mcms-square-big
+    {
+        max-width: 70%;
+        width: auto;
+        top: -100px;
+        left: 0px;
+        right: auto;
+    }
+}

@@ -1,15 +1,15 @@
     {{#children}}
         {{^divider}}
             {{#url}}
-                <li class="pt-2 pb-2"><a href="{{{url}}}" title="{{{title}}}">{{{text}}}</a></li>
+                <li class="text-truncate d-block"><a href="{{{url}}}" title="{{{title}}}">{{{text}}}</a></li>
             {{/url}}
             {{^url}}
-                <li class="pt-2 pb-2">{{{text}}}</li>
+                <li class="text-truncate d-block">{{{text}}}</li>
             {{/url}}
         {{/divider}}
         {{#haschildren}}
-            <li class="pt-1 pb-1">
-                <ul class="list-unstyled ml-3">
+            <li>
+                <ul class="list-unstyled">
                     {{> theme_boost/custom_menu_footer }}
                 </ul>
             </li>

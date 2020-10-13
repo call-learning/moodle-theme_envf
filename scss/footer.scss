@@ -1,0 +1,52 @@
+#page-footer {
+    .addresses {
+        font-size: xx-small;
+    }
+}
+
+#page-footer {
+
+    a,
+    a:hover,
+    a:active,
+    a:visited {
+        color: $gray-600;
+        text-decoration: none;
+    }
+
+    a:focus {
+        color: $gray-900;
+    }
+
+
+    .logos-footer {
+        padding-top: 3em;
+        padding-bottom: 3em;
+    }
+
+    // Hide starting at `min-width: 0`, and then show at the `sm` breakpoint
+    @include media-breakpoint-up(sm) {
+        .logos-footer {
+            padding-top: 120px;
+            padding-bottom: 120px;
+        }
+    }
+
+    .logos-footer img {
+        padding: 1em;
+    }
+
+    img.ma-logo {
+        width: 221px;
+    }
+
+    img.envf-logo {
+        max-height: 70px;
+    }
+
+    .infos-footer {
+        border-top: 1px solid $gray-600;
+        padding-top: 2em;
+    }
+}
+

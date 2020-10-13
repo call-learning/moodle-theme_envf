@@ -53,9 +53,14 @@
                     </div>
                 </div>
             <div class="col-12 col-md">
-                <nav class="nav navbar-nav" aria-label="{{#str}}custommenu, admin{{/str}}">
+                <nav class="nav navbar-nav custom-menu-footer" aria-label="{{#str}}custommenu, admin{{/str}}">
+                    {{# output.mcms_menu_menu_flat }}
+                        <ul class="list-unstyled">
+                            {{> theme_boost/custom_menu_footer }}
+                        </ul>
+                    {{/ output.mcms_menu_menu_flat }}
                     {{# output.custom_menu_flat }}
-                        <ul class="list-unstyled pt-3">
+                        <ul class="list-unstyled">
                             {{> theme_boost/custom_menu_footer }}
                         </ul>
                     {{/ output.custom_menu_flat }}
@@ -63,7 +68,7 @@
             </div>
         </div>
         </div>
-        <div class="container-fluid legal-footer">
+        <div class="container-fluid legal-footer text-center">
             <div class="row-fluid justify-content-center">
                 {{# additionalinfo.legallinks }}
                     <div class="col col-12 col-md">
@@ -72,11 +77,11 @@
                 {{/ additionalinfo.legallinks }}
             </div>
         </div>
-        <div class="container-fluid">
-            <div class="d-flex justify-content-center">
-                {{{ output.standard_footer_html }}}
-            </div>
-        </div>
-        {{{ output.standard_end_of_body_html }}}
     </div>
+    <div class="container-fluid">
+        <div class="d-flex justify-content-around  text-center">
+            {{{ output.standard_footer_html }}}
+        </div>
+    </div>
+    {{{ output.standard_end_of_body_html }}}
 </footer>

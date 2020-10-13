@@ -26,6 +26,7 @@ namespace theme_envf\output;
 
 use html_writer;
 use theme_clboost\output\core_renderer_override_menus;
+use theme_envf\local\utils;
 
 defined('MOODLE_INTERNAL') || die;
 
@@ -39,7 +40,6 @@ defined('MOODLE_INTERNAL') || die;
  */
 class core_renderer extends \theme_clboost\output\core_renderer {
     use core_renderer_override_menus;
-
 
     /**
      * Return false (no compact logo)
@@ -59,33 +59,10 @@ class core_renderer extends \theme_clboost\output\core_renderer {
      * @throws \coding_exception
      */
     public function get_template_additional_information() {
-        global $CFG, $OUTPUT, $PAGE;
         $additionalinfo = parent::get_template_additional_information();
-
-        $additionalinfo->orglist = [];
-        foreach (array('enva', 'oniris', 'envt', 'vetagro') as $item) {
-            $additionalinfo->orglist [] = (object) [
-                'fullname' => get_string($item . ':fullname', 'theme_envf'),
-                'path' => "logos/{$item}.png",
-                'link' => get_string($item . ':link', 'theme_envf'),
-                'address' => get_string($item . ':address', 'theme_envf')
-            ];
-        }
-        $additionalinfo->legallinks = [
-            (object) [
-                'label' => get_string('mentionlegales', 'theme_envf'),
-                'link' => $CFG->wwwroot . '/local/configurablepage/view.php?sn=mentions-legales'
-            ],
-            (object) [
-                'label' => get_string('cookiesrgpd', 'theme_envf'),
-                'link' => $CFG->wwwroot . '/local/configurablepage/view.php?sn=cookies-et-donnees'
-            ],
-            (object) [
-                'label' => get_string('copyright', 'theme_envf'),
-                'link' => ''
-            ]
-        ];
-        $attributes = array('rel'=>'stylesheet', 'type'=>'text/css');
+        $additionalinfo->orglist = utils::convert_address_config($this->page);
+        $additionalinfo->legallinks = utils::convert_legallinks_config();
+        $attributes = array('rel' => 'stylesheet', 'type' => 'text/css');
         $urls = $this->page->theme->css_urls($this->page);
         $code = '';
         foreach ($urls as $url) {
@@ -112,5 +89,28 @@ class core_renderer extends \theme_clboost\output\core_renderer {
     public function mcms_menu_menu_flat() {
         $renderer = $this->page->get_renderer('local_mcms', 'menu');
         return $renderer->mcms_menu_menu_flat();
+    }
+
+    /**
+     * Add google analytics code
+     */
+    public function standard_head_html() {
+        $output = parent::standard_head_html();
+
+        $gacode = get_config('theme_envf', 'ganalytics');
+        if ($gacode) {
+            $output .= \html_writer::tag('script', '', array(
+                'src' => "https://www.googletagmanager.com/gtag/js?id={$gacode}",
+                'async' => ''
+            ));
+            $output .= \html_writer::script("
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', '{$gacode}');
+                    "
+            );
+        }
+        return $output;
     }
 }

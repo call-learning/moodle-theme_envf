@@ -1,0 +1,60 @@
+// Atto Styles
+
+.atto-strong-primary {
+    font-weight: bold;
+    color: $primary;
+}
+
+.atto-envf-cta a {
+    @extend .btn;
+    @extend .btn-primary;
+    font-weight: bold;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.atto-envf-cta-outline a {
+    color: $primary;
+    @extend .btn;
+    @extend .btn-outline-primary;
+    font-weight: bold;
+}
+
+.atto-envf-cta-outline-white a {
+    @extend .btn;
+    @include button-outline-variant(#fff);
+    font-weight: bold;
+}
+
+.atto-envf-quote {
+    font-size: 2em;
+    padding-left: 2em;
+    display: block;
+    position: relative;
+
+    &::before {
+        display: block;
+        content: "\201C";
+        font-size: 3.5em;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        color: $gray-600;
+    }
+}
+
+.atto-text-square-white {
+    box-shadow: 0 26px 15px -14px rgba(59, 87, 85, 0.23);
+    background-color: white;
+    max-width: 75%;
+    margin: auto;
+    padding: 1rem;
+    color: $dark;
+}
+
+.atto_image_shadow img {
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.15);
+    background-color: var(--white);
+}

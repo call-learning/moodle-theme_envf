@@ -34,4 +34,102 @@ defined('MOODLE_INTERNAL') || die;
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class utils {
+    /**
+     * Converts the membership config string into an array of information that can be
+     * then added to the footer via the "footer_address" mustache template.
+     * Structure:
+     *     addresslabel|address|tel
+     *
+     * Example structure:
+     *     Oniris;[[pix:theme_envf|logos/oniris]];https://www.oniris-nantes.fr/;Rue de la Géraudière 44322 NANTES Cedex 3
+     *
+     * Converted into: an object with title and absolute url
+     *
+     * @param \moodle_page $page
+     * @return array
+     * @throws \dml_exception
+     */
+    public static function convert_address_config($page) {
+        $configtext = get_config('theme_envf', 'addresses');
+
+        $lineparser = function($setting, $index, &$currentobject) use ($page) {
+            if (!empty($setting[$index])) {
+                $val = trim($setting[$index]);
+                switch ($index) {
+                    case 0:
+                        $currentobject->fullname = trim($val);
+                        break;
+                    case 1:
+                        $currentobject->path = '';
+                        if (strpos($val, '[[pix:') === 0) {
+                            $matches = [];
+                            preg_match('/\[\[pix:(.+)\|(.+)\]\]/', $val, $matches);
+                            if ($matches) {
+                                $currentobject->url = $page->theme->image_url($matches[2], $matches[1]);
+                            }
+
+                        } else {
+                            try {
+                                $currentobject->path = (new \moodle_url($val))->out();
+                            } catch (\moodle_exception $e) {
+                                // We don't do anything here. The url will be empty.
+                            }
+                        }
+                        break;
+                    case 2:
+                        $currentobject->link = '';
+                        try {
+                            $currentobject->link = (new \moodle_url($val))->out();
+                        } catch (\moodle_exception $e) {
+                            // We don't do anything here. The url will be empty.
+                        }
+                        break;
+                    case 3:
+                        $currentobject->address = trim($val);
+                        break;
+                }
+            }
+        };
+        // Line separator is comma as we use '|' for the url information.
+        return \theme_clboost\local\utils::convert_from_config($configtext, $lineparser, ';');
+    }
+    /**
+     * Converts the membership config string into an array of information that can be
+     * then added to the footer via the "footer_address" mustache template.
+     * Structure:
+     *     languagestringlabel|url
+     *
+     * Example structure:
+     *     mentionlegales|local/mcms/index.php?p=mentions-legales
+     *
+     * Converted into: an object with title and absolute url
+     *
+     * @param \moodle_page $page
+     * @return array
+     * @throws \dml_exception
+     */
+    public static function convert_legallinks_config() {
+        $configtext = get_config('theme_envf', 'legallinks');
+
+        $lineparser = function($setting, $index, &$currentobject) {
+            if (!empty($setting[$index])) {
+                $val = trim($setting[$index]);
+                switch ($index) {
+                    case 0:
+                        $currentobject->label = get_string(trim($val), 'theme_envf');
+                        break;
+                    case 2:
+                        $currentobject->link = '';
+                        try {
+                            $currentobject->link = (new \moodle_url($val))->out();
+                        } catch (\moodle_exception $e) {
+                            // We don't do anything here. The url will be empty.
+                        }
+                        break;
+                }
+            }
+        };
+        // Line separator is comma as we use '|' for the url information.
+        return \theme_clboost\local\utils::convert_from_config($configtext, $lineparser, '|');
+    }
 }

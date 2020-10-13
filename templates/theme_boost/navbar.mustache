@@ -50,11 +50,17 @@
             <span class="site-name d-none d-md-inline pl-3">{{{ sitename }}}</span>
         </a>
 
-        <ul class="navbar-nav d-none d-md-flex m-auto m-r-1 custom-menu justify-content-around">
+        <!-- We display the menu twice here, once the full menu, the second one is a shorter version -->
+        <ul class="navbar-nav m-auto d-none d-sm-block m-r-1 d-md-flex justify-content-around">
             <!-- custom_menu -->
             {{{ output.mcms_menu }}}
+            {{{ output.custom_menu }}}
             <!-- page_heading_menu -->
             {{{ output.page_heading_menu }}}
+        </ul>
+        <ul class="navbar-nav m-auto d-flex d-sm-none m-r-1 custom-menu-small justify-content-around">
+            <!-- custom_menu -->
+            {{{ output.mcms_menu }}}
         </ul>
     </div>
     <ul class="nav navbar-nav ml-auto">

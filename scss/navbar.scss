@@ -1,0 +1,61 @@
+// Navbar
+.header-image {
+    max-height: $navbar-height;
+}
+
+.navbar-brand {
+    font-size: 1rem; // Normal font.
+    padding-top: initial;
+    padding-bottom: initial;
+}
+
+.site-name,
+.custom-menu {
+    color: $gray-600;
+    min-width: 30%;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    &:focus,
+    &:hover {
+        color: rgba($primary, 0.6);
+        font-weight: bold;
+        text-decoration: $primary underline;
+    }
+
+    color: $gray-900;
+}
+
+#nav-drawer {
+    background-color: white;
+
+    .list-group li {
+        margin-bottom: 0.5rem;
+    }
+
+    .list-group {
+        margin-top: 0.5rem !important;
+    }
+
+    .list-group-item {
+        box-shadow: 0 2px 0.5rem 0 rgba(0, 0, 0, 0.15);
+        border: none;
+    }
+}
+
+.navbar {
+    box-shadow: none;
+}
+[data-region="drawer"] {
+    @include media-breakpoint-down(md) {
+        z-index: $zindex-modal-backdrop; // The Z Index here is higher as it will clash with menu if not.
+    }
+}
+
+.custom-menu-small {
+    @extend .dropdown-menu;
+    z-index: $zindex-dropdown;
+    width: 100%;
+    left: 0px;
+    border: initial;
+}

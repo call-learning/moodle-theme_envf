@@ -1,0 +1,120 @@
+.pagelayout-frontpage {
+    #region-main {
+        border: initial;
+        padding: initial;
+    }
+}
+
+
+#page-wrapper {
+    nav.navbar {
+        height: $navbar-height;
+
+        .logo img {
+            max-height: 60px;
+        }
+
+        .rf-logo {
+            width: 165px;
+            padding: 30px 30px 0px 0px; // Seen the size of the logo the X padding is 30px.
+            vertical-align: top;
+        }
+
+        @include media-breakpoint-down(sm) {
+            .logo img {
+                max-width: 35px;
+            }
+            .rf-logo {
+                width: 100px;
+                height: auto;
+                padding-top: 0px;
+            }
+        }
+
+
+    }
+}
+
+#page {
+    margin-top: $navbar-height;
+}
+
+#page-header {
+    padding-top: 80px; // A bit of space at the top.
+}
+
+
+// Block decoration
+
+.pagelayout-mcmslayout {
+    .block, #region-main {
+        border: none;
+        background: transparent !important;
+    }
+}
+
+
+// MCMS Pages
+.mcms-header-container {
+    margin-right: auto;
+    margin-left: auto;
+    min-height: 20em;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    position: relative;
+
+    h3 {
+        font-family: $font-family-sans-serif;
+        font-weight: bold;
+        align-self: center;
+        font-size: 3.5em;
+        max-width: 75%;
+        @include media-breakpoint-down(xs) {
+            max-width: 100%;
+        }
+    }
+
+    &.page-style-image-side {
+        h3 {
+            max-width: 100%;
+        }
+    }
+
+    &::before {
+        @extend .square-single-violet;
+        @extend .mcms-square;
+        @extend .square-top-left;
+    }
+
+    &::after {
+        @extend .square-dual-red;
+        @extend .mcms-square;
+        @extend .mcms-square-big;
+        @extend .square-top-right;
+    }
+}
+
+
+// A bit of a hack here: the definition in the core block does
+// not fit our needs, so we reset it.
+.pagelayout-mcmslayout, #page-site-index {
+    .block, #region-main {
+        border: none;
+        background: transparent !important;
+    }
+
+    .block_mcms .card-body.p-3 {
+        padding: unset !important;
+    }
+
+    .block_mcms .card-text.mt-3 {
+        margin-top: auto !important;
+    }
+
+    .block_mcms.mb-3 {
+        margin-bottom: auto !important;
+    }
+}
