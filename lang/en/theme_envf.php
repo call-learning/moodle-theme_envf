@@ -30,8 +30,8 @@ $string['addresses'] = 'Addresses for Footer';
 $string['addresses_desc'] = 'Addresses for Footer.  <br/>Structure:
      <ul>
      <li>fullname;logourl;url;address</li>
-     <li>Exemple: Oniris;[[pix:theme_envf|logos/oniris]];https://www.oniris-nantes.fr/;Rue de la Géraudière 44322 NANTES 
-     Cedex 3</li>
+     <li>Exemple: Oniris;[[pix:theme_envf|logos/oniris]];https://www.oniris-nantes.fr/;Rue de la Géraudière 44322 NANTES
+      Cedex 3</li>
      </ul>';
 
 $string['pluginname'] = 'ENVF';
@@ -49,11 +49,8 @@ $string['legallinks_desc'] = 'Legal links for Footer.  <br/>Structure:
      <li>Exemple:  mentionlegales|local/mcms/index.php?p=mentions-legales</li>
      </ul>';
 
-
-
 $string['ganalytics'] = 'Google Analytics';
 $string['ganalytics_desc'] = 'Google Analytics ID (UA-XXXXX-1)';
-
 
 $string['cookiesrgpd'] = 'Gestion des cookies et des données';
 $string['mentionlegales'] = 'Mentions légales';

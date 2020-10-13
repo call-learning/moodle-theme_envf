@@ -38,5 +38,6 @@ defined('MOODLE_INTERNAL') || die();
  * @throws coding_exception
  */
 function theme_envf_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = array()) {
-    return theme_clboost\local\utils::generic_pluginfile('envf', $course, $cm, $context, $filearea, $args, $forcedownload, $options);
+    return theme_clboost\local\utils::generic_pluginfile('envf', $course, $cm, $context, $filearea, $args, $forcedownload,
+        $options);
 }
