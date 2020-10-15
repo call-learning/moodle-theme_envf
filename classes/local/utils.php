@@ -118,7 +118,7 @@ class utils {
                     case 0:
                         $currentobject->label = get_string(trim($val), 'theme_envf');
                         break;
-                    case 2:
+                    case 1:
                         $currentobject->link = '';
                         try {
                             $currentobject->link = (new \moodle_url($val))->out();
