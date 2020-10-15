@@ -36,7 +36,7 @@ $string['addresses_desc'] = 'Addresses for Footer.  <br/>Structure:
 
 $string['pluginname'] = 'ENVF';
 $string['configtitle'] = 'ENV Theme';
-$string['envf'] = "Ecole Nationales Vétérinaires de France";
+$string['envf'] = "Ecoles Nationales Vétérinaires de France";
 $string['republiquefrancaise'] = 'République Française';
 $string['ministereagriculture'] = 'Ministère de l\'agriculture et de l\'alimentation';
 $string['logos'] = 'Logos';
