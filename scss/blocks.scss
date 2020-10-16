@@ -7,7 +7,6 @@
         .nav-link.active {
             position: relative;
             box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.15);
-
             &::after {
                 background-color: #fff;
                 height: 10px;
@@ -18,7 +17,6 @@
                 width: 100%;
             }
         }
-
         .nav-link.active,
         .show > .nav-link {
             background-color: white;
@@ -76,8 +74,6 @@
         }
     }
 }
-
-
 
 .block.card {
     box-shadow: unset;
@@ -179,8 +175,10 @@
 
     // Block Icons.
     .blockicon {
-        width: 80px;
-        height: 80px;
+        width: 64px;
+        height: 64px;
+        padding-left: 10px;
+        padding-right: 54px;
         margin-right: 3em;
         background: no-repeat;
     }

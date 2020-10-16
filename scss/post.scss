@@ -32,3 +32,14 @@
     outline-width: thin;
 }
 
+
+@media (max-width: 767.98px) {
+    .nav-tabs .nav-link.active:not(:disabled):not(.disabled):active,
+    .nav-tabs .nav-link.active:not(:disabled):not(.disabled).active,
+    .show > .nav-tabs .nav-link.active.dropdown-toggle,
+    .nav-pills .nav-link.active:not(:disabled):not(.disabled):active,
+    .nav-pills .nav-link.active:not(:disabled):not(.disabled).active,
+    .show > .nav-pills .nav-link.active.dropdown-toggle {
+        background-color: $gray-300;
+    }
+}
