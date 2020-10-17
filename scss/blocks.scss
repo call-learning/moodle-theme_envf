@@ -7,6 +7,7 @@
         .nav-link.active {
             position: relative;
             box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.15);
+
             &::after {
                 background-color: #fff;
                 height: 10px;
@@ -16,6 +17,13 @@
                 right: 0px;
                 width: 100%;
             }
+        }
+
+        @include media-breakpoint-down(sm) {
+            .illustration {
+                display: none;
+            }
+            background-color: unset;
         }
         .nav-link.active,
         .show > .nav-link {
@@ -106,6 +114,17 @@
             font-family: $font-family-sans-serif;
         }
 
+        @include media-breakpoint-down(md) {
+            h3 {
+                font-size: 2.2rem;
+            }
+        }
+        @include media-breakpoint-down(lg) {
+            .inner-block {
+                flex-wrap: wrap; // For ipad pro types of screen.
+            }
+        }
+
         .side-text {
             text-align: left !important; // Only for the site header.
         }
@@ -188,6 +207,7 @@
     .process-message-text {
         text-align: center;
     }
+
     .intro {
         text-align: center;
         display: block;
