@@ -31,7 +31,12 @@
     outline-style: dashed;
     outline-width: thin;
 }
-
+.dropdown-item:active,
+.dropdown-item:hover,
+.dropdown-item:focus a,
+.dropdown-item:focus-within a {
+    background-color: $gray-500;
+}
 
 @media (max-width: 767.98px) {
     .nav-tabs .nav-link.active:not(:disabled):not(.disabled):active,
