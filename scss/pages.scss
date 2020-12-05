@@ -5,36 +5,6 @@
     }
 }
 
-
-#page-wrapper {
-    nav.navbar {
-        height: $navbar-height;
-
-        .logo img {
-            max-height: 60px;
-        }
-
-        .rf-logo {
-            width: 165px;
-            padding: 30px 30px 0px 0px; // Seen the size of the logo the X padding is 30px.
-            vertical-align: top;
-        }
-
-        @include media-breakpoint-down(sm) {
-            .logo img {
-                max-width: 35px;
-            }
-            .rf-logo {
-                width: 100px;
-                height: auto;
-                padding-top: 0px;
-            }
-        }
-
-
-    }
-}
-
 #page {
     margin-top: $navbar-height;
 }

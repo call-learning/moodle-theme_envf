@@ -18,7 +18,7 @@
  * All constant in one place
  *
  * @package   theme_envf
- * @copyright 2020 - CALL Learning - Laurent David <laurent@call-learning>
+ * @copyright 2020 - CALL Learning - Laurent David <laurent@call-learning.fr>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -30,7 +30,7 @@ defined('MOODLE_INTERNAL') || die;
  * Theme constants. In one place.
  *
  * @package   theme_envf
- * @copyright 2020 - CALL Learning - Laurent David <laurent@call-learning>
+ * @copyright 2020 - CALL Learning - Laurent David <laurent@call-learning.fr>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class utils {
@@ -53,24 +53,23 @@ class utils {
         $configtext = get_config('theme_envf', 'addresses');
 
         $lineparser = function($setting, $index, &$currentobject) use ($page) {
-            if (!empty($setting[$index])) {
-                $val = trim($setting[$index]);
+            if (!empty($setting)) {
                 switch ($index) {
                     case 0:
-                        $currentobject->fullname = trim($val);
+                        $currentobject->fullname = trim($setting);
                         break;
                     case 1:
                         $currentobject->path = '';
-                        if (strpos($val, '[[pix:') === 0) {
+                        if (strpos($setting, '[[pix:') === 0) {
                             $matches = [];
-                            preg_match('/\[\[pix:(.+)\|(.+)\]\]/', $val, $matches);
+                            preg_match('/\[\[pix:(.+)\|(.+)\]\]/', $setting, $matches);
                             if ($matches) {
                                 $currentobject->url = $page->theme->image_url($matches[2], $matches[1]);
                             }
 
                         } else {
                             try {
-                                $currentobject->path = (new \moodle_url($val))->out();
+                                $currentobject->path = (new \moodle_url($setting))->out();
                             } catch (\moodle_exception $e) {
                                 // We don't do anything here. The url will be empty.
                             }
@@ -79,13 +78,13 @@ class utils {
                     case 2:
                         $currentobject->link = '';
                         try {
-                            $currentobject->link = (new \moodle_url($val))->out();
+                            $currentobject->link = (new \moodle_url($setting))->out();
                         } catch (\moodle_exception $e) {
                             // We don't do anything here. The url will be empty.
                         }
                         break;
                     case 3:
-                        $currentobject->address = trim($val);
+                        $currentobject->address = trim($setting);
                         break;
                 }
             }
@@ -112,16 +111,15 @@ class utils {
         $configtext = get_config('theme_envf', 'legallinks');
 
         $lineparser = function($setting, $index, &$currentobject) {
-            if (!empty($setting[$index])) {
-                $val = trim($setting[$index]);
+            if (!empty($setting)) {
                 switch ($index) {
                     case 0:
-                        $currentobject->label = get_string(trim($val), 'theme_envf');
+                        $currentobject->label = get_string(trim($setting), 'theme_envf');
                         break;
                     case 1:
                         $currentobject->link = '';
                         try {
-                            $currentobject->link = (new \moodle_url($val))->out();
+                            $currentobject->link = (new \moodle_url($setting))->out();
                         } catch (\moodle_exception $e) {
                             // We don't do anything here. The url will be empty.
                         }
