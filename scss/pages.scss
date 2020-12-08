@@ -9,15 +9,12 @@
     margin-top: $navbar-height;
 }
 
-#page-header {
-    padding-top: 80px; // A bit of space at the top.
-}
-
 
 // Block decoration
 
 .pagelayout-mcmslayout {
-    .block, #region-main {
+    .block,
+    #region-main {
         border: none;
         background: transparent !important;
     }

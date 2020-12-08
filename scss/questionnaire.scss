@@ -1,0 +1,124 @@
+.qn-question {
+    background-color: initial;
+}
+
+.qn-info {
+    background-color: initial;
+    color: $primary;
+    font-weight: bolder;
+}
+
+.qn-content {
+    input[type="radio"] {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        display: inline-block;
+        vertical-align: bottom;
+        width: 1.4rem;
+        height: 1.4rem;
+        margin-right: 0.3rem;
+        border-radius: 50%;
+        border-style: solid;
+        border-width: 2px;
+        border-color: $gray-500;
+    }
+
+    input[type="radio"]:checked {
+        background: $primary;
+
+        &::before {
+            content: $fa-var-check;
+            font-family: "FontAwesome";
+            font-size: 1em;
+            color: white;
+            display: block;
+            margin-top: -0.1rem;
+        }
+    }
+}
+
+td.selected {
+    background-color: rgba(red($primary), green($primary), blue($primary), .15);
+    border: none;
+}
+
+td {
+    padding: 0.5rem;
+}
+
+#page-mod-questionnaire-complete,
+#page-mod-questionnaire-preview,
+#page-mod-questionnaire-print,
+#page-mod-questionnaire-report,
+#page-mod-questionnaire-view,
+#page-mod-questionnaire-myreport {
+    .c0,
+    .individual .c0 {
+        background-color: rgba(red($primary), green($primary), blue($primary), .05);
+        border: none;
+    }
+
+    .c1,
+    .individual .c1 {
+        background-color: rgba(red($primary), green($primary), blue($primary), .1);
+        border: none;
+    }
+
+    .individualresp {
+        border: none;
+    }
+
+    tbody tr:first-child .c0,
+    tbody tr:first-child .c1,
+    .individual tbody tr:first-child .c0,
+    .individual tbody tr:first-child .c1 {
+        background-color: initial;
+    }
+
+    .buttons {
+        input.btn {
+            background-color: $primary;
+            border-color: initial;
+
+            &[name="next"],
+            &[name="submit"] {
+                float: right;
+            }
+        }
+
+    }
+
+    .surveyPage {
+        background-color: initial;
+    }
+
+    .mod_questionnaire_viewpage .complete {
+        text-align: center;
+    }
+}
+
+
+#page-mod-questionnaire-complete,
+#page-mod-questionnaire-preview {
+    .raterow:hover,
+    td.raterow:hover {
+        background-color: rgba(red($primary), green($primary), blue($primary), .2);
+        border: none;
+    }
+
+    td.raterow:hover {
+        border: 1px solid $primary;
+    }
+
+    td.notanswered {
+        background-color: #fafafa;
+    }
+
+    td.notcompleted {
+        border: 2px solid red;
+        background-color: #fafafa;
+    }
+}
+
+

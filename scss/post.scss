@@ -5,6 +5,8 @@
 @import "atto.scss";
 @import "footer.scss";
 @import "h5p.scss";
+@import "questionnaire.scss";
+@import "navigation.scss";
 // General layout settings
 
 .card {
@@ -37,7 +39,6 @@
 .dropdown-item:focus-within a {
     background-color: $gray-500;
 }
-
 @media (max-width: 767.98px) {
     .nav-tabs .nav-link.active:not(:disabled):not(.disabled):active,
     .nav-tabs .nav-link.active:not(:disabled):not(.disabled).active,
