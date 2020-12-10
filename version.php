@@ -32,5 +32,6 @@ $plugin->component = 'theme_envf';
 $plugin->dependencies = [
     'theme_boost' => ANY_VERSION,
     'theme_clboost' => '2020092300',
-    'local_mcms' => ANY_VERSION
+    'local_mcms' => ANY_VERSION,
+    'local_envf' => ANY_VERSION
 ];

@@ -1,0 +1,35 @@
+.coursecompletion-act-list {
+    list-style: none;
+    padding-left: $spacer;
+    counter-reset: circle-counter;
+    li {
+        counter-increment: circle-counter;
+        margin-bottom: $spacer*.25;
+        margin-left: $spacer*.25;
+        &:before {
+            content: counter(circle-counter);
+            background-color: white;
+            width: $font-size-base*1.5;
+            height: $font-size-base*1.5;
+            border-radius: 50%;
+            border: 2px solid;
+            display: inline-block;
+            font-size: $font-size-base*.75;
+            line-height: $font-size-base*1.5;
+            color: $primary;
+            text-align: center;
+            margin-right: $spacer*.5;
+            position: relative;
+        }
+        &.status-completed:before {
+            content: $fa-var-check;
+            font-family: "FontAwesome";
+            background-color: $primary;
+            color: white;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

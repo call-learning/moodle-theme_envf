@@ -58,3 +58,31 @@
     box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.15);
     background-color: var(--white);
 }
+
+.atto-envf-btn {
+    @extend .btn;
+    @extend .btn-primary;
+    margin-top: 1rem;
+}
+
+.atto-envf-btn-secondary {
+    @extend .btn;
+    @extend .btn-secondary;
+    margin-top: 1rem;
+}
+
+.atto-envf-btn-outline {
+    @extend .btn;
+    @extend .btn-primary;
+    margin-top: 1rem;
+    @include button-outline-variant($white);
+    border-color: $white;
+}
+
+.atto-envf-btn-secondary-outline {
+    @extend .btn;
+    @extend .btn-secondary;
+    margin-top: 1rem;
+    @include button-outline-variant($white);
+    border-color: $white;
+}

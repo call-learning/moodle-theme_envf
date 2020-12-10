@@ -78,9 +78,7 @@ td {
 
     .buttons {
         input.btn {
-            background-color: $primary;
-            border-color: initial;
-
+            @include button-outline-variant($white);
             &[name="next"],
             &[name="submit"] {
                 float: right;
