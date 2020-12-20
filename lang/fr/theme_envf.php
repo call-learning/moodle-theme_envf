@@ -23,11 +23,10 @@
  */
 
 defined('MOODLE_INTERNAL') || die();
-
-$string['nobootswatch'] = 'None';
-$string['additionalinfo'] = 'Additional information';
-$string['addresses'] = 'Addresses for Footer';
-$string['addresses_desc'] = 'Addresses for Footer.  <br/>Structure:
+$string['nobootswatch'] = 'Aucun';
+$string['additionalinfo'] = 'Informations additionnelles';
+$string['addresses'] = 'Adresses sur le bas de page';
+$string['addresses_desc'] = 'Adresses sur le bas de page.  <br/>Structure:
      <ul>
      <li>fullname;logourl;url;address</li>
      <li>Exemple: Oniris;[[pix:theme_envf|logos/oniris]];https://www.oniris-nantes.fr/;Rue de la Géraudière 44322 NANTES
@@ -40,10 +39,10 @@ $string['envf'] = 'Écoles nationales vétérinaires de France';
 $string['republiquefrancaise'] = 'République Française';
 $string['ministereagriculture'] = 'Ministère de l\'agriculture et de l\'alimentation';
 $string['logos'] = 'Logos';
-$string['logos_desc'] = 'Logos from associated organisations, mostly displayed on the footer.';
+$string['logos_desc'] = 'Logo des organisations associées, affiché sur le bas de page.';
 
-$string['legallinks'] = 'Legal links';
-$string['legallinks_desc'] = 'Legal links for Footer.  <br/>Structure:
+$string['legallinks'] = 'Liens légaux';
+$string['legallinks_desc'] = 'Liens légaux pour le bas de page.  <br/>Structure:
      <ul>
      <li>languagestringid|url</li>
      <li>Exemple:  mentionlegales|local/mcms/index.php?p=mentions-legales</li>
@@ -56,9 +55,10 @@ $string['cookiesrgpd'] = 'Gestion des cookies et des données';
 $string['mentionlegales'] = 'Mentions légales';
 $string['copyright'] = '© ENVF  2020';
 
-$string['region-side-pre'] = 'Right';
-$string['region-content'] = 'Content';
+$string['region-side-pre'] = 'Droit';
+$string['region-content'] = 'Contenu';
 
-$string['signuptitle'] = 'Create new account';
-$string['signupdesc'] = 'Account creation is reserved to Parcoursup candidates. Further information will be
-asked later on.';
+$string['signuptitle'] = 'Créer un compte';
+
+$string['signupdesc'] = 'La création d’un compte est réservée aux candidats voulant postuler pour le concours 
+véto post-bac. Des informations supplémentaires seront demandées après le remplissage du questionnaire de pré-orientation.';

@@ -15,23 +15,33 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Theme plugin version definition.
+ * This file keeps track of upgrades to the theme.
  *
- * @package   theme_envf
+ *
+ * @package   theme_clboost
  * @copyright 2020 - CALL Learning - Laurent David <laurent@call-learning.fr>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die;
+defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2020070103; /* This is the version number to increment when changes needing an update are made */
-$plugin->requires  = 2019111800;
-$plugin->release   = '0.1.0';
-$plugin->maturity  = MATURITY_ALPHA;
-$plugin->component = 'theme_envf';
-$plugin->dependencies = [
-    'theme_boost' => ANY_VERSION,
-    'theme_clboost' => '2020092300',
-    'local_mcms' => ANY_VERSION,
-    'local_envf' => ANY_VERSION
-];
+/**
+ * Main upgrade tasks to be executed on the theme version bump
+ *
+ * For more information, take a look to the documentation available:
+ *     - Data definition API: {@link http://docs.moodle.org/dev/Data_definition_API}
+ *     - Upgrade API: {@link http://docs.moodle.org/dev/Upgrade_API}
+ *
+ * @param int $oldversion
+ * @return bool always true
+ */
+function xmldb_theme_envf_upgrade($oldversion) {
+    global $CFG, $DB;
+    $dbman = $DB->get_manager(); // Loads ddl manager and xmldb classes.
+    // allowed version to upgrade from (v3.5.0 right now).
+    if ($oldversion < 2020070103) {
+
+        upgrade_main_savepoint(true, 2020070103);
+    }
+    return true;
+}

@@ -97,3 +97,15 @@
         margin-bottom: auto !important;
     }
 }
+
+.pagelayout-login {
+    .signup-header {
+        font-family: $font-family-sans-serif;
+        font-weight: bold;
+        font-size: 3.5em;
+    }
+    .psup-additional-description {
+        margin-top: -1rem;
+        margin-bottom: 1rem;
+    }
+}

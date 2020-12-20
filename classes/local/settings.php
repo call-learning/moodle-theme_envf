@@ -48,14 +48,6 @@ class settings extends \theme_clboost\local\settings {
         // Advanced settings.
         $page = new admin_settingpage('additionalinfo', static::get_string('additionalinfo', 'theme_envf'));
 
-        $setting = new \admin_setting_configtext('theme_envf/ganalytics',
-            static::get_string('ganalytics', 'theme_envf'),
-            static::get_string('ganalytics_desc', 'theme_envf'),
-            '',
-            PARAM_ALPHANUMEXT
-        );
-        $page->add($setting);
-
         $defaultvalue = "Ecole Nationale Vétérinaire d'Alfort;[[pix:theme_envf|logos/enva]];https://www.vet-alfort.fr/;"
             . "7, avenue du Général de Gaulle, 94700 Maisons-Alfort\n"
             . "Oniris;[[pix:theme_envf|logos/oniris]];https://www.oniris-nantes.fr/;Rue de la Géraudière 44322 NANTES Cedex 3\n"

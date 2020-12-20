@@ -1,70 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" [
-	<!ENTITY ns_flows "http://ns.adobe.com/Flows/1.0/">
-]>
-<svg version="1.1"
-	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
-	 x="0px" y="0px" width="24px" height="24px" viewBox="0 -2 24 24" style="overflow:visible;enable-background:new 0 -2 24 24;"
-	 xml:space="preserve">
-<defs>
-</defs>
-<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="11.9995" y1="0" x2="11.9995" y2="20.0005">
-	<stop  offset="0" style="stop-color:#95BFF8"/>
-	<stop  offset="0.5569" style="stop-color:#84ADEF"/>
-	<stop  offset="1" style="stop-color:#7CA4EB"/>
-	<a:midPointStop  offset="0" style="stop-color:#95BFF8"/>
-	<a:midPointStop  offset="0.4" style="stop-color:#95BFF8"/>
-	<a:midPointStop  offset="1" style="stop-color:#7CA4EB"/>
-</linearGradient>
-<rect style="fill:url(#SVGID_1_);" width="24" height="20"/>
-<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="11.9995" y1="1" x2="11.9995" y2="19.0005">
-	<stop  offset="0" style="stop-color:#E7F4FC"/>
-	<stop  offset="1" style="stop-color:#DEEFFC"/>
-	<a:midPointStop  offset="0" style="stop-color:#E7F4FC"/>
-	<a:midPointStop  offset="0.5" style="stop-color:#E7F4FC"/>
-	<a:midPointStop  offset="1" style="stop-color:#DEEFFC"/>
-</linearGradient>
-<rect x="1" y="1" style="fill:url(#SVGID_2_);" width="22" height="18"/>
-<linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="11.9995" y1="2" x2="11.9995" y2="18.0005">
-	<stop  offset="0" style="stop-color:#CEE9F9"/>
-	<stop  offset="1" style="stop-color:#BBDFF8"/>
-	<a:midPointStop  offset="0" style="stop-color:#CEE9F9"/>
-	<a:midPointStop  offset="0.5" style="stop-color:#CEE9F9"/>
-	<a:midPointStop  offset="1" style="stop-color:#BBDFF8"/>
-</linearGradient>
-<rect x="2" y="2" style="fill:url(#SVGID_3_);" width="20" height="16"/>
-<linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="16.5" y1="12.1465" x2="16.5" y2="18.8535">
-	<stop  offset="0" style="stop-color:#8D470D"/>
-	<stop  offset="1" style="stop-color:#7C3D09"/>
-	<a:midPointStop  offset="0" style="stop-color:#8D470D"/>
-	<a:midPointStop  offset="0.5" style="stop-color:#8D470D"/>
-	<a:midPointStop  offset="1" style="stop-color:#7C3D09"/>
-</linearGradient>
-<polygon style="fill:url(#SVGID_4_);" points="18.6,12.1 16.5,13.1 14.4,12.1 11.9,17.6 13.7,17.3 14.6,18.9 16.5,14.8 18.4,18.9 
-	19.3,17.3 21.1,17.6 "/>
-<linearGradient id="SVGID_5_" gradientUnits="userSpaceOnUse" x1="16.5" y1="4" x2="16.5" y2="15.0005">
-	<stop  offset="0" style="stop-color:#F0A829"/>
-	<stop  offset="1" style="stop-color:#C7671A"/>
-	<a:midPointStop  offset="0" style="stop-color:#F0A829"/>
-	<a:midPointStop  offset="0.5" style="stop-color:#F0A829"/>
-	<a:midPointStop  offset="1" style="stop-color:#C7671A"/>
-</linearGradient>
-<circle style="fill:url(#SVGID_5_);" cx="16.5" cy="9.5" r="5.5"/>
-<linearGradient id="SVGID_6_" gradientUnits="userSpaceOnUse" x1="16.5" y1="5" x2="16.5" y2="14.0005">
-	<stop  offset="0" style="stop-color:#FFEBA8"/>
-	<stop  offset="1" style="stop-color:#F8BE27"/>
-	<a:midPointStop  offset="0" style="stop-color:#FFEBA8"/>
-	<a:midPointStop  offset="0.5" style="stop-color:#FFEBA8"/>
-	<a:midPointStop  offset="1" style="stop-color:#F8BE27"/>
-</linearGradient>
-<path style="fill:url(#SVGID_6_);" d="M16.5,14C14,14,12,12,12,9.5S14,5,16.5,5S21,7,21,9.5S19,14,16.5,14z"/>
-<linearGradient id="SVGID_7_" gradientUnits="userSpaceOnUse" x1="16.5" y1="6" x2="16.5" y2="13.0005">
-	<stop  offset="0" style="stop-color:#FFC30F"/>
-	<stop  offset="1" style="stop-color:#F5AE0D"/>
-	<a:midPointStop  offset="0" style="stop-color:#FFC30F"/>
-	<a:midPointStop  offset="0.5" style="stop-color:#FFC30F"/>
-	<a:midPointStop  offset="1" style="stop-color:#F5AE0D"/>
-</linearGradient>
-<path style="fill:url(#SVGID_7_);" d="M16.5,13c-1.9,0-3.5-1.6-3.5-3.5S14.6,6,16.5,6S20,7.6,20,9.5S18.4,13,16.5,13z"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="19px" viewBox="0 0 24 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title></title>
+    <g id="Parcoursup" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="[Parcoursup]-Espace-Candidat---Accueil-(phase-2)" transform="translate(-18.000000, -264.000000)" fill="#000" fill-rule="nonzero">
+            <g id="Group-3-Copy-4" transform="translate(0.000000, 244.000000)">
+                <path d="M33.984,38.6 L33.984,36.584 L39,36.584 C39.544,36.584 40.008,36.392 40.392,36.008 C40.776,35.624 40.968,35.16 40.968,34.616 L40.968,34.616 L41.016,22.616 C41.016,22.072 40.816,21.6 40.416,21.2 C40.016,20.8 39.544,20.6 39,20.6 L39,20.6 L21,20.6 C20.456,20.6 19.984,20.8 19.584,21.2 C19.184,21.6 18.984,22.072 18.984,22.616 L18.984,22.616 L18.984,34.616 C18.984,35.16 19.184,35.624 19.584,36.008 C19.984,36.392 20.456,36.584 21,36.584 L21,36.584 L26.016,36.584 L26.016,38.6 L33.984,38.6 Z M39,34.616 L21,34.616 L21,22.616 L39,22.616 L39,34.616 Z M24.984,27.584 L24.984,25.616 L23.016,25.616 L23.016,27.584 L24.984,27.584 Z M36.984,27.584 L36.984,25.616 L26.016,25.616 L26.016,27.584 L36.984,27.584 Z M24.984,31.616 L24.984,29.6 L23.016,29.6 L23.016,31.616 L24.984,31.616 Z M36.984,31.616 L36.984,29.6 L26.016,29.6 L26.016,31.616 L36.984,31.616 Z" id=""></path>
+            </g>
+        </g>
+    </g>
 </svg>

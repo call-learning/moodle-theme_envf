@@ -36,7 +36,7 @@ $primary:       #0E847B !default;
 $secondary:     #666666 !default;
 $success:       #18d9c9 !default;
 $info:          #400f85 !default;
-$warning:       #850f18 !default;
+$warning:       #d95518 !default;
 $danger:        #850f18 !default;
 $light:         #18d9c9 !default;
 $dark:          #052e2a !default;
@@ -80,11 +80,15 @@ $pagination-hover-color:            $white !default;
 $pagination-hover-bg:               $primary !default;
 $pagination-hover-border-color:     $primary !default;
 
-// Variables ===================================================================
+
+// Navigation ===================================================================
 
 $nav-drawer-width: 285px;
 $drawer-toggle-width: 50px;
 $navbar-height: 95px;
+
+$component-active-color:      $black !default;
+$component-active-bg:         #b6d9d4 !default;
 
 
 // Button and link : box shadow for accessibility
