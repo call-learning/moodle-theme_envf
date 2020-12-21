@@ -33,10 +33,6 @@
         margin-bottom: 0.5rem;
     }
 
-    & .list-group:not(:first-child) {
-        margin-top: 0.5rem !important;
-    }
-
     .list-group-item {
         box-shadow: 0 2px 0.5rem 0 rgba(0, 0, 0, 0.15);
         border: none;

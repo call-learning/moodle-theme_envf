@@ -39,9 +39,5 @@ function xmldb_theme_envf_upgrade($oldversion) {
     global $CFG, $DB;
     $dbman = $DB->get_manager(); // Loads ddl manager and xmldb classes.
     // allowed version to upgrade from (v3.5.0 right now).
-    if ($oldversion < 2020070103) {
-
-        upgrade_main_savepoint(true, 2020070103);
-    }
     return true;
 }
