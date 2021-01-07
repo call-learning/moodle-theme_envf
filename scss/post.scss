@@ -8,6 +8,7 @@
 @import "questionnaire.scss";
 @import "navigation.scss";
 @import "dashboard.scss";
+@import "userprofileform.scss";
 // General layout settings
 
 .card {
@@ -49,4 +50,9 @@
     .show > .nav-pills .nav-link.active.dropdown-toggle {
         background-color: $gray-100;
     }
+}
+
+// Hide the username search form.
+#page-login-forgot_password #id_searchbyusername {
+    display: none;
 }

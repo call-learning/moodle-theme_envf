@@ -75,8 +75,10 @@ td {
     .individual tbody tr:first-child .c1 {
         background-color: initial;
     }
-
     .buttons {
+        // We add some extra padding here so the button below fits nicely.
+        padding-top: 2em;
+        padding-bottom: 2em;
         input.btn {
             @include button-outline-variant($white);
             &[name="next"],
@@ -93,6 +95,15 @@ td {
 
     .mod_questionnaire_viewpage .complete {
         text-align: center;
+    }
+    // Hide respondent info link as it leads to an error.
+    .respondentinfo {
+        padding-top: 1em;
+        padding-bottom: 1em;
+        display: block;
+        a {
+            display: none;
+        }
     }
 }
 
