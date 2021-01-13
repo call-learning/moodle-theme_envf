@@ -90,27 +90,4 @@ class core_renderer extends \theme_clboost\output\core_renderer {
         $renderer = $this->page->get_renderer('local_mcms', 'menu');
         return $renderer->mcms_menu_menu_flat();
     }
-
-    /**
-     * Add google analytics code
-     */
-    public function standard_head_html() {
-        $output = parent::standard_head_html();
-
-        $gacode = get_config('theme_envf', 'ganalytics');
-        if ($gacode) {
-            $output .= \html_writer::tag('script', '', array(
-                'src' => "https://www.googletagmanager.com/gtag/js?id={$gacode}",
-                'async' => ''
-            ));
-            $output .= \html_writer::script("
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                        gtag('js', new Date());
-                        gtag('config', '{$gacode}');
-                    "
-            );
-        }
-        return $output;
-    }
 }
