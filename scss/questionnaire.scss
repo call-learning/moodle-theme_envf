@@ -130,4 +130,7 @@ td {
     }
 }
 
+.box.reportQuestionTitle:empty {
+    display: none;
+}
 
