@@ -60,5 +60,10 @@ $string['region-content'] = 'Contenu';
 
 $string['signuptitle'] = 'Créer un compte';
 
-$string['signupdesc'] = 'La création d’un compte est réservée aux candidats voulant postuler pour le concours 
-véto post-bac. Des informations supplémentaires seront demandées après le remplissage du questionnaire de pré-orientation.';
+$string['signupdesc'] = 'La création d’un compte est réservée aux candidats qui postulent pour le concours véto post-bac.
+Elle est obligatoire pour accéder à l’espace candidat et au questionnaire de pré-orientation.<br>
+En cas d’admissibilité aux entretiens, ce compte est également utilisé pour obtenir des informations précises sur l’organisation 
+et le déroulement des épreuves. Les informations que vous donnez (Nom, Prénom, email et numéro Parcoursup) 
+  doivent <strong>impérativement être exactement les mêmes</strong> que sur la plateforme "Parcoursup".
+Vous ne pourrez plus modifier ces informations si nécessaire.<br>
+Vérifiez bien vos données avant de cliquer sur "Créer mon compte".';
