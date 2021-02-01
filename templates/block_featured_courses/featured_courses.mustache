@@ -28,13 +28,14 @@
         <div class="row">
             {{#courses}}
                 <div class="thumbnail col mx-2 my-1">
-                    <div class="course-image d-flex flex-column justify-content-center p-0 m-0 h-100"
-                         style='background-image: url("{{{ courseimage}}}");'>
-                        <a href="{{viewurl}}" class="w-100 bg-white text-dark bold p-2" style="opacity:85%;">
+                    <a href="{{viewurl}}">
+                        <div class="course-image d-flex flex-column justify-content-center p-0 m-0 h-100"
+                             style='background-image: url("{{{ courseimage}}}");'>
+                            <p class="w-100 bg-white text-dark bold p-2" style="opacity:85%;">
                                 {{ fullname }}
-                        </a>
-                    </div>
-
+                            </p>
+                        </div>
+                    </a>
                 </div>
             {{/courses}}
         </div>
