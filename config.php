@@ -28,4 +28,4 @@ defined('MOODLE_INTERNAL') || die();
 
 require_once(__DIR__ . '/lib.php');
 
-config::setup_config($THEME, 'envf');
+config::setup_config($THEME, 'envf'); // TODO: use the new clboost version.
