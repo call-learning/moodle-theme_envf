@@ -24,13 +24,26 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version   = 2020070103; /* This is the version number to increment when changes needing an update are made */
+$plugin->version   = 2020070104; /* This is the version number to increment when changes needing an update are made */
 $plugin->requires  = 2019111800;
 $plugin->release   = '0.1.0';
 $plugin->maturity  = MATURITY_ALPHA;
 $plugin->component = 'theme_envf';
 $plugin->dependencies = [
+    'auth_psup' => ANY_VERSION,
+    'block_mcms' => ANY_VERSION,
+    'block_sponsors' => ANY_VERSION,
+    'block_featured_courses' => ANY_VERSION,
+    'block_thumblinks_action' => ANY_VERSION,
+    'block_contact_form' => ANY_VERSION,
+    'block_faq' => ANY_VERSION,
+    'format_envfpsup' => ANY_VERSION,
+    'local_mcms' => ANY_VERSION,
+    'local_dash_by_role' => ANY_VERSION,
+    'mod_questionnaire' => ANY_VERSION,
+    'mod_customcert' => ANY_VERSION,
+    'report_customsql' => ANY_VERSION,
     'theme_boost' => ANY_VERSION,
-    'theme_clboost' => '2020092300',
-    'local_mcms' => ANY_VERSION
+    'theme_clboost' => ANY_VERSION,
+    'tool_gdpr_plus' => ANY_VERSION
 ];

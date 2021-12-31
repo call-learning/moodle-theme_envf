@@ -41,6 +41,12 @@ class config extends \theme_clboost\local\config {
             'regions' => array('content'),
             'defaultregion' => 'content',
         );
+        $layouts['mydashboard'] = array(
+            'file' => 'columns2.php',
+            'regions' => array('side-pre'),
+            'defaultregion' => 'side-pre',
+            'options' => array('nonavbar' => true, 'langmenu' => true),
+        );
         return $layouts;
     }
 
