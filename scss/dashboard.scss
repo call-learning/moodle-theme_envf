@@ -2,10 +2,12 @@
     list-style: none;
     padding-left: $spacer;
     counter-reset: circle-counter;
+
     li {
         counter-increment: circle-counter;
         margin-bottom: $spacer*.25;
         margin-left: $spacer*.25;
+
         &:before {
             content: counter(circle-counter);
             background-color: white;
@@ -21,6 +23,7 @@
             margin-right: $spacer*.5;
             position: relative;
         }
+
         &.status-completed:before {
             content: $fa-var-check;
             font-family: "FontAwesome";
@@ -34,6 +37,12 @@
     }
 }
 
-#page-my-index h5.card-title {
-    font-size: 1.75em;
+#page-my-index {
+    .page-header-headings h1 {
+        font-size: 1.5em;
+    }
+
+    h5.card-title {
+        font-size: 1.75em;
+    }
 }
