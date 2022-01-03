@@ -24,7 +24,9 @@
 
 namespace theme_envf\output;
 
+use action_menu;
 use html_writer;
+use navigation_node;
 use theme_clboost\output\core_renderer_override_menus;
 use theme_envf\local\utils;
 
@@ -87,5 +89,79 @@ class core_renderer extends \theme_clboost\output\core_renderer {
     public function mcms_menu_menu_flat() {
         $renderer = $this->page->get_renderer('local_mcms', 'menu');
         return $renderer->mcms_menu_menu_flat();
+    }
+
+    /**
+     * This is an optional menu that can be added to a layout by a theme. It contains the
+     * menu for the most specific thing from the settings block. E.g. Module administration.
+     *
+     * @return string
+     */
+    public function region_main_settings_menu() {
+        global $CFG;
+        $context = $this->page->context;
+        $menu = new action_menu();
+
+        if ($context->contextlevel == CONTEXT_MODULE) {
+
+            $this->page->navigation->initialise();
+            $node = $this->page->navigation->find_active_node();
+            $buildmenu = false;
+            // If the settings menu has been forced then show the menu.
+            if ($this->page->is_settings_menu_forced()) {
+                $buildmenu = true;
+            } else if (!empty($node) && ($node->type == navigation_node::TYPE_ACTIVITY ||
+                    $node->type == navigation_node::TYPE_RESOURCE)) {
+
+                $items = $this->page->navbar->get_items();
+                $navbarnode = end($items);
+                // We only want to show the menu on the first page of the activity. This means
+                // the breadcrumb has no additional nodes.
+                if ($navbarnode && ($navbarnode->key === $node->key && $navbarnode->type == $node->type)) {
+                    $buildmenu = true;
+                }
+            }
+            // ENVF Modifications.
+            require_once($CFG->dirroot.'/course/lib.php');
+            $courseformat = course_get_format($this->page->course);
+            $buildmenu = $buildmenu && (
+                (($courseformat->get_format() == 'envfpsup') &&
+                    has_capability('moodle/grade:viewall', $context))
+                || ($courseformat->get_format() != 'envfpsup')
+                );
+            // END ENVF Modifications.
+            if ($buildmenu) {
+                // Get the course admin node from the settings navigation.
+                $node = $this->page->settingsnav->find('modulesettings', navigation_node::TYPE_SETTING);
+                if ($node) {
+                    // Build an action menu based on the visible nodes from this navigation tree.
+                    $this->build_action_menu_from_navigation($menu, $node);
+                }
+            }
+
+        } else if ($context->contextlevel == CONTEXT_COURSECAT) {
+            // For course category context, show category settings menu, if we're on the course category page.
+            if ($this->page->pagetype === 'course-index-category') {
+                $node = $this->page->settingsnav->find('categorysettings', navigation_node::TYPE_CONTAINER);
+                if ($node) {
+                    // Build an action menu based on the visible nodes from this navigation tree.
+                    $this->build_action_menu_from_navigation($menu, $node);
+                }
+            }
+
+        } else {
+            $items = $this->page->navbar->get_items();
+            $navbarnode = end($items);
+
+            if ($navbarnode && ($navbarnode->key === 'participants')) {
+                $node = $this->page->settingsnav->find('users', navigation_node::TYPE_CONTAINER);
+                if ($node) {
+                    // Build an action menu based on the visible nodes from this navigation tree.
+                    $this->build_action_menu_from_navigation($menu, $node);
+                }
+
+            }
+        }
+        return $this->render($menu);
     }
 }
