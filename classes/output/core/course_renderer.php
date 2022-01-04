@@ -44,6 +44,24 @@ class course_renderer extends \core_course_renderer {
      * @return string html for the page
      */
     public function render_activity_navigation(\core_course\output\activity_navigation $page) {
+        $courseid = 0;
+        if ($this->page->context->contextlevel == CONTEXT_COURSE) {
+            $courseid = $this->page->course->id;
+        }
+        if ($this->page->context->contextlevel == CONTEXT_MODULE) {
+            $courseid = $this->page->cm->course;
+        }
+        if ($courseid) {
+            $nocoursenavtag = get_config('theme_envf', 'nonavcoursepagetag');
+            $tags = \core_tag_tag::get_item_tags('core', 'course', $courseid);
+            if (!empty($tags)) {
+                foreach ($tags as $t) {
+                    if ($t->rawname == $nocoursenavtag) {
+                        return ""; // No nav here.
+                    }
+                }
+            }
+        }
         $data = $page->export_for_template($this->output);
         $data->addditionalclasses = 'mt-5'; // Margin top.
         return $this->output->render_from_template('core_course/activity_navigation', $data);

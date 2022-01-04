@@ -47,7 +47,7 @@ $string['legallinks_desc'] = 'Liens légaux pour le bas de page.  <br/>Structure
      <li>languagestringid|url</li>
      <li>Exemple:  mentionlegales|local/mcms/index.php?p=mentions-legales</li>
      </ul>';
-
+$string['nonavcoursepagetag'] = 'Tag de cours marquant le fait qu\'il n\'y a pas de navigation dans ce cours entre activités';
 $string['ganalytics'] = 'Google Analytics';
 $string['ganalytics_desc'] = 'Google Analytics ID (UA-XXXXX-1)';
 

@@ -24,6 +24,7 @@
 
 namespace theme_envf\local;
 
+use admin_setting_configtext;
 use admin_settingpage;
 
 defined('MOODLE_INTERNAL') || die;
@@ -64,7 +65,6 @@ class settings extends \theme_clboost\local\settings {
 
 
         $defaultvalue = "mentionlegales|local/mcms/index.php?p=mentions-legales\n"
-        ."cookiesrgpd|local/mcms/index.php?p=cookies\n"
         ."copyright";
 
         $setting = new \admin_setting_configtextarea('theme_envf/legallinks',
@@ -74,6 +74,13 @@ class settings extends \theme_clboost\local\settings {
             PARAM_RAW);
         $page->add($setting);
 
+        $page->add(
+            new admin_setting_configtext('theme_envf/nonavcoursepagetag',
+                static::get_string('nonavcoursepagetag', 'theme_envf'),
+                static::get_string('nonavcoursepagetag', 'theme_envf'),
+                'no_nav_course'
+            )
+        );
         $settings->add($page);
     }
 }
