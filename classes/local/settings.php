@@ -25,6 +25,7 @@
 namespace theme_envf\local;
 
 use admin_setting_configtext;
+use admin_setting_configtextarea;
 use admin_settingpage;
 
 defined('MOODLE_INTERNAL') || die;
@@ -50,36 +51,37 @@ class settings extends \theme_clboost\local\settings {
         $page = new admin_settingpage('additionalinfo', static::get_string('additionalinfo', 'theme_envf'));
 
         $defaultvalue = "Ecole Nationale Vétérinaire d'Alfort;[[pix:theme_envf|logos/enva]];https://www.vet-alfort.fr/;"
-            . "7, avenue du Général de Gaulle, 94700 Maisons-Alfort\n"
-            . "Oniris;[[pix:theme_envf|logos/oniris]];https://www.oniris-nantes.fr/;Rue de la Géraudière 44322 NANTES Cedex 3\n"
-            . "Ecole Nationale Vétérinaire de Toulouse;[[pix:theme_envf|logos/envt]];http://www.envt.fr/;23 Chemin des Capelles "
-            . "– BP 87614 – 31 076 – Toulouse Cedex 3 – France\n"
-            . "VetAgro Sup;[[pix:theme_envf|logos/vetagro]];http://www.vetagro-sup.fr/;1 avenue Bourgelat, 69280 Marcy-l'Etoile\n";
+                . "7, avenue du Général de Gaulle, 94700 Maisons-Alfort\n"
+                . "Oniris;[[pix:theme_envf|logos/oniris]];https://www.oniris-nantes.fr/;Rue de la Géraudière 44322 NANTES Cedex 3\n"
+                .
+                "Ecole Nationale Vétérinaire de Toulouse;[[pix:theme_envf|logos/envt]];http://www.envt.fr/;23 Chemin des Capelles "
+                . "– BP 87614 – 31 076 – Toulouse Cedex 3 – France\n"
+                .
+                "VetAgro Sup;[[pix:theme_envf|logos/vetagro]];http://www.vetagro-sup.fr/;1 avenue Bourgelat, 69280 Marcy-l'Etoile\n";
 
-        $setting = new \admin_setting_configtextarea('theme_envf/addresses',
-            static::get_string('addresses', 'theme_envf'),
-            static::get_string('addresses_desc', 'theme_envf'),
-            $defaultvalue,
-            PARAM_RAW);
+        $setting = new admin_setting_configtextarea('theme_envf/addresses',
+                static::get_string('addresses', 'theme_envf'),
+                static::get_string('addresses_desc', 'theme_envf'),
+                $defaultvalue,
+                PARAM_RAW);
         $page->add($setting);
 
-
         $defaultvalue = "mentionlegales|local/mcms/index.php?p=mentions-legales\n"
-        ."copyright";
+                . "copyright";
 
-        $setting = new \admin_setting_configtextarea('theme_envf/legallinks',
-            static::get_string('legallinks', 'theme_envf'),
-            static::get_string('legallinks_desc', 'theme_envf'),
-            $defaultvalue,
-            PARAM_RAW);
+        $setting = new admin_setting_configtextarea('theme_envf/legallinks',
+                static::get_string('legallinks', 'theme_envf'),
+                static::get_string('legallinks_desc', 'theme_envf'),
+                $defaultvalue,
+                PARAM_RAW);
         $page->add($setting);
 
         $page->add(
-            new admin_setting_configtext('theme_envf/nonavcoursepagetag',
-                static::get_string('nonavcoursepagetag', 'theme_envf'),
-                static::get_string('nonavcoursepagetag', 'theme_envf'),
-                'no_nav_course'
-            )
+                new admin_setting_configtext('theme_envf/nonavcoursepagetag',
+                        static::get_string('nonavcoursepagetag', 'theme_envf'),
+                        static::get_string('nonavcoursepagetag', 'theme_envf'),
+                        'no_nav_course'
+                )
         );
         $settings->add($page);
     }

@@ -23,8 +23,7 @@
  */
 
 namespace theme_envf\local;
-
-defined('MOODLE_INTERNAL') || die;
+use local_mcms\page_utils;
 
 /**
  * Theme constants. In one place.
@@ -36,18 +35,17 @@ defined('MOODLE_INTERNAL') || die;
 class config extends \theme_clboost\local\config {
     public static function get_layouts() {
         $layouts = parent::get_layouts();
-        $layouts[\local_mcms\page_utils::PAGE_LAYOUT_NAME] = array(
-            'file' => 'mcmspage.php',
-            'regions' => array('content'),
-            'defaultregion' => 'content',
+        $layouts[page_utils::PAGE_LAYOUT_NAME] = array(
+                'file' => 'mcmspage.php',
+                'regions' => array('content'),
+                'defaultregion' => 'content',
         );
         $layouts['mydashboard'] = array(
-            'file' => 'columns2.php',
-            'regions' => array('side-pre'),
-            'defaultregion' => 'side-pre',
-            'options' => array('nonavbar' => true, 'langmenu' => true),
+                'file' => 'columns2.php',
+                'regions' => array('side-pre'),
+                'defaultregion' => 'side-pre',
+                'options' => array('nonavbar' => true, 'langmenu' => true),
         );
         return $layouts;
     }
-
 }

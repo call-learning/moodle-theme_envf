@@ -25,12 +25,12 @@
 namespace theme_envf\output;
 
 use action_menu;
+use coding_exception;
 use html_writer;
+use moodle_url;
 use navigation_node;
-use theme_clboost\output\core_renderer_override_menus;
+use stdClass;
 use theme_envf\local\utils;
-
-defined('MOODLE_INTERNAL') || die;
 
 /**
  * Renderers to align Moodle's HTML with that expected by Bootstrap
@@ -46,7 +46,7 @@ class core_renderer extends \theme_clboost\output\core_renderer {
      *
      * @param int $maxwidth The maximum width, or null when the maximum width does not matter.
      * @param int $maxheight The maximum height, or null when the maximum height does not matter.
-     * @return \moodle_url|false
+     * @return moodle_url|false
      */
     public function get_compact_logo_url($maxwidth = 300, $maxheight = 300) {
         return $this->get_logo_url($maxwidth, $maxheight); // No compact logo here.
@@ -55,8 +55,8 @@ class core_renderer extends \theme_clboost\output\core_renderer {
     /**
      * Get additional global information that can be used in this template
      *
-     * @return \stdClass
-     * @throws \coding_exception
+     * @return stdClass
+     * @throws coding_exception
      */
     public function get_template_additional_information() {
         $additionalinfo = parent::get_template_additional_information();
@@ -71,7 +71,7 @@ class core_renderer extends \theme_clboost\output\core_renderer {
             // This id is needed in first sheet only so that theme may override YUI sheets loaded on the fly.
             unset($attributes['id']);
         }
-        $additionalinfo->h5p_extra_css = $code;;
+        $additionalinfo->h5p_extra_css = $code;
         return $additionalinfo;
     }
 

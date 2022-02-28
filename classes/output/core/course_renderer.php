@@ -24,7 +24,9 @@
 
 namespace theme_envf\output\core;
 
-defined('MOODLE_INTERNAL') || die;
+use core_course\output\activity_navigation;
+use core_course_renderer;
+use core_tag_tag;
 
 /**
  * Renderers to align Moodle's HTML with that expected by Bootstrap
@@ -34,16 +36,16 @@ defined('MOODLE_INTERNAL') || die;
  * @copyright 2020 - CALL Learning - Laurent David <laurent@call-learning.fr>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class course_renderer extends \core_course_renderer {
+class course_renderer extends core_course_renderer {
     /**
      * Renders the activity navigation.
      *
      * Defer to template.
      *
-     * @param \core_course\output\activity_navigation $page
+     * @param activity_navigation $page
      * @return string html for the page
      */
-    public function render_activity_navigation(\core_course\output\activity_navigation $page) {
+    public function render_activity_navigation(activity_navigation $page) {
         $courseid = 0;
         if ($this->page->context->contextlevel == CONTEXT_COURSE) {
             $courseid = $this->page->course->id;
@@ -53,7 +55,7 @@ class course_renderer extends \core_course_renderer {
         }
         if ($courseid) {
             $nocoursenavtag = get_config('theme_envf', 'nonavcoursepagetag');
-            $tags = \core_tag_tag::get_item_tags('core', 'course', $courseid);
+            $tags = core_tag_tag::get_item_tags('core', 'course', $courseid);
             if (!empty($tags)) {
                 foreach ($tags as $t) {
                     if ($t->rawname == $nocoursenavtag) {

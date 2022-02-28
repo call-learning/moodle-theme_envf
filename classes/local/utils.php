@@ -24,6 +24,11 @@
 
 namespace theme_envf\local;
 
+use dml_exception;
+use moodle_exception;
+use moodle_page;
+use moodle_url;
+
 defined('MOODLE_INTERNAL') || die;
 
 /**
@@ -45,9 +50,9 @@ class utils {
      *
      * Converted into: an object with title and absolute url
      *
-     * @param \moodle_page $page
+     * @param moodle_page $page
      * @return array
-     * @throws \dml_exception
+     * @throws dml_exception
      */
     public static function convert_address_config($page) {
         $configtext = get_config('theme_envf', 'addresses');
@@ -69,8 +74,8 @@ class utils {
 
                         } else {
                             try {
-                                $currentobject->path = (new \moodle_url($setting))->out();
-                            } catch (\moodle_exception $e) {
+                                $currentobject->path = (new moodle_url($setting))->out();
+                            } catch (moodle_exception $e) {
                                 // We don't do anything here. The url will be empty.
                             }
                         }
@@ -78,8 +83,8 @@ class utils {
                     case 2:
                         $currentobject->link = '';
                         try {
-                            $currentobject->link = (new \moodle_url($setting))->out();
-                        } catch (\moodle_exception $e) {
+                            $currentobject->link = (new moodle_url($setting))->out();
+                        } catch (moodle_exception $e) {
                             // We don't do anything here. The url will be empty.
                         }
                         break;
@@ -92,6 +97,7 @@ class utils {
         // Line separator is comma as we use '|' for the url information.
         return \theme_clboost\local\utils::convert_from_config($configtext, $lineparser, ';');
     }
+
     /**
      * Converts the membership config string into an array of information that can be
      * then added to the footer via the "footer_address" mustache template.
@@ -103,9 +109,9 @@ class utils {
      *
      * Converted into: an object with title and absolute url
      *
-     * @param \moodle_page $page
+     * @param moodle_page $page
      * @return array
-     * @throws \dml_exception
+     * @throws dml_exception
      */
     public static function convert_legallinks_config() {
         $configtext = get_config('theme_envf', 'legallinks');
@@ -119,8 +125,8 @@ class utils {
                     case 1:
                         $currentobject->link = '';
                         try {
-                            $currentobject->link = (new \moodle_url($setting))->out();
-                        } catch (\moodle_exception $e) {
+                            $currentobject->link = (new moodle_url($setting))->out();
+                        } catch (moodle_exception $e) {
                             // We don't do anything here. The url will be empty.
                         }
                         break;
