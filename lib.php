@@ -41,3 +41,20 @@ function theme_envf_pluginfile($course, $cm, $context, $filearea, $args, $forced
     return theme_clboost\local\utils::generic_pluginfile('envf', $course, $cm, $context, $filearea, $args, $forcedownload,
         $options);
 }
+
+/**
+ * Extend form password
+ *
+ * @param MoodleQuickForm $mform
+ * @param stdClass $user
+ * @return void
+ * @throws coding_exception
+ */
+function theme_envf_extend_set_password_form(MoodleQuickForm $mform, $user) {
+    $element = $mform->getElement('username2');
+    $element->setLabel(utils::get_username_label($user->id));
+    $email = $mform->createElement('static', 'email', get_string('email'), $user->email);
+
+    $mform->insertElementBefore($email, 'username2');
+
+}

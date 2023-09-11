@@ -36,6 +36,7 @@ $string['addresses_desc'] = 'Adresses sur le bas de page.  <br/>Structure:
 $string['pluginname'] = 'ENVF';
 $string['configtitle'] = 'ENV Theme';
 $string['envf'] = 'Écoles nationales vétérinaires de France';
+$string['getcustomcert'] = 'Télécharger l\'attestation';
 $string['republiquefrancaise'] = 'République Française';
 $string['ministereagriculture'] = 'Ministère de l\'agriculture et de l\'alimentation';
 $string['logos'] = 'Logos';
@@ -67,3 +68,5 @@ et le déroulement des épreuves. Les informations que vous donnez (Nom, Prénom
   doivent <strong>impérativement être exactement les mêmes</strong> que sur la plateforme "Parcoursup".
 Vous ne pourrez plus modifier ces informations si nécessaire.<br>
 Vérifiez bien vos données avant de cliquer sur "Créer mon compte".';
+$string['updatemyprofile'] = 'Mettre à jour mes informations';
+$string['welcomedashboard'] = 'Bienvenue {$a}!';

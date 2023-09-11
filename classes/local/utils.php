@@ -24,7 +24,10 @@
 
 namespace theme_envf\local;
 
+use core\session\manager;
+use core_user;
 use dml_exception;
+use lang_string;
 use moodle_exception;
 use moodle_page;
 use moodle_url;
@@ -135,5 +138,24 @@ class utils {
         };
         // Line separator is comma as we use '|' for the url information.
         return \theme_clboost\local\utils::convert_from_config($configtext, $lineparser, '|');
+    }
+
+    /**
+     * Get the right label for username (either username or parcoursupid)
+     *
+     * @param int $userid
+     * @return lang_string|string
+     */
+    public static function get_username_label($userid) {
+        global $USER;
+        $iscurrentuser = $userid == $USER->id && !manager::is_loggedinas();
+
+        if ((!isloggedin() || $iscurrentuser) && $userid) {
+            $currentuser = core_user::get_user($userid);
+            if ($currentuser && $currentuser->auth == 'psup') {
+                return get_string('psupid', 'auth_psup');
+            }
+        }
+        return get_string('username');
     }
 }

@@ -36,6 +36,7 @@ $string['addresses_desc'] = 'Addresses for Footer.  <br/>Structure:
 
 $string['pluginname'] = 'ENVF';
 $string['configtitle'] = 'ENV Theme';
+$string['getcustomcert'] = 'Get certificate';
 $string['envf'] = 'Écoles nationales vétérinaires de France';
 $string['republiquefrancaise'] = 'République Française';
 $string['ministereagriculture'] = 'Ministère de l\'agriculture et de l\'alimentation';
@@ -62,3 +63,5 @@ $string['region-content'] = 'Content';
 $string['signuptitle'] = 'Create new account';
 $string['signupdesc'] = 'Account creation is reserved to Parcoursup candidates. Further information will be
 asked later on.';
+$string['updatemyprofile'] = 'Update my profile';
+$string['welcomedashboard'] = 'Welcome {$a}!';
