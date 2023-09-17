@@ -35,7 +35,6 @@ $plugin->dependencies = [
     'block_sponsors' => ANY_VERSION,
     'block_featured_courses' => ANY_VERSION,
     'block_thumblinks_action' => ANY_VERSION,
-    'block_contact_form' => ANY_VERSION,
     'block_faq' => ANY_VERSION,
     'format_envfpsup' => ANY_VERSION,
     'filter_envf' => ANY_VERSION,

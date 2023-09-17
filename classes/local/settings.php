@@ -42,7 +42,7 @@ class settings extends \theme_clboost\local\settings {
      *
      * @param admin_settingpage $settings
      */
-    protected static function additional_settings(admin_settingpage &$settings) {
+    protected static function additional_settings(admin_settingpage &$settings, $currentthemename = 'envf') {
         // Advanced settings.
         $page = new admin_settingpage('additionalinfo', static::get_string('additionalinfo', 'theme_envf'));
 
