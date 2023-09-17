@@ -13,17 +13,7 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
-/**
- * All constant in one place
- *
- * @package   theme_envf
- * @copyright 2020 - CALL Learning - Laurent David <laurent@call-learning.fr>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
-
 namespace theme_envf\local;
-
 use core\session\manager;
 use core_user;
 use dml_exception;
@@ -31,9 +21,6 @@ use lang_string;
 use moodle_exception;
 use moodle_page;
 use moodle_url;
-
-defined('MOODLE_INTERNAL') || die;
-
 /**
  * Theme constants. In one place.
  *
@@ -67,7 +54,6 @@ class utils {
                         $currentobject->fullname = trim($setting);
                         break;
                     case 1:
-                        $currentobject->path = '';
                         if (strpos($setting, '[[pix:') === 0) {
                             $matches = [];
                             preg_match('/\[\[pix:(.+)\|(.+)\]\]/', $setting, $matches);
@@ -79,16 +65,15 @@ class utils {
                             try {
                                 $currentobject->path = (new moodle_url($setting))->out();
                             } catch (moodle_exception $e) {
-                                // We don't do anything here. The url will be empty.
+                                $currentobject->path = '';
                             }
                         }
                         break;
                     case 2:
-                        $currentobject->link = '';
                         try {
                             $currentobject->link = (new moodle_url($setting))->out();
                         } catch (moodle_exception $e) {
-                            // We don't do anything here. The url will be empty.
+                            $currentobject->link = '';
                         }
                         break;
                     case 3:
@@ -126,11 +111,10 @@ class utils {
                         $currentobject->label = get_string(trim($setting), 'theme_envf');
                         break;
                     case 1:
-                        $currentobject->link = '';
                         try {
                             $currentobject->link = (new moodle_url($setting))->out();
                         } catch (moodle_exception $e) {
-                            // We don't do anything here. The url will be empty.
+                            $currentobject->link = '';
                         }
                         break;
                 }
@@ -138,24 +122,5 @@ class utils {
         };
         // Line separator is comma as we use '|' for the url information.
         return \theme_clboost\local\utils::convert_from_config($configtext, $lineparser, '|');
-    }
-
-    /**
-     * Get the right label for username (either username or parcoursupid)
-     *
-     * @param int $userid
-     * @return lang_string|string
-     */
-    public static function get_username_label($userid) {
-        global $USER;
-        $iscurrentuser = $userid == $USER->id && !manager::is_loggedinas();
-
-        if ((!isloggedin() || $iscurrentuser) && $userid) {
-            $currentuser = core_user::get_user($userid);
-            if ($currentuser && $currentuser->auth == 'psup') {
-                return get_string('psupid', 'auth_psup');
-            }
-        }
-        return get_string('username');
     }
 }

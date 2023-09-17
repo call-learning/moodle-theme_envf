@@ -13,7 +13,6 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
-
 /**
  * Show a user the policy documents to be agreed to.
  *
@@ -26,6 +25,7 @@
  * @copyright   2018 Sara Arjona (sara@moodle.com)
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
+
 // phpcs:ignoreFile -- ignoring core file.
 use theme_envf\output\page_agreedocs_envf;
 use tool_policy\api;

@@ -21,7 +21,7 @@ use theme_envf\setup;
 /**
  * Post install task
  *
- * @package     local_envf
+ * @package     theme_envf
  * @copyright   2020 Laurent David - CALL Learning <laurent@call-learning.fr>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

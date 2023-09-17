@@ -1,4 +1,5 @@
 <?php
+// phpcs:ignoreFile -- this is not a core file
 $type = 'cidfont0';
 $name = 'STSongStd-Light-Acro';
 $displayname = 'STSong Light (Simp. Chinese)';

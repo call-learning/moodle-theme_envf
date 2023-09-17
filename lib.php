@@ -22,7 +22,6 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
 
 /**
  * Serves any files associated with the theme settings.
@@ -52,9 +51,36 @@ function theme_envf_pluginfile($course, $cm, $context, $filearea, $args, $forced
  */
 function theme_envf_extend_set_password_form(MoodleQuickForm $mform, $user) {
     $element = $mform->getElement('username2');
-    $element->setLabel(utils::get_username_label($user->id));
+    $element->setLabel(\auth_psup\utils::get_username_label($user->id));
     $email = $mform->createElement('static', 'email', get_string('email'), $user->email);
 
     $mform->insertElementBefore($email, 'username2');
 
+}
+
+/**
+ * Extends navigation
+ *
+ * @param global_navigation $nav
+ * @throws coding_exception
+ * @throws dml_exception
+ */
+function theme_envf_extend_navigation(global_navigation $nav) {
+    global $PAGE;
+    // Make sure we remove all the calendar references if we don't have access right.
+    $context = $PAGE->context;
+    if (empty($context)) {
+        $context = context_system::instance();
+    }
+    if (!has_capability('theme/envf:calendarview', $context)) {
+        $node = $nav->find('calendar', global_navigation::TYPE_CUSTOM);
+        if ($node) {
+            $node->remove();
+        }
+    }
+    if ($node = $nav->find('mycourses', global_navigation::TYPE_ROOTNODE)) {
+        if (!has_capability('theme/envf:viewcoursebreadcrumb', $context)) {
+            $node->remove();
+        }
+    }
 }

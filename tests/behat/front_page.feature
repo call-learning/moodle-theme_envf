@@ -14,9 +14,10 @@ Feature: The user should be presented with a front page and menus
       | username | firstname | lastname | email           |
       | user1    | User      | One      | one@example.com |
 
-  Scenario: As a user I should see
+  @javascript
+  Scenario: As a user I should see the GDPR consent form
     Given I am on homepage
-    Then I should see "Écoles nationales vétérinaires de France" in the "#page-footer" "css_element"
-    And I should see "If you want to continue browsing this website"
+    When I should see "Écoles nationales vétérinaires de France" in the "#page-footer" "css_element"
+    Then I should see "If you want to continue browsing this website"
 
 

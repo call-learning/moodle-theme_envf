@@ -32,10 +32,13 @@ $string['addresses_desc'] = 'Adresses sur le bas de page.  <br/>Structure:
      <li>Exemple: Oniris;[[pix:theme_envf|logos/oniris]];https://www.oniris-nantes.fr/;Rue de la Géraudière 44322 NANTES
       Cedex 3</li>
      </ul>';
-
+$string['envf:manage'] = 'Gestion des paramètres Concours ENVF';
+$string['envf:viewcoursebreadcrumb'] = 'Peut voir le fil d\'ariane dans le cours';
+$string['envf:calendarview'] = 'Peut voir le calendrier dans le cours';
 $string['pluginname'] = 'ENVF';
 $string['configtitle'] = 'ENV Theme';
 $string['envf'] = 'Écoles nationales vétérinaires de France';
+$string['envfothersettings'] = 'Autres paramètres';
 $string['getcustomcert'] = 'Télécharger l\'attestation';
 $string['republiquefrancaise'] = 'République Française';
 $string['ministereagriculture'] = 'Ministère de l\'agriculture et de l\'alimentation';
@@ -60,13 +63,14 @@ $string['region-side-pre'] = 'Droit';
 $string['region-content'] = 'Contenu';
 
 $string['signuptitle'] = 'Créer un compte';
-
+$string['studentcourseid'] = 'ID du cours étudiant pour questionnaire';
 $string['signupdesc'] = 'La création d’un compte est réservée aux candidats qui postulent pour le concours véto post-bac.
 Elle est obligatoire pour accéder à l’espace candidat et au questionnaire de pré-orientation.<br>
-En cas d’admissibilité aux entretiens, ce compte est également utilisé pour obtenir des informations précises sur l’organisation 
-et le déroulement des épreuves. Les informations que vous donnez (Nom, Prénom, email et numéro Parcoursup) 
+En cas d’admissibilité aux entretiens, ce compte est également utilisé pour obtenir des informations précises sur l’organisation
+et le déroulement des épreuves. Les informations que vous donnez (Nom, Prénom, email et numéro Parcoursup)
   doivent <strong>impérativement être exactement les mêmes</strong> que sur la plateforme "Parcoursup".
 Vous ne pourrez plus modifier ces informations si nécessaire.<br>
 Vérifiez bien vos données avant de cliquer sur "Créer mon compte".';
 $string['updatemyprofile'] = 'Mettre à jour mes informations';
 $string['welcomedashboard'] = 'Bienvenue {$a}!';
+

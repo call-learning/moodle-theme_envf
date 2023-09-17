@@ -159,7 +159,7 @@ $editoroptions = array(
 );
 
 // Create form.
-$userform = new \theme_envf\form\user_edit_form(new moodle_url($PAGE->url, array('returnto' => $returnto)), array('user' => $user));
+$userform = new \filter_envf\form\user_edit_form(new moodle_url($PAGE->url, array('returnto' => $returnto)), array('user' => $user));
 
 $emailchanged = false;
 

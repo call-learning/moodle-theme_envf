@@ -46,7 +46,7 @@ list($options, $unrecognised) = cli_get_params([
 ]);
 
 $usage = <<<EOD
-convertfont - command line tool to convert fonts for the TCPDF library. 
+convertfont - command line tool to convert fonts for the TCPDF library.
 
 This is inpired from https://raw.githubusercontent.com/tecnickcom/TCPDF/main/tools/tcpdf_addfont.php
 
@@ -55,7 +55,6 @@ Usage: convertfont.php  -i fontfile
 Options:
 	-i
 	--fonts     Comma-separated list of input font files, full path.
-	            
 	-h
 	--help      Display this help and exit.
 EOD;
@@ -74,12 +73,12 @@ cli_writeln("\n>>> Converting fonts for TCPDF:");
 
 cli_writeln('*** Output dir set to ' . $options['outpath']);
 
-// check if there are conversion errors
+// Check if there are conversion errors.
 $errors = false;
 
 foreach (explode(',', $options['fonts']) as $font) {
-    if(!file_exists($font)) {
-        $font = $CFG->dirroot.'/'.$font;
+    if (!file_exists($font)) {
+        $font = $CFG->dirroot . '/' . $font;
     }
     $fontfile = realpath($font);
     $fontname = TCPDF_FONTS::addTTFfont($fontfile);

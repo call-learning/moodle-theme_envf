@@ -1,5 +1,6 @@
 <?php
 // TCPDF FONT FILE DESCRIPTION
+// phpcs:ignoreFile -- this is not a core file
 $type='core';
 $name='Times-Roman';
 $up=-100;

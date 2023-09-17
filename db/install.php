@@ -21,7 +21,7 @@ use theme_envf\setup;
  */
 function xmldb_theme_envf_install() {
     setup::install_update();
-    $postsetup = new \local_envf\task\post_install_task();
+    $postsetup = new \theme_envf\task\post_install_task();
     // We have to do this here as if not, some capabilities are not
     // yet defined when we setup the new roles at installation time.
     \core\task\manager::queue_adhoc_task($postsetup);

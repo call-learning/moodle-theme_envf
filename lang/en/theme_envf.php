@@ -33,7 +33,10 @@ $string['addresses_desc'] = 'Addresses for Footer.  <br/>Structure:
      <li>Exemple: Oniris;[[pix:theme_envf|logos/oniris]];https://www.oniris-nantes.fr/;Rue de la Géraudière 44322 NANTES
       Cedex 3</li>
      </ul>';
-
+$string['envf:manage'] = 'Manage ENVF Theme settings';
+$string['envf:viewcoursebreadcrumb'] = 'View course breadcrumb';
+$string['envf:calendarview'] = 'View course breadcrumb';
+$string['envfothersettings'] = 'Other settings';
 $string['pluginname'] = 'ENVF';
 $string['configtitle'] = 'ENV Theme';
 $string['getcustomcert'] = 'Get certificate';
@@ -63,5 +66,6 @@ $string['region-content'] = 'Content';
 $string['signuptitle'] = 'Create new account';
 $string['signupdesc'] = 'Account creation is reserved to Parcoursup candidates. Further information will be
 asked later on.';
+$string['studentcourseid'] = 'Student course ID for questionnaire';
 $string['updatemyprofile'] = 'Update my profile';
 $string['welcomedashboard'] = 'Welcome {$a}!';

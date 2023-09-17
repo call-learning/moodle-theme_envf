@@ -1,5 +1,6 @@
 <?php
 // TCPDF FONT FILE DESCRIPTION
+// phpcs:ignoreFile -- ignoring core file.
 $type='core';
 $name='Times-Bold';
 $up=-100;

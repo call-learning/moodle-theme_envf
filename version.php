@@ -24,7 +24,7 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version   = 2020070106; /* This is the version number to increment when changes needing an update are made */
+$plugin->version   = 2023091702; /* This is the version number to increment when changes needing an update are made */
 $plugin->requires  = 2019111800;
 $plugin->release   = '0.1.0';
 $plugin->maturity  = MATURITY_ALPHA;
@@ -38,6 +38,7 @@ $plugin->dependencies = [
     'block_contact_form' => ANY_VERSION,
     'block_faq' => ANY_VERSION,
     'format_envfpsup' => ANY_VERSION,
+    'filter_envf' => ANY_VERSION,
     'local_mcms' => ANY_VERSION,
     'local_dash_by_role' => ANY_VERSION,
     'mod_questionnaire' => ANY_VERSION,

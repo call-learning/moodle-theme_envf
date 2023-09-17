@@ -23,7 +23,6 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
 
 /**
  * Main upgrade tasks to be executed on the theme version bump
@@ -39,5 +38,14 @@ function xmldb_theme_envf_upgrade($oldversion) {
     global $CFG, $DB;
     $dbman = $DB->get_manager(); // Loads ddl manager and xmldb classes.
     // allowed version to upgrade from (v3.5.0 right now).
+
+    if ($oldversion < 2023091700) {
+        $studentcourseid  = get_config('local_envf', 'studentcourseid');
+        if ($studentcourseid) {
+            set_config('studentcourseid', $studentcourseid, 'theme_envf');
+        }
+        // Envf savepoint reached.
+        upgrade_plugin_savepoint(true, 2023091700, 'theme', 'envf');
+    }
     return true;
 }

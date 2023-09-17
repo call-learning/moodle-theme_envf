@@ -1,4 +1,5 @@
 <?php
+// phpcs:ignoreFile -- this is not a core file
 $type='cidfont0';
 $name='HYSMyeongJoStd-Medium-Acro'; // AdobeMyungjoStd-Medium-Acro in acrobat 6
 $displayname = 'MyungJo Medium (Korean)';

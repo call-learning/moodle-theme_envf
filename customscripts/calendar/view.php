@@ -8,7 +8,7 @@
  * @copyright 2003 Jon Papaioannou
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-if (!has_capability('local/envf:calendarview', context_system::instance())) {
+if (!has_capability('theme/envf:calendarview', context_system::instance())) {
     global $OUTPUT;
     // Make sure we redirect any user who has not the capability.
     $OUTPUT->notification(get_string('success'), 'notifyfailure');

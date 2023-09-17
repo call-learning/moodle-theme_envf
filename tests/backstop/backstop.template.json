@@ -1,0 +1,120 @@
+{
+  "id": "concours_veto",
+  "viewports": [
+    {
+      "label": "mobile-iphone6",
+      "width": 375,
+      "height": 667
+    },
+    {
+      "label": "mobile-galaxys5",
+      "width": 360,
+      "height": 640
+    },
+    {
+      "label": "tablette-ipad",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "label": "desktop-low",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "label": "desktop-high",
+      "width": 1920,
+      "height": 1080
+    }
+  ],
+  "onBeforeScript": "puppet/onBefore.js",
+  "onReadyScript": "puppet/onReady.js",
+  "scenarios": [
+    {
+      "label": "Concours Veto Home page",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "<TESTSITEURL>",
+      "referenceUrl": "https://concours-veto-postbac.fr/"
+    },
+    {
+      "label": "Présentation du concours véto post-bac",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "<TESTSITEURL>/local/mcms/index.php?p=pres-concours-veto-post-bac",
+      "referenceUrl": "http://concours-veto-postbac.fr/local/mcms/index.php?p=pres-concours-veto-post-bac"
+    },
+    {
+      "label": "Le choix des spécialités",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "<TESTSITEURL>/local/mcms/index.php?p=choix-specialites",
+      "referenceUrl": "http://concours-veto-postbac.fr/local/mcms/index.php?p=choix-specialites"
+    },
+    {
+      "label": "Le lien avec Parcoursup",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "<TESTSITEURL>/local/mcms/index.php?p=s-inscrire-parcoursup",
+      "referenceUrl": "http://concours-veto-postbac.fr/local/mcms/index.php?p=s-inscrire-parcoursup"
+    },
+    {
+      "label": "Les entretiens",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "<TESTSITEURL>/local/mcms/index.php?p=se-preparer-entretiens",
+      "referenceUrl": "http://concours-veto-postbac.fr/local/mcms/index.php?p=se-preparer-entretiens"
+    },
+    {
+      "label": "FAQ",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "<TESTSITEURL>/local/mcms/index.php?p=questions-frequente",
+      "referenceUrl": "http://concours-veto-postbac.fr/local/mcms/index.php?p=questions-frequente"
+    },
+    {
+      "label": "Les autres voies d'accès",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "<TESTSITEURL>/local/mcms/index.php?p=autres-voies-accs",
+      "referenceUrl": "http://concours-veto-postbac.fr/local/mcms/index.php?p=autres-voies-accs"
+    },
+    {
+      "label": "Les autres voies d'accès",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "<TESTSITEURL>/local/mcms/index.php?p=etudes-veterinaires",
+      "referenceUrl": "http://concours-veto-postbac.fr/local/mcms/index.php?p=etudes-veterinaires"
+    },
+    {
+      "label": "Les métiers vétérinaires",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "<TESTSITEURL>/local/mcms/index.php?p=metiers-veterinaires",
+      "referenceUrl": "http://concours-veto-postbac.fr/local/mcms/index.php?p=metiers-veterinaires"
+    },
+    {
+      "label": "Les etudes vétérinaires",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "<TESTSITEURL>/local/mcms/index.php?p=etudes-veterinaires",
+      "referenceUrl": "http://concours-veto-postbac.fr/local/mcms/index.php?p=etudes-veterinaires"
+    },
+    {
+      "label": "Contact",
+      "cookiePath": "backstop_data/engine_scripts/cookies.json",
+      "url": "<TESTSITEURL>/local/mcms/index.php?p=contact",
+      "referenceUrl": "http://concours-veto-postbac.fr/local/mcms/index.php?p=contact"
+    }
+  ],
+  "paths": {
+    "bitmaps_reference": "backstop_data/bitmaps_reference",
+    "bitmaps_test": "backstop_data/bitmaps_test",
+    "engine_scripts": "backstop_data/engine_scripts",
+    "html_report": "backstop_data/html_report",
+    "ci_report": "backstop_data/ci_report"
+  },
+  "report": [
+    "browser"
+  ],
+  "engine": "puppeteer",
+  "engineOptions": {
+    "args": [
+      "--no-sandbox"
+    ]
+  },
+  "asyncCaptureLimit": 5,
+  "asyncCompareLimit": 50,
+  "debug": false,
+  "debugWindow": false
+}

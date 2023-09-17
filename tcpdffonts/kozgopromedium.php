@@ -1,4 +1,5 @@
 <?php
+// phpcs:ignoreFile -- this is not a core file
 $type = 'cidfont0';
 $name = 'KozGoPro-Medium-Acro';
 $displayname = 'Kozuka Gothic Pro (Japanese Sans-Serif)';
