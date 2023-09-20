@@ -102,11 +102,6 @@ button {
     font-weight: $button-font-weight;
 }
 
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link:focus {
-    font-weight: $nav-highlight-font-weight;
-}
-
 // stylelint-disable
 $theme-colors: () !default;
 $theme-colors: map-merge((
@@ -118,43 +113,5 @@ $theme-colors: map-merge((
         danger: $danger,
 ), $theme-colors);
 
-// stylelint-enable
-
-// Import FontAwesome.
-@import "fontawesome";
-
-// Import All of Bootstrap
-@import "bootstrap";
-
-// Import Core moodle CSS
-@import "moodle";
-
-// Preset CSS
-
-body {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-// Rounded user pictures
-.userpicture {
-    border-radius: 50%;
-}
-
-// Reset the default styling back to the bootstrap defaults for
-// the secondary outline button because gray-200 is much too light
-// for an outline button.
-.btn-outline-secondary {
-    @include button-outline-variant($gray-600);
-    border-color: $gray-600;
-}
-
-.btn-outline-info {
-    @include button-outline-variant($info-outline);
-}
-
-.btn-outline-warning {
-    @include button-outline-variant($warning-outline);
-}
-
-@include bg-variant(".bg-gray", $gray-200, true);
+$drawer-height: 140px !default;
+$moremenu-height: 42px;

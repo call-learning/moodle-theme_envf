@@ -39,10 +39,23 @@
 
 #page-my-index {
     .page-header-headings h1 {
-        font-size: 1.5em;
+        margin-bottom: 2rem;
     }
 
     h5.card-title {
         font-size: 1.75em;
     }
+}
+
+.page-header-headings {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    h1 {
+        margin-bottom: 0;
+    }
+}
+
+#page-navbar .breadcrumb {
+    padding: 0.5rem 0;
 }
