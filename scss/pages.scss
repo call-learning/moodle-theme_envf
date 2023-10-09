@@ -21,6 +21,19 @@
     margin-top: $navbar-height;
 }
 
+@include media-breakpoint-up(md) {
+    #page.drawers {
+        .main-inner {
+            max-width: $course-content-maxwidth;
+        }
+        .footer-popover {
+            max-width: $course-content-maxwidth;
+            width: 100%;
+            margin: 0 auto;
+            @include border-radius();
+        }
+    }
+}
 
 // Block decoration
 
@@ -138,6 +151,10 @@
     }
 }
 
+body.hide-editswitch .editmode-switch-form {
+    display: none !important;
+}
+
 #page-mod-choice-view.format-envfpsup {
     form.horizontal {
         display: flex;
@@ -165,5 +182,22 @@
         padding-bottom: 3em;
         font-size: larger;
         font-weight: bolder;
+    }
+}
+
+.activity-navigation-last {
+    padding-top: 1.5rem;
+    margin-top: 7.5rem;
+    margin-bottom: -4.5rem;
+}
+
+.legalinfo {
+    .row > *::after {
+        content: "|";
+        margin: 0 0.5rem;
+        font-size: 0.8rem;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
     }
 }

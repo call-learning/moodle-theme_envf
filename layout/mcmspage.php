@@ -35,6 +35,7 @@ $pageheaderrenderer = $PAGE->get_renderer('local_mcms', 'pageheader');
 $mcmspagecontext = [
     'mcmspageheader' => $pageheaderrenderer->render($pageheaderenderable),
     'headeractions' => $PAGE->get_header_actions(),
+    'pageheadingbutton' => $OUTPUT->page_heading_button(),
 ];
 
 echo $OUTPUT->render_from_template('theme_envf/mcmspage', array_merge($defaultcontext, $mcmspagecontext));

@@ -17,8 +17,15 @@
 {{!
     Page footer.
 }}
-<footer id="page-footer" class="py-3 text-dark bg-white">
-    <div class="container">
+<div id="goto-top-link">
+    {{! go to top is sticky to footer so needs to be sibling }}
+    <a class="btn btn-dark icon-no-margin mr-3" role="button" href="#topofscroll">
+        {{#pix}} i/up, core, {{#str}} totop, theme_envf {{/str}}{{/pix}}
+    </a>
+</div>
+<footer id="page-footer" class="py-3 text-dark overflow-hidden">
+    <div class="container position-relative">
+        <div class="mcms-square square-dual-blue d-none d-lg-block"></div>
         <div class="container-fluid infos-footer">
             <div class="row justify-content-center">
                 <div class="col-6 col-lg-3">
@@ -58,17 +65,14 @@
         </div>
         </div>
     </div>
-    <div class="container-fluid">
-        <div class="row justify-content-around  text-center flex-sm-wrap">
-            {{{ output.standard_footer_html }}}
-        </div>
-        <div class="row justify-content-between text-center">
-            {{# additionalinfo.legallinks }}
-                <div class="col col-12 col-md">
-                    <a href="{{link}}">{{label}}</a>
-                </div>
-            {{/ additionalinfo.legallinks }}
-        </div>
-    </div>
+
     {{{ output.standard_end_of_body_html }}}
 </footer>
+<div class="container legalinfo small">
+    <div class="row justify-content-center">
+        {{# additionalinfo.legallinks }}
+            <a href="{{link}}">{{label}}</a>
+        {{/ additionalinfo.legallinks }}
+        {{{ output.standard_footer_html }}}
+    </div>
+</div>

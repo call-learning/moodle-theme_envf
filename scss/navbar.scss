@@ -20,6 +20,8 @@
     &:focus,
     &:hover {
         border-bottom: 2px solid $primary;
+        background-color: transparent;
+        box-shadow: none;
     }
 
     color: $gray-900;

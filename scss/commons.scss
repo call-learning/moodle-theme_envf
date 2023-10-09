@@ -1,13 +1,13 @@
 @import "pre";
 
 // Import FontAwesome.
-@import "fontawesome";
+@import "../../boost/scss/fontawesome";
 
 // Import All of Bootstrap
-@import "bootstrap";
+@import "../../boost/scss/bootstrap";
 
 // Import Core moodle CSS
-@import "moodle";
+@import "../../boost/scss/moodle";
 @import "post";
 
 // Reset a couple of values

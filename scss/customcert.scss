@@ -1,0 +1,6 @@
+.modtype_customcert .activityiconcontainer {
+    background-color: var(--activitycommunication);
+    .activityicon  {
+        filter: brightness(0) invert(1);
+    }
+}

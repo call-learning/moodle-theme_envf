@@ -5,7 +5,7 @@
 
     li {
         counter-increment: circle-counter;
-        margin-bottom: $spacer*.25;
+        margin-bottom: $spacer*.5;
         margin-left: $spacer*.25;
 
         &:before {
@@ -29,6 +29,10 @@
             font-family: "FontAwesome";
             background-color: $primary;
             color: white;
+            font-size: 0.8rem;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
         }
 
         &:last-child {

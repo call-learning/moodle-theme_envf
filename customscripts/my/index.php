@@ -87,6 +87,7 @@ $PAGE->set_context($context);
 $PAGE->set_url('/my/index.php', $params);
 $PAGE->set_pagelayout('mydashboard');
 $PAGE->set_pagetype('my-index');
+$PAGE->add_body_class('hide-editswitch');
 $PAGE->blocks->add_region('content');
 $PAGE->set_subpage($currentpage->id);
 $PAGE->set_title($pagetitle);

@@ -48,4 +48,9 @@ class config extends \theme_clboost\local\config {
         );
         return $layouts;
     }
+    public static function setup_config(&$theme, $themeparentname = 'clboost') {
+        $theme = parent::setup_config($theme, $themeparentname);
+        $theme->usescourseindex = false;
+        return $theme;
+    }
 }
