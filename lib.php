@@ -84,3 +84,22 @@ function theme_envf_extend_navigation(global_navigation $nav) {
         }
     }
 }
+
+/**
+ * Returns the main SCSS content.
+ *
+ * This includes the post.css file from CL Boost and only the pre.css file
+ * from clboost if the one from the current theme is empty.
+ * This will avoid the double inclusion of the font-awesome, moodle scss file.
+ *
+ * @param theme_config $theme The theme config object.
+ * @return string
+ * @throws dml_exception
+ */
+function theme_envf_get_main_scss_content($theme) {
+    global $CFG;
+
+    $scss = file_get_contents($CFG->dirroot . '/theme/envf/scss/commons.scss');
+
+    return  $theme->settings->scss . $scss;
+}

@@ -1,6 +1,9 @@
 #page-footer {
     .addresses {
         font-size: xx-small;
+        li {
+            margin-bottom: 0.2rem;
+        }
     }
 }
 
@@ -11,7 +14,6 @@
     a:active,
     a:visited {
         color: $gray-600;
-        text-decoration: none;
     }
 
     a:focus {
@@ -45,8 +47,27 @@
     }
 
     .infos-footer {
-        border-top: 1px solid $gray-600;
+        border-top: 1px solid $gray-300;
         padding-top: 2em;
+    }
+    .custom-menu-footer {
+        font-weight: bold;
+        & > ul > li {
+            margin-bottom: 0.5rem;
+        }
+    }
+    .custom-menu-footer > ul > li > ul {
+        margin-left: 0.5rem;
+        a {
+            display: block;
+            font-weight: normal;
+            padding: 0.2rem;
+        }
+    }
+    .mcms-square {
+        width: 660px;
+        right: -170px;
+        top: -60px;
     }
 }
 

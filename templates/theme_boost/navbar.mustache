@@ -15,59 +15,100 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    Page navbar.
 
-    Note that we use additionalinfo from the clboost template engine settings.
+    @template theme_boost/navbar
+
+    This template renders the top navbar.
+
+    Example context (json):
+    {
+        "output": {
+            "should_display_navbar_logo": true,
+            "get_compact_logo_url": "http://placekitten.com/50/50",
+            "custom_menu": "<li>..</li>",
+            "page_heading_menu": "<li>..</li>",
+            "search_box": "<div><input type='text'></div>",
+            "navbar_plugin_output": "<div class='dropdown'>Messaging</div>",
+            "user_menu": "<div class='dropdown'>John Doe</div>"
+        },
+        "config": {
+            "wwwroot": "#",
+            "homeurl": "/my/"
+        },
+        "sitename": "Moodle Site",
+        "mobileprimarynav": [
+            {
+                "text": "Dashboard",
+                "url": "/my",
+                "isactive": true
+            },
+            {
+                "text": "Site home",
+                "url": "/",
+                "isactive": false
+            },
+            {
+                "text": "My courses",
+                "url": "/course",
+                "isactive": false
+            }
+        ]
+    }
 }}
-<nav class="fixed-top navbar navbar-light bg-white navbar-expand moodle-has-zindex" aria-label="{{#str}}sitemenubar, admin{{/str}}">
+<nav class="navbar fixed-top navbar-light bg-white navbar-expand" aria-label="{{#str}}sitemenubar, admin{{/str}}">
+
+
     <div class="nav-left-region">
         {{# additionalinfo.isloggedin }}
-            <div data-region="drawer-toggle" class="d-block">
-                <button
-                        aria-expanded="{{#navdraweropen}}true{{/navdraweropen}}{{^navdraweropen}}false{{/navdraweropen}}"
-                        aria-controls="nav-drawer"
-                        type="button" class="btn nav-link align-bottom d-inline-block"
-                        data-action="toggle-drawer"
-                        data-side="left"
-                        data-preference="drawer-open-nav">{{#pix}}i/menubars{{/pix}}<span class="sr-only">{{#str}}sidepanel, core{{/str}}</span>
-                </button>
-            </div>
+            <button class="navbar-toggler aabtn d-block d-md-none px-1 my-1 mr-3 border-0" data-toggler="drawers" data-action="toggle" data-target="theme_boost-drawers-primary">
+                <span class="navbar-toggler-icon"></span>
+                <span class="sr-only">{{#str}}sidepanel, core{{/str}}</span>
+            </button>
         {{/ additionalinfo.isloggedin }}
         {{^ additionalinfo.isloggedin }}
             <img class="rf-logo img-fluid" src="{{{ config.wwwroot }}}/theme/{{ additionalinfo.themename }}/pix/rf.png" role="presentation"
                  alt="{{#str}}republiquefrancaise, theme_envf{{/str}}">
         {{/ additionalinfo.isloggedin }}
     </div>
-    <div class="d-flex flex-row flex-grow-1 nav-main-content">
-        <a href="{{{ config.wwwroot }}}" class="navbar-brand aabtn {{# output.should_display_navbar_logo }}has-logo{{/ output.should_display_navbar_logo }}">
-             <span class="logo">
-                 <img src="{{output.get_compact_logo_url}}" alt="{{sitename}}">
-             </span>
-            <span class="site-name d-none d-lg-inline pl-3">{{{ sitename }}}</span>
-        </a>
 
-        <!-- We display the menu twice here, once the full menu, the second one is a shorter version -->
-        <ul class="navbar-nav m-auto d-none d-sm-block m-r-1 d-md-flex justify-content-around">
-            <!-- custom_menu -->
-            {{{ output.mcms_menu }}}
-            {{{ output.custom_menu }}}
-            <!-- page_heading_menu -->
-            {{{ output.page_heading_menu }}}
-        </ul>
-        <ul class="navbar-nav m-auto d-flex d-sm-none m-r-1 custom-menu-small justify-content-around">
-            <!-- custom_menu -->
-            {{{ output.mcms_menu }}}
-        </ul>
-    </div>
-    <ul class="nav navbar-nav ml-auto">
-        <li class="d-none d-lg-block">
-            {{{ output.search_box }}}
-        </li>
-        <!-- user_menu -->
-        <li class="nav-item d-flex align-items-center">
-            {{{ output.user_menu }}}
-        </li>
+    <a href="{{{ config.homeurl }}}" class="d-flex logo align-items-center m-0 mr-4 p-0 aabtn">
+
+        {{# output.should_display_navbar_logo }}
+            <img src="{{output.get_compact_logo_url}}" class="logo mr-1" alt="{{sitename}}">
+        {{/ output.should_display_navbar_logo }}
+        {{^ output.should_display_navbar_logo }}
+            {{{ sitename }}}
+        {{/ output.should_display_navbar_logo }}
+    </a>
+
+    <ul class="navbar-nav d-none d-md-flex my-1 px-1">
+        <!-- page_heading_menu -->
+        {{{ output.page_heading_menu }}}
     </ul>
-    <!-- search_box -->
+    <ul class="navbar-nav ml-auto mr-3 d-none d-md-flex justify-content-around">
+        <!-- custom_menu -->
+        {{{ output.mcms_menu }}}
+        <!-- page_heading_menu -->
+        {{{ output.page_heading_menu }}}
+    </ul>
+
+    <div id="usernavigation" class="navbar-nav ml-auto ml-md-0">
+        {{# output.search_box }}
+            {{{ output.search_box }}}
+            <div class="divider border-left h-75 align-self-center mx-1"></div>
+        {{/output.search_box}}
+        {{#langmenu}}
+            {{> theme_boost/language_menu }}
+            <div class="divider border-left h-75 align-self-center mx-1"></div>
+        {{/langmenu}}
+        {{{ output.edit_switch }}}
+        <div class="d-flex align-items-stretch usermenu-container" data-region="usermenu">
+            {{#usermenu}}
+                {{> core/user_menu }}
+            {{/usermenu}}
+        </div>
+    </div>
 </nav>
 
+
+{{> theme_boost/primary-drawer-mobile }}

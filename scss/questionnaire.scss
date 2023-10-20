@@ -30,10 +30,11 @@
         &::before {
             content: $fa-var-check;
             font-family: "FontAwesome";
-            font-size: 0.6rem;
+            font-size: 0.8rem;
             color: white;
-            display: block;
-            margin-left: 0.1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     }
 }
@@ -53,20 +54,23 @@ td {
 #page-mod-questionnaire-report,
 #page-mod-questionnaire-view,
 #page-mod-questionnaire-myreport {
+    table {
+        border-collapse: separate;
+        border-spacing: 0;
+        td {
+            border: 1px solid transparent;
+        }
+    }
     .c0,
     .individual .c0 {
         background-color: rgba(red($primary), green($primary), blue($primary), .05);
-        border: none;
+        border: 1px solid transparent;
     }
 
     .c1,
     .individual .c1 {
         background-color: rgba(red($primary), green($primary), blue($primary), .1);
-        border: none;
-    }
-
-    .individualresp {
-        border: none;
+        border: 1px solid transparent;
     }
 
     tbody tr:first-child .c0,
@@ -80,7 +84,6 @@ td {
         padding-top: 2em;
         padding-bottom: 2em;
         input.btn {
-            @include button-outline-variant($white);
             &[name="next"],
             &[name="submit"] {
                 float: right;
@@ -113,7 +116,6 @@ td {
     .raterow:hover,
     td.raterow:hover {
         background-color: rgba(red($primary), green($primary), blue($primary), .2);
-        border: none;
     }
 
     td.raterow:hover {
@@ -134,3 +136,13 @@ td {
     display: none;
 }
 
+.modtype_questionnaire .activityiconcontainer {
+    background-color: var(--activitycommunication);
+    .activityicon  {
+        filter: brightness(0) invert(1);
+    }
+}
+
+#page-mod-questionnaire-complete .message, #page-mod-questionnaire-preview .message, #page-mod-questionnaire-complete .thankbody, #page-mod-questionnaire-complete .thankhead {
+    border-color: transparent;
+}

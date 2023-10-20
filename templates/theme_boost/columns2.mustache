@@ -59,54 +59,32 @@
 
     {{> theme_boost/navbar }}
 
-    <div id="page" class="container-fluid d-print-block">
-        <header id="page-header" class="row">
-            <div class="col-12 pt-3 pb-3">
-                <div class="container card border-0 bg-transparent">
-                    {{{ mcmspageheader }}}
-                    <div class="card-body {{^contextheader}}p-2{{/contextheader}}">
-                        <div class="d-sm-flex align-items-center">
-                            {{#settingsmenu}}
-                                <div class="context-header-settings-menu">
-                                    {{{settingsmenu}}}
-                                </div>
-                            {{/settingsmenu}}
-                            <div class="header-actions-container flex-shrink-0" data-region="header-actions-container">
-                                {{#headeractions}}
-                                    <div class="header-action ml-2">{{{.}}}</div>
-                                {{/headeractions}}
-                            </div>
-                        </div>
-                        <div class="d-flex flex-wrap">
-                            {{#hasnavbar}}
-                                <div id="page-navbar">
-                                    {{{navbar}}}
-                                </div>
-                            {{/hasnavbar}}
-                            <div class="ml-auto d-flex">
-                                {{{pageheadingbutton}}}
-                            </div>
-                            <div id="course-header">
-                                {{{courseheader}}}
-                            </div>
-                        </div>
-                    </div>
+    <div id="page" class="container d-print-block">
+        {{{ output.full_header }}}
+            {{#secondarymoremenu}}
+                <div class="secondary-navigation">
+                    {{> core/moremenu}}
                 </div>
-            </div>
-        </header>
-        <div id="page-content" class="row pb-3 d-print-block overflow-hidden">
+            {{/secondarymoremenu}}
+        <div id="page-content" class="row m-0 pb-3 d-print-block">
             <div id="region-main-box" class="col-12">
                 {{#hasregionmainsettingsmenu}}
-                <div id="region-main-settings-menu" class="d-print-none ">
-                    <div> {{{ output.region_main_settings_menu }}} </div>
+                <div id="region-main-settings-menu" class="d-print-none {{#hasblocks}}has-blocks{{/hasblocks}}">
+                    <div> {{{ regionmainsettingsmenu }}} </div>
                 </div>
                 {{/hasregionmainsettingsmenu}}
-                <section id="region-main" aria-label="{{#str}}content{{/str}}">
+                <section id="region-main" {{#hasblocks}}class="has-blocks mb-3"{{/hasblocks}} aria-label="{{#str}}content{{/str}}">
 
                     {{#hasregionmainsettingsmenu}}
                         <div class="region_main_settings_menu_proxy"></div>
                     {{/hasregionmainsettingsmenu}}
                     {{{ output.course_content_header }}}
+                    {{#headercontent}}
+                        {{> core/activity_header }}
+                    {{/headercontent}}
+                    {{#overflow}}
+                        {{> core/url_select}}
+                    {{/overflow}}
                     {{{ output.main_content }}}
                     {{{ output.activity_navigation }}}
                     {{{ output.course_content_footer }}}
@@ -114,6 +92,7 @@
                 </section>
                 {{#hasblocks}}
                 <section data-region="blocks-column" class="d-print-none" aria-label="{{#str}}blocks{{/str}}">
+                    {{{ addblockbutton }}}
                     {{{ sidepreblocks }}}
                 </section>
                 {{/hasblocks}}
@@ -128,13 +107,8 @@
 </html>
 {{#js}}
 M.util.js_pending('theme_boost/loader');
-require(['theme_boost/loader'], function() {
+require(['theme_boost/loader', 'theme_boost/drawer'], function(Loader, Drawer) {
+    Drawer.init();
     M.util.js_complete('theme_boost/loader');
-});
-
-M.util.js_pending('theme_boost/drawer');
-require(['theme_boost/drawer'], function(drawer) {
-    drawer.init();
-    M.util.js_complete('theme_boost/drawer');
 });
 {{/js}}

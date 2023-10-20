@@ -19,19 +19,20 @@
 }}
 <div id="goto-top-link">
     {{! go to top is sticky to footer so needs to be sibling }}
-    <a class="btn btn-dark" role="button" href="#">
-        {{#pix}} i/up, core, {{#str}} totop, theme_boost {{/str}}{{/pix}}
+    <a class="btn btn-dark icon-no-margin mr-3" role="button" href="#topofscroll">
+        {{#pix}} i/up, core, {{#str}} totop, theme_envf {{/str}}{{/pix}}
     </a>
 </div>
-<footer id="page-footer" class="py-3 text-dark bg-white">
-    <div class="container">
+<footer id="page-footer" class="py-3 text-dark overflow-hidden">
+    <div class="container position-relative">
+        <div class="mcms-square square-dual-blue d-none d-lg-block"></div>
         <div class="container-fluid infos-footer">
-            <div class="row-fluid justify-content-center">
-                <div class="col-12 col-md">
+            <div class="row justify-content-center">
+                <div class="col-6 col-lg-3">
                     <img class="ma-logo d-none d-sm-inline-block" src="{{{ config.wwwroot }}}/theme/envf/pix/ministere-agriculture-alimentation.png" role="presentation"
                          alt="{{#str}}ministereagriculture, theme_envf{{/str}}">
                 </div>
-                <div class="col-12 col-md-auto">
+                <div class="col-6 col-lg-4">
                     <div class="container">
                         <div class="row">
                             <div clas="col">
@@ -52,34 +53,26 @@
                         </div>
                     </div>
                 </div>
-            <div class="col-12 col-md">
+            <div class="col-12 col-lg-5 d-flex justify-content-md-center">
                 <nav class="nav navbar-nav custom-menu-footer" aria-label="{{#str}}custommenu, admin{{/str}}">
                     {{# output.mcms_menu_menu_flat }}
                         <ul class="list-unstyled">
                             {{> theme_boost/custom_menu_footer }}
                         </ul>
                     {{/ output.mcms_menu_menu_flat }}
-                    {{# output.custom_menu_flat }}
-                        <ul class="list-unstyled">
-                            {{> theme_boost/custom_menu_footer }}
-                        </ul>
-                    {{/ output.custom_menu_flat }}
                 </nav>
             </div>
         </div>
         </div>
     </div>
-    <div class="container-fluid">
-        <div class="row-fluid justify-content-around  text-center flex-sm-wrap">
-            {{{ output.standard_footer_html }}}
-        </div>
-        <div class="row-fluid justify-content-between text-center">
-            {{# additionalinfo.legallinks }}
-                <div class="col col-12 col-md">
-                    <a href="{{link}}">{{label}}</a>
-                </div>
-            {{/ additionalinfo.legallinks }}
-        </div>
-    </div>
+
     {{{ output.standard_end_of_body_html }}}
 </footer>
+<div class="container legalinfo small">
+    <div class="row justify-content-center">
+        {{# additionalinfo.legallinks }}
+            <a href="{{link}}">{{label}}</a>
+        {{/ additionalinfo.legallinks }}
+        {{{ output.standard_footer_html }}}
+    </div>
+</div>

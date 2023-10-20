@@ -1,6 +1,4 @@
-@import "../../clboost/scss/commons";
-@import "../../clboost/scss/drawer";
-@import "../../clboost/scss/teacherdashboard";
+
 @import "decorations.scss";
 @import "blocks.scss";
 @import "navbar.scss";
@@ -14,11 +12,13 @@
 @import "userprofileform.scss";
 @import "survey.scss";
 @import "quiz.scss";
+@import "customcert.scss";
 // General layout settings
 
+
+@include bg-variant(".bg-gray", $gray-200, true);
+
 .card {
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.15);
-    border: none;
 
     &.border-0 {
         box-shadow: unset;

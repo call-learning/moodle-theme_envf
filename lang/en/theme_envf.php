@@ -58,7 +58,7 @@ $string['ganalytics_desc'] = 'Google Analytics ID (UA-XXXXX-1)';
 
 $string['cookiesrgpd'] = 'Gestion des cookies et des données';
 $string['mentionlegales'] = 'Mentions légales';
-$string['copyright'] = '© ENVF  2020';
+$string['copyright'] = '© ENVF  2023';
 
 $string['region-side-pre'] = 'Right';
 $string['region-content'] = 'Content';
@@ -69,3 +69,4 @@ asked later on.';
 $string['studentcourseid'] = 'Student course ID for questionnaire';
 $string['updatemyprofile'] = 'Update my profile';
 $string['welcomedashboard'] = 'Welcome {$a}!';
+$string['totop'] = 'Go to top';

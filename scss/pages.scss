@@ -3,12 +3,44 @@
         border: initial;
         padding: initial;
     }
+    #page.drawers {
+        padding-left: 0;
+        padding-right: 0;
+        .main-inner {
+            background-color: transparent;
+            padding-left: 0;
+            padding-right: 0;
+            margin-left: 0;
+            margin-right: 0;
+            max-width: 100%;
+        }
+    }
+    #block-region-content {
+        overflow: hidden;
+    }
 }
 
 #page {
     margin-top: $navbar-height;
 }
 
+#page-wrapper #page-footer {
+    flex-shrink: 0;
+}
+
+@include media-breakpoint-up(md) {
+    #page.drawers {
+        .main-inner {
+            max-width: $course-content-maxwidth;
+        }
+        .footer-popover {
+            max-width: $course-content-maxwidth;
+            width: 100%;
+            margin: 0 auto;
+            @include border-radius();
+        }
+    }
+}
 
 // Block decoration
 
@@ -20,6 +52,7 @@
     }
     #page-header {
         padding-top: 80px;
+        overflow: hidden;
     }
 }
 
@@ -104,16 +137,27 @@
 .pagelayout-login {
     .signup-header {
         font-family: $font-family-sans-serif;
-        font-weight: bold;
-        font-size: 3.5em;
     }
     .psup-additional-description {
         margin-top: -1rem;
         margin-bottom: 1rem;
     }
-    .login-student-icon {
+    .login-student-icon .icon {
         width: 81px;
+        height: auto;
     }
+    #page {
+        background: none;
+        background-image: none;
+    }
+    .card {
+        box-shadow: 2px 12px 10px -2px rgba(0, 0, 0, 0.1);
+        border: 0;
+    }
+}
+
+body.hide-editswitch .editmode-switch-form {
+    display: none !important;
 }
 
 #page-mod-choice-view.format-envfpsup {
@@ -143,5 +187,22 @@
         padding-bottom: 3em;
         font-size: larger;
         font-weight: bolder;
+    }
+}
+
+.activity-navigation-last {
+    padding-top: 1.5rem;
+    margin-top: 7.5rem;
+    margin-bottom: -4.5rem;
+}
+
+.legalinfo {
+    .row > *::after {
+        content: "|";
+        margin: 0 0.5rem;
+        font-size: 0.8rem;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
     }
 }

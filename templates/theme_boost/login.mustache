@@ -37,16 +37,20 @@
 <div id="page-wrapper">
 
     {{{ output.standard_top_of_body_html }}}
-
     {{> theme_boost/navbar }}
-    {{> theme_boost/nav-drawer }}
+
     <div id="page" class="container-fluid">
         <div id="page-content" class="row">
-            <div id="region-main-box" class="col-12">
-                <section id="region-main" class="col-12" aria-label="{{#str}}content{{/str}}">
-                    {{{ output.course_content_header }}}
+            <div id="region-main-box" class="w-100">
+                <section id="region-main" class="w-100 h-100" aria-label="{{#str}}content{{/str}}">
+                <div class="login-wrapper wrapper-mcms-squares">
+
+                    <div class="login-container position-relative">
+                    <div class="mcms-square square-top-left square-single-violet"></div>
+                    <div class="mcms-square square-top-right square-dual-red"></div>
                     {{{ output.main_content }}}
-                    {{{ output.course_content_footer }}}
+                    </div>
+                </div>
                 </section>
             </div>
         </div>

@@ -91,6 +91,15 @@ class core_renderer extends \theme_clboost\output\core_renderer {
         return $renderer->mcms_menu_menu_flat();
     }
 
+        /**
+     * We want to show the custom menus as a list of links in the footer on small screens.
+     * Just return the menu object exported so we can render it differently.
+     */
+    public function mcms_menu_menu_mobile() {
+        $renderer = $this->page->get_renderer('local_mcms', 'menu');
+        return $renderer->mcms_menu_menu_mobile();
+    }
+
     /**
      * This is an optional menu that can be added to a layout by a theme. It contains the
      * menu for the most specific thing from the settings block. E.g. Module administration.

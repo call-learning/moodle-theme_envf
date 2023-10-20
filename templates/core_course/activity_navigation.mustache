@@ -64,21 +64,23 @@
         }
     }
 }}
-<div class="{{{addditionalclasses}}} mb-2 activity-navigation container-fluid pl-0 pr-0">
-    <div class="d-flex flex-wrap">
-        <div class="mt-1">
-            {{#prevlink}}
-                <a href="{{{url}}}" id="{{id}}" class="btn btn-primary" {{#attributes}} {{name}}={{#quote}}{{value}}{{/quote}} {{/attributes}}>
-                {{#icon}}{{#pix}}{{key}}, {{component}}, {{title}}{{/pix}}{{/icon}}{{{text}}}
-                </a>
-            {{/prevlink}}
-        </div>
-        <div class="ml-auto mt-1">
-            {{#nextlink}}
-                <a href="{{{url}}}" id="{{id}}" class="btn btn-primary" {{#attributes}} {{name}}={{#quote}}{{value}}{{/quote}} {{/attributes}}>
-                {{#icon}}{{#pix}}{{key}}, {{component}}, {{title}}{{/pix}}{{/icon}}{{{text}}}
-                </a>
-            {{/nextlink}}
+<div class="container">
+    <div class="border-top activity-navigation-last activity-navigation container-fluid">
+        <div class="d-flex flex-nowrap align-items-start justify-content-between">
+            <div class="col mt-1">
+                {{#prevlink}}
+                    <a href="{{{url}}}" id="{{id}}" class="btn btn-outline-primary" {{#attributes}} {{name}}={{#quote}}{{value}}{{/quote}} {{/attributes}}>
+                    {{#icon}}{{#pix}}{{key}}, {{component}}, {{title}}{{/pix}}{{/icon}}{{{text}}}
+                    </a>
+                {{/prevlink}}
+            </div>
+            <div class="col mt-1">
+                {{#nextlink}}
+                    <a href="{{{url}}}" id="{{id}}" class="btn btn-outline-primary" {{#attributes}} {{name}}={{#quote}}{{value}}{{/quote}} {{/attributes}}>
+                    {{#icon}}{{#pix}}{{key}}, {{component}}, {{title}}{{/pix}}{{/icon}}{{{text}}}
+                    </a>
+                {{/nextlink}}
+            </div>
         </div>
     </div>
 </div>

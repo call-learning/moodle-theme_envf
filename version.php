@@ -36,7 +36,6 @@ $plugin->dependencies = [
     'block_featured_courses' => ANY_VERSION,
     'block_thumblinks_action' => ANY_VERSION,
     'block_faq' => ANY_VERSION,
-    'format_envfpsup' => ANY_VERSION,
     'filter_envf' => ANY_VERSION,
     'local_mcms' => ANY_VERSION,
     'local_dash_by_role' => ANY_VERSION,

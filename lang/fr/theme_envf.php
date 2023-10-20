@@ -57,7 +57,7 @@ $string['ganalytics_desc'] = 'Google Analytics ID (UA-XXXXX-1)';
 
 $string['cookiesrgpd'] = 'Gestion des cookies et des données';
 $string['mentionlegales'] = 'Mentions légales';
-$string['copyright'] = '© ENVF  2020';
+$string['copyright'] = '© ENVF  2023';
 
 $string['region-side-pre'] = 'Droit';
 $string['region-content'] = 'Contenu';
@@ -73,4 +73,4 @@ Vous ne pourrez plus modifier ces informations si nécessaire.<br>
 Vérifiez bien vos données avant de cliquer sur "Créer mon compte".';
 $string['updatemyprofile'] = 'Mettre à jour mes informations';
 $string['welcomedashboard'] = 'Bienvenue {$a}!';
-
+$string['totop'] = 'Aller en haut';

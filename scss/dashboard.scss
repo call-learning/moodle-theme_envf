@@ -5,7 +5,7 @@
 
     li {
         counter-increment: circle-counter;
-        margin-bottom: $spacer*.25;
+        margin-bottom: $spacer*.5;
         margin-left: $spacer*.25;
 
         &:before {
@@ -19,9 +19,11 @@
             font-size: $font-size-base*.75;
             line-height: $font-size-base*1.5;
             color: $primary;
-            text-align: center;
             margin-right: $spacer*.5;
             position: relative;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
         }
 
         &.status-completed:before {
@@ -29,6 +31,10 @@
             font-family: "FontAwesome";
             background-color: $primary;
             color: white;
+            font-size: 0.8rem;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
         }
 
         &:last-child {
@@ -39,10 +45,23 @@
 
 #page-my-index {
     .page-header-headings h1 {
-        font-size: 1.5em;
+        margin-bottom: 2rem;
     }
 
     h5.card-title {
         font-size: 1.75em;
     }
+}
+
+.page-header-headings {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    h1 {
+        margin-bottom: 0;
+    }
+}
+
+#page-navbar .breadcrumb {
+    padding: 0.5rem 0;
 }
