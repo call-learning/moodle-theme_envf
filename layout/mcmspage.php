@@ -25,7 +25,7 @@ use local_mcms\page;
 
 defined('MOODLE_INTERNAL') || die();
 
-$defaultcontext = \theme_clboost\local\utils::prepare_standard_page($OUTPUT, $PAGE);
+$defaultcontext = \theme_clboost\local\utils::prepare_standard_page($OUTPUT, $PAGE, false);
 
 // Here is it a bit of a hack, we get the page id from the subpage id.
 $page = new page($PAGE->subpage);

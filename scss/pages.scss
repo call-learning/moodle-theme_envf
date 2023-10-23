@@ -50,9 +50,8 @@
         border: none;
         background: transparent !important;
     }
-    #page-header {
-        padding-top: 80px;
-        overflow: hidden;
+    #topofscroll {
+        margin-top: 80px;
     }
 }
 
@@ -131,6 +130,15 @@
 
     .block_mcms.mb-3 {
         margin-bottom: auto !important;
+    }
+
+}
+
+.pagelayout-mcmslayout:not(.editing), #page-site-index:not(.editing) {
+
+    #page.drawers {
+        padding-left: 15px;
+        padding-right: 15px;
     }
 }
 
