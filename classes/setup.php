@@ -82,72 +82,74 @@ EOD
         ],
         'atto_styles' => [
             'config' => <<<EOD
-{
-    "title": "Strong Primary",
-    "type": "inline",
-    "classes": "atto-strong-primary",
-    "preview": true
-},
-{
-    "title": "CTA Normal",
-    "type": "block",
-    "classes": "atto-envf-cta",
-    "preview": true
-},
-{
-    "title": "CTA Outline",
-    "type": "block",
-    "classes": "atto-envf-cta-outline",
-    "preview": true
-},
-{
-    "title": "CTA Outline White",
-    "type": "block",
-    "classes": "atto-envf-cta-outline-white",
-    "preview": true
-},
-{
-    "title": "Big Quote",
-    "type": "inline",
-    "classes": "atto-envf-quote",
-    "preview": false
-},
-{
-    "title": "Text white block",
-    "type": "block",
-    "classes": "atto-text-square-white",
-    "preview": true
-},
-{
-    "title": "Image shadow",
-    "type": "block",
-    "classes": "atto_image_shadow",
-    "preview": true
-},
-{
-    "title": "Button",
-    "type": "inline",
-    "classes": "atto-envf-btn",
-    "preview": true
-},
-{
-    "title": "Button Secondary",
-    "type": "inline",
-    "classes": "atto-envf-btn-secondary",
-    "preview": true
-},
-{
-    "title": "Button Secondary Outline",
-    "type": "inline",
-    "classes": "atto-envf-btn-secondary-outline",
-    "preview": true
-},
-{
-    "title": "Button Outline",
-    "type": "inline",
-    "classes": "atto-envf-btn-outline",
-    "preview": true
-}
+[
+    {
+        "title": "Strong Primary",
+        "type": "inline",
+        "classes": "atto-strong-primary",
+        "preview": true
+    },
+    {
+        "title": "CTA Normal",
+        "type": "block",
+        "classes": "atto-envf-cta",
+        "preview": true
+    },
+    {
+        "title": "CTA Outline",
+        "type": "block",
+        "classes": "atto-envf-cta-outline",
+        "preview": true
+    },
+    {
+        "title": "CTA Outline White",
+        "type": "block",
+        "classes": "atto-envf-cta-outline-white",
+        "preview": true
+    },
+    {
+        "title": "Big Quote",
+        "type": "inline",
+        "classes": "atto-envf-quote",
+        "preview": false
+    },
+    {
+        "title": "Text white block",
+        "type": "block",
+        "classes": "atto-text-square-white",
+        "preview": true
+    },
+    {
+        "title": "Image shadow",
+        "type": "block",
+        "classes": "atto_image_shadow",
+        "preview": true
+    },
+    {
+        "title": "Button",
+        "type": "inline",
+        "classes": "atto-envf-btn",
+        "preview": true
+    },
+    {
+        "title": "Button Secondary",
+        "type": "inline",
+        "classes": "atto-envf-btn-secondary",
+        "preview": true
+    },
+    {
+        "title": "Button Secondary Outline",
+        "type": "inline",
+        "classes": "atto-envf-btn-secondary-outline",
+        "preview": true
+    },
+    {
+        "title": "Button Outline",
+        "type": "inline",
+        "classes": "atto-envf-btn-outline",
+        "preview": true
+    }
+]
 EOD
         ]
     ];
