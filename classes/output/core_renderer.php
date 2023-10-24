@@ -62,7 +62,7 @@ class core_renderer extends \theme_clboost\output\core_renderer {
         $additionalinfo = parent::get_template_additional_information();
         $additionalinfo->orglist = utils::convert_address_config($this->page);
         $additionalinfo->legallinks = utils::convert_legallinks_config();
-        $attributes = array('rel' => 'stylesheet', 'type' => 'text/css');
+        $attributes = ['rel' => 'stylesheet', 'type' => 'text/css'];
         $urls = $this->page->theme->css_urls($this->page);
         $code = '';
         foreach ($urls as $url) {
@@ -77,6 +77,11 @@ class core_renderer extends \theme_clboost\output\core_renderer {
 
     // Menus.
 
+    /**
+     * MCMS Menus
+     *
+     * @return mixed
+     */
     public function mcms_menu() {
         $renderer = $this->page->get_renderer('local_mcms', 'menu');
         return $renderer->mcms_menu();
@@ -91,7 +96,7 @@ class core_renderer extends \theme_clboost\output\core_renderer {
         return $renderer->mcms_menu_menu_flat();
     }
 
-        /**
+    /**
      * We want to show the custom menus as a list of links in the footer on small screens.
      * Just return the menu object exported so we can render it differently.
      */

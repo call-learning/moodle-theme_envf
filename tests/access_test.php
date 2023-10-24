@@ -27,6 +27,9 @@ use context_system;
  */
 class access_test extends advanced_testcase {
 
+    /**
+     * Capability checks for different roles
+     */
     const CAPABILITY_CHECKS = [
         'user' => [
             'system' => [
@@ -76,6 +79,7 @@ class access_test extends advanced_testcase {
      * @param string $courserole
      * @return void
      * @dataProvider capability_provider
+     * @covers \theme_envf\theme_config::setup_user_roles
      */
     public function test_setup_user_roles_basic(
         string $rolename,
@@ -84,6 +88,10 @@ class access_test extends advanced_testcase {
         string $systemrole,
         string $courserole
     ) {
+        // Check if plugin installed and if it is skip the test as it will fail.
+        if (!empty(\core_plugin_manager::instance()->get_installed_plugins('local')['envf'])) {
+            $this->markTestSkipped('This cannot be run with the local/envf plugin installed.');
+        }
         $this->resetAfterTest();
         // This should be done at plugin install so we just need to check a couple of values.
         accesslib_clear_all_caches_for_unit_testing(); // Just in case something stayed in the cache.
@@ -119,7 +127,7 @@ class access_test extends advanced_testcase {
      *
      * @return array
      */
-    public function capability_provider() {
+    public static function capability_provider(): array {
         $capabilities = [];
         foreach (self::CAPABILITY_CHECKS as $usertype => $usercontext) {
             $capabilities['Role: ' . $usertype] = [

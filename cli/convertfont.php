@@ -38,11 +38,11 @@ require_once($CFG->libdir . '/tcpdf/tcpdf.php');
 list($options, $unrecognised) = cli_get_params([
     'help' => false,
     'fonts' => null,
-    'outpath' => null
+    'outpath' => null,
 ], [
     'h' => 'help',
     'i' => 'fonts',
-    'o' => 'outpath'
+    'o' => 'outpath',
 ]);
 
 $usage = <<<EOD

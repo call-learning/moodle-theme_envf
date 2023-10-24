@@ -38,7 +38,7 @@ class theme_envf_test extends advanced_testcase {
         $this->resetAfterTest();
         $course = $this->getDataGenerator()->create_course();
         $user = $this->getDataGenerator()->create_user();
-        $userpsup = $this->getDataGenerator()->create_user(array('auth' => 'psup'));
+        $userpsup = $this->getDataGenerator()->create_user(['auth' => 'psup']);
         set_config('studentcourseid', $course->id, 'theme_envf');
         user::enrol_user_on_course($user->id);
         user::enrol_user_on_course($userpsup->id);

@@ -94,3 +94,22 @@ nav.navbar.fixed-top {
     padding: 0.5rem 1rem;
     z-index: 1031;
 }
+
+// Here we cancel the default Moodle styles for the primary navigation as we still need to keep the class for behat testing
+// as they are based on the class name.
+.primary-navigation {
+    .navigation {
+        height: auto;
+        .nav-link {
+            height: auto;
+            color: inherit;
+            border-top: inherit;
+        }
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .primary-navigation {
+        display: initial;
+    }
+}

@@ -55,13 +55,13 @@ class user {
                 global $DB;
                 $psupstudentcourseid = get_config('theme_envf', 'studentcourseid');
                 if ($psupstudentcourseid
-                        && $DB->record_exists('course', array('id' => $psupstudentcourseid))) {
+                        && $DB->record_exists('course', ['id' => $psupstudentcourseid])) {
                     // TODO: should we use cohort enrolment ?
                     $instance = $DB->get_record('enrol',
                             ['courseid' => $psupstudentcourseid, 'enrol' => 'manual', 'status' => ENROL_USER_ACTIVE]);
                     if ($instance) {
                         try {
-                            $studentroleid = $DB->get_field('role', 'id', array('archetype' => self::DEFAULT_COURSE_ROLE));
+                            $studentroleid = $DB->get_field('role', 'id', ['archetype' => self::DEFAULT_COURSE_ROLE]);
                         } catch (dml_exception $e) {
                             debugging('Exception detected when trying to find student role (psup) ' .
                                     $e->getMessage(), DEBUG_NORMAL, $e->getTrace());

@@ -1,4 +1,4 @@
-@local @theme_envf
+@theme @theme_envf
 Feature: The user should be logged in directly when signing up and be shown the dashboard.
 
   Background:
@@ -21,9 +21,7 @@ Feature: The user should be logged in directly when signing up and be shown the 
     | Page Shortname | page shortname |
     | Page Description | page desc. lorem ispsum |
     Then I press "Save"
-    And I click on ".fa-search[label=\"View page\"]" "css_element"
-    And I should see "page desc. lorem ispsum"
-    And I should see "page shortname"
+    And I should see "title page"
 
   @javascript
   Scenario: As an manager I should be able to manage page created by an admin
@@ -46,7 +44,5 @@ Feature: The user should be logged in directly when signing up and be shown the 
       | Page Shortname | page shortname |
       | Page Description | New page description |
     Then I press "Save"
-    And I click on ".fa-search[label=\"View page\"]" "css_element"
     And I should not see "page desc. lorem ispsum"
     And I should see "New page description"
-

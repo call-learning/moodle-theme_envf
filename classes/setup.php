@@ -42,24 +42,22 @@ class setup {
             'langmenu' => false,
             'autologinguests' => true,
             'sitepolicyhandler' => 'tool_gdpr_plus',
-            'custommenuitems' => "Contact|/local/mcms/index.php?p=contact",
-            'customusermenuitems' => 'preferences,moodle|/user/preferences.php|t/preferences',
             'supportemail' => 'support@concours-veto-postbac.fr',
             'block_html_allowcssclasses' => true,
             'forcedefaultmymoodle' => true, // This will prevent copies from the default pages.
             'authloginviaemail' => true,
-            'usetags' => true
+            'usetags' => true,
 
         ],
         'local_mcms' => [
-            'rootmenuitems' => "Le concours|leconcours\r\nInfos complémentaires|infocompl\r\n"
+            'rootmenuitems' => "Le concours|leconcours\r\nInfos complémentaires|infocompl\r\n",
         ],
         'block_contact_form' => [
             'sendtoemail' => 'concours-veto-postbac@vet-alfort.fr',
-            'sendtoname' => 'Support'
+            'sendtoname' => 'Support',
         ],
         'block_html' => [
-            'allowcssclasses' => true
+            'allowcssclasses' => true,
         ],
         'editor_atto' => [
             'toolbar' => <<<EOD
@@ -76,9 +74,10 @@ undo = undo
 accessibility = accessibilitychecker, accessibilityhelper
 other = html
 EOD
+,
         ],
         'tool_dataprivacy' => [
-            'showdataretentionsummary' => false
+            'showdataretentionsummary' => false,
         ],
         'atto_styles' => [
             'config' => <<<EOD
@@ -151,7 +150,8 @@ EOD
     }
 ]
 EOD
-        ]
+,
+        ],
     ];
 
     /**

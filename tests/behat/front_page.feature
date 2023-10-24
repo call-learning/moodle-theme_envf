@@ -19,5 +19,3 @@ Feature: The user should be presented with a front page and menus
     Given I am on homepage
     When I should see "Écoles nationales vétérinaires de France" in the "#page-footer" "css_element"
     Then I should see "If you want to continue browsing this website"
-
-

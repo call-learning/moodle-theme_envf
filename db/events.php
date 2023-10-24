@@ -25,9 +25,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$observers = array(
-    array(
+$observers = [
+    [
         'eventname' => '\core\event\user_created',
         'callback' => '\theme_envf\observers\user::user_created',
-    ),
-);
+    ],
+];

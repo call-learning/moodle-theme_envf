@@ -29,8 +29,8 @@ $capabilities = [
         'captype' => 'write',
         'contextlevel' => CONTEXT_SYSTEM,
         'archetypes' => [
-            'manager' => CAP_ALLOW
-        ]
+            'manager' => CAP_ALLOW,
+        ],
     ],
     'theme/envf:viewcoursebreadcrumb' => [
         'riskbitmask' => RISK_XSS,
@@ -39,8 +39,8 @@ $capabilities = [
         'archetypes' => [
             'manager' => CAP_ALLOW,
             'editingteacher' => CAP_ALLOW,
-            'teacher' => CAP_ALLOW
-        ]
+            'teacher' => CAP_ALLOW,
+        ],
     ],
     // Restrict calendar view.
     'theme/envf:calendarview' => [
@@ -49,6 +49,6 @@ $capabilities = [
         'contextlevel' => CONTEXT_SYSTEM,
         'archetypes' => [
             'manager' => CAP_ALLOW,
-        ]
-    ]
+        ],
+    ],
 ];

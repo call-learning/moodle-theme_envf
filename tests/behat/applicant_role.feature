@@ -1,8 +1,8 @@
-@theme @theme_envf @tool_gdpr_plus
+@theme @theme_envf
 Feature: Within courses and depending on the roles, some user can or cannot do some actions.
 
+  # Necessary as the post install script needs to be run so user right are defined in full.
   Background:
-    # Necessary as the post install script needs to be run so user right are defined in full.
     Given the following config values are set as admin:
       | theme             | envf           |
       | sitepolicyhandler | tool_gdpr_plus |
@@ -12,18 +12,18 @@ Feature: Within courses and depending on the roles, some user can or cannot do s
       | This site policy    |          | full text2 | short text2 | active | 0        | all      | 0              |
       | This cookies policy |          | full text3 | short text3 | active | 1        | all      | 1              |
     Given the following "users" exist:
-      | username   | firstname  | lastname   | email                  | auth   |
-      | 10101010   | applicant  | applicant  | s1@example.com         | manual |
+      | username | firstname | lastname  | email          | auth   |
+      | 10101010 | applicant | applicant | s1@example.com | manual |
     And the following "role assigns" exist:
-      | user     | role        | contextlevel | reference |
-      | 10101010 | user   | System       |           |
+      | user     | role | contextlevel | reference |
+      | 10101010 | user | System       |           |
     And the following "courses" exist:
       | fullname | shortname | format   | idnumber | enablecompletion |
       | Course1  | C1        | envfpsup | qcourse  | 1                |
     And I restore "/local/envf/tests/fixtures/sample-questionnaire-course.mbz" backup into "C1" course
     And the following "course enrolments" exist:
-      | user     | course | role     |
-      | 10101010 | C1     | student  |
+      | user     | course | role    |
+      | 10101010 | C1     | student |
 
   @javascript
   Scenario:
@@ -76,6 +76,3 @@ Feature: Within courses and depending on the roles, some user can or cannot do s
     Then I press "Get Certificate"
     And I follow "Dashboard" in the user menu
     Then I should see "Download"
-
-
-
