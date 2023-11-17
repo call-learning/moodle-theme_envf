@@ -37,11 +37,14 @@ $cm = get_coursemodule_from_id('customcert', $id, 0, false, MUST_EXIST);
 $course = $DB->get_record('course', array('id' => $cm->course), '*', MUST_EXIST);
 $customcert = $DB->get_record('customcert', array('id' => $cm->instance), '*', MUST_EXIST);
 $template = $DB->get_record('customcert_templates', array('id' => $customcert->templateid), '*', MUST_EXIST);
-// ENVF
-if ($course->format != 'envfpsup' ) {
+
+// ENVF MODIFICATIONS
+$studentquestionnairecourseid = get_config('theme_envf', 'studentcourseid');
+if ($course->id != $studentquestionnairecourseid ) {
     return; // Back to calling function, so we display the choice activity as usual.
 }
-// END ENVF
+// END ENVF MODIFICATIONS
+
 // Ensure the user is allowed to view this page.
 require_login($course, false, $cm);
 $context = context_module::instance($cm->id);
@@ -60,7 +63,8 @@ if ($customcert->requiredtime && !$canmanage) {
     if (\mod_customcert\certificate::get_course_time($course->id) < ($customcert->requiredtime * 60)) {
         $a = new stdClass;
         $a->requiredtime = $customcert->requiredtime;
-        notice(get_string('requiredtimenotmet', 'customcert', $a), "$CFG->wwwroot/course/view.php?id=$course->id");
+        $url = new moodle_url('/course/view.php', ['id' => $course->id]);
+        notice(get_string('requiredtimenotmet', 'customcert', $a), $url);
         die;
     }
 }
@@ -164,7 +168,7 @@ if (!$downloadown && !$downloadissue) {
     }
     echo $OUTPUT->footer($course);
     exit();
-} else if ($canreceive) { // Output to pdf.
+} else if ($canreceive || $canmanage) { // Output to pdf.
     // Set the userid value of who we are downloading the certificate for.
     $userid = $USER->id;
     if ($downloadown) {

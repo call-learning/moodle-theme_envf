@@ -24,15 +24,17 @@ if ($action !== '') {
 $PAGE->set_url($url);
 
 if (! $cm = get_coursemodule_from_id('choice', $id)) {
-    print_error('invalidcoursemodule');
+    throw new \moodle_exception('invalidcoursemodule');
 }
+$cm = cm_info::create($cm);
 
 if (! $course = $DB->get_record("course", array("id" => $cm->course))) {
-    print_error('coursemisconf');
+    throw new \moodle_exception('coursemisconf');
 }
 
 // ENVF MODIFICATIONS
-if ($course->format != 'envfpsup' ) {
+$studentquestionnairecourseid = get_config('theme_envf', 'studentcourseid');
+if ($course->id != $studentquestionnairecourseid ) {
     return; // Back to calling function, so we display the choice activity as usual.
 }
 // END ENVF MODIFICATIONS
@@ -40,7 +42,7 @@ if ($course->format != 'envfpsup' ) {
 require_course_login($course, false, $cm);
 
 if (!$choice = choice_get_choice($cm->instance)) {
-    print_error('invalidcoursemodule');
+    throw new \moodle_exception('invalidcoursemodule');
 }
 
 $strchoice = get_string('modulename', 'choice');
@@ -51,7 +53,7 @@ $context = context_module::instance($cm->id);
 list($choiceavailable, $warnings) = choice_get_availability_status($choice);
 
 if ($action == 'delchoice' and confirm_sesskey() and is_enrolled($context, NULL, 'mod/choice:choose') and $choice->allowupdate
-    and $choiceavailable) {
+        and $choiceavailable) {
     $answercount = $DB->count_records('choice_answers', array('choiceid' => $choice->id, 'userid' => $USER->id));
     if ($answercount > 0) {
         $choiceanswers = $DB->get_records('choice_answers', array('choiceid' => $choice->id, 'userid' => $USER->id),
@@ -65,7 +67,7 @@ if ($action == 'delchoice' and confirm_sesskey() and is_enrolled($context, NULL,
 $PAGE->set_title($choice->name);
 $PAGE->set_heading($course->fullname);
 
-// Submit any new data if there is any
+/// Submit any new data if there is any
 if (data_submitted() && !empty($action) && confirm_sesskey()) {
     $timenow = time();
     if (has_capability('mod/choice:deleteresponses', $context)) {
@@ -109,8 +111,9 @@ if (data_submitted() && !empty($action) && confirm_sesskey()) {
 // Completion and trigger events.
 choice_view($choice, $course, $cm, $context);
 
+$PAGE->add_body_class('limitedwidth');
+
 echo $OUTPUT->header();
-echo $OUTPUT->heading(format_string($choice->name), 2, null);
 
 if ($notify and confirm_sesskey()) {
     if ($notify === 'choicesaved') {
@@ -120,18 +123,13 @@ if ($notify and confirm_sesskey()) {
     }
 }
 
-// Display the choice and possibly results
+/// Display the choice and possibly results
 $eventdata = array();
 $eventdata['objectid'] = $choice->id;
 $eventdata['context'] = $context;
 
-// Check to see if groups are being used in this choice
+/// Check to see if groups are being used in this choice
 $groupmode = groups_get_activity_groupmode($cm);
-
-if ($groupmode) {
-    groups_get_activity_group($cm, true);
-    groups_print_activity_menu($cm, $CFG->wwwroot . '/mod/choice/view.php?id='.$id);
-}
 
 // Check if we want to include responses from inactive users.
 $onlyactive = $choice->includeinactive ? false : true;
@@ -139,15 +137,11 @@ $onlyactive = $choice->includeinactive ? false : true;
 $allresponses = choice_get_response_data($choice, $cm, $groupmode, $onlyactive);   // Big function, approx 6 SQL calls per user.
 
 
-if (has_capability('mod/choice:readresponses', $context)) {
+if (has_capability('mod/choice:readresponses', $context) && !$PAGE->has_secondary_navigation()) {
     choice_show_reportlink($allresponses, $cm);
 }
 
 echo '<div class="clearer"></div>';
-
-if ($choice->intro) {
-    echo $OUTPUT->box(format_module_intro('choice', $choice, $cm->id), 'generalbox', 'intro');
-}
 
 $timenow = time();
 $current = choice_get_my_response($choice);
@@ -155,7 +149,6 @@ $current = choice_get_my_response($choice);
 if (isloggedin() && (!empty($current)) &&
     (empty($choice->allowupdate) || ($timenow > $choice->timeclose)) ) {
     $choicetexts = array();
-
     // ENVF Modifications
     foreach ($current as $c) {
         /** @var core_renderer $OUTPUT */
@@ -168,18 +161,16 @@ if (isloggedin() && (!empty($current)) &&
 
 }
 
-// Print the form
+/// Print the form
 $choiceopen = true;
 if ((!empty($choice->timeopen)) && ($choice->timeopen > $timenow)) {
     if ($choice->showpreview) {
-        echo $OUTPUT->box(get_string('previewonly', 'choice', userdate($choice->timeopen)), 'generalbox alert');
+        echo $OUTPUT->box(get_string('previewing', 'choice'), 'generalbox alert');
     } else {
-        echo $OUTPUT->box(get_string("notopenyet", "choice", userdate($choice->timeopen)), "generalbox notopenyet");
         echo $OUTPUT->footer();
         exit;
     }
 } else if ((!empty($choice->timeclose)) && ($timenow > $choice->timeclose)) {
-    echo $OUTPUT->box(get_string("expired", "choice", userdate($choice->timeclose)), "generalbox expired");
     $choiceopen = false;
 }
 
@@ -237,7 +228,7 @@ if (!$choiceformshown) {
     if (isguestuser()) {
         // Guest account
         echo $OUTPUT->confirm(get_string('noguestchoose', 'choice').'<br /><br />'.get_string('liketologin'),
-            get_login_url(), new moodle_url('/course/view.php', array('id'=>$course->id)));
+                     get_login_url(), new moodle_url('/course/view.php', array('id'=>$course->id)));
     } else if (!is_enrolled($context)) {
         // Only people enrolled can make a choice
         $SESSION->wantsurl = qualified_me();

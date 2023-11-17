@@ -31,17 +31,20 @@ if (!isset($SESSION->questionnaire)) {
 $SESSION->questionnaire->current_tab = 'view';
 
 $id = optional_param('id', null, PARAM_INT);    // Course Module ID.
-$a = optional_param('a', null, PARAM_INT);      // questionnaire ID.
+$a = optional_param('a', null, PARAM_INT);      // Questionnaire ID.
 
 $sid = optional_param('sid', null, PARAM_INT);  // Survey id.
 $resume = optional_param('resume', null, PARAM_INT);    // Is this attempt a resume of a saved attempt?
 
 list($cm, $course, $questionnaire) = questionnaire_get_standard_page_items($id, $a);
-// ENVF
-if ($course->format != 'envfpsup' ) {
+
+// ENVF MODIFICATIONS
+$studentquestionnairecourseid = get_config('theme_envf', 'studentcourseid');
+if ($course->id != $studentquestionnairecourseid ) {
     return; // Back to calling function, so we display the choice activity as usual.
 }
-// END ENVF
+// END ENVF MODIFICATIONS
+
 // Check login and get context.
 require_course_login($course, true, $cm);
 $context = context_module::instance($cm->id);
@@ -63,7 +66,7 @@ if (!has_capability('mod/questionnaire:manage', $context)) {
 }
 // ENVF
 
-$questionnaire = new class(0, $questionnaire, $course, $cm) extends questionnaire {
+$questionnaire = new class($course, $cm, 0, $questionnaire) extends questionnaire {
     public function view() {
         global $CFG, $USER, $PAGE;
         parent::view();
@@ -93,7 +96,7 @@ $questionnaire->add_renderer($PAGE->get_renderer('mod_questionnaire'));
 $questionnaire->add_page(new \mod_questionnaire\output\completepage());
 
 $questionnaire->strquestionnaires = get_string("modulenameplural", "questionnaire");
-$questionnaire->strquestionnaire  = get_string("modulename", "questionnaire");
+$questionnaire->strquestionnaire = get_string("modulename", "questionnaire");
 
 // Mark as viewed.
 $completion = new completion_info($course);

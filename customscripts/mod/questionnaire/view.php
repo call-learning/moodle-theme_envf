@@ -35,11 +35,14 @@ $a = optional_param('a', null, PARAM_INT);      // Or questionnaire ID.
 $sid = optional_param('sid', null, PARAM_INT);  // Survey id.
 
 list($cm, $course, $questionnaire) = questionnaire_get_standard_page_items($id, $a);
-// ENVF.
-if ($course->format != 'envfpsup' ) {
+
+// ENVF MODIFICATIONS
+$studentquestionnairecourseid = get_config('theme_envf', 'studentcourseid');
+if ($course->id != $studentquestionnairecourseid ) {
     return; // Back to calling function, so we display the choice activity as usual.
 }
-// END ENVF.
+// END ENVF MODIFICATIONS
+
 // Check login and get context.
 require_course_login($course, true, $cm);
 $context = context_module::instance($cm->id);
@@ -57,11 +60,11 @@ if (isset($sid)) {
 // ENVF Redirect directly to the right page instead of having an intermediate page
 // This is ... only for non editor.
 global $USER;
-$questionnaire = new questionnaire(0, $questionnaire, $course, $cm);
+$questionnaire = new questionnaire($course, $cm, 0, $questionnaire);
 $usernumresp = $questionnaire->count_submissions($USER->id);
 if (!$questionnaire->capabilities->editquestions) {
     if ($questionnaire->capabilities->readownresponses && ($usernumresp > 0)) {
-        $args = array('instance' => $questionnaire->id, 'user' => $USER->id);
+        $args = ['instance' => $questionnaire->id, 'user' => $USER->id];
         if ($usernumresp > 1) {
             $titletext = get_string('viewyourresponses', 'questionnaire', $usernumresp);
         } else {
@@ -73,7 +76,7 @@ if (!$questionnaire->capabilities->editquestions) {
     }
     $message = $questionnaire->user_access_messages($USER->id);
     if (!$message && $questionnaire->user_can_take($USER->id)) {
-        redirect(new moodle_url('/mod/questionnaire/complete.php', array('id' => $questionnaire->cm->id)));
+        redirect(new moodle_url('/mod/questionnaire/complete.php', ['id' => $questionnaire->cm->id]));
     }
 }
 // END ENVF.
