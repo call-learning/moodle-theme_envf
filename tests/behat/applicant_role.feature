@@ -18,20 +18,24 @@ Feature: Within courses and depending on the roles, some user can or cannot do s
       | user     | role | contextlevel | reference |
       | 10101010 | user | System       |           |
     And the following "courses" exist:
-      | fullname | shortname | format   | idnumber | enablecompletion |
-      | Course1  | C1        | envfpsup | qcourse  | 1                |
+      | fullname | shortname | idnumber | enablecompletion |
+      | Course1  | C1        | qcourse  | 1                |
     And I restore "/local/envf/tests/fixtures/sample-questionnaire-course.mbz" backup into "C1" course
     And the following "course enrolments" exist:
       | user     | course | role    |
       | 10101010 | C1     | student |
 
   @javascript
-  Scenario:
-    Given I log in as "admin"
+  Scenario: As an applicant, I can complete a questionnaire and download my certificate
     Given I log in as "10101010"
-    Then I should see "J'évalue mes performance"
-    When I click on "Complete" "link"
-    Then I should see "Course1"
+    # Fist agree to cookies policies
+    Then I click on "I agree to the This cookies policy" "button"
+    Then I click on "Next" "button"
+    Then I click on "I agree to the This site policy" "checkbox"
+    Then I click on "Next" "button"
+    # Then I can got to the course.
+    And I am on "C1" course homepage
+    And I follow "J'évalue mes performances"
     And I should see "Description 11"
     And I click on "Next Page >>" "button"
     Then I should see "Description 1"

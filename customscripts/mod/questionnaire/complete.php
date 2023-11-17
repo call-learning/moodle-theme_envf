@@ -40,7 +40,7 @@ list($cm, $course, $questionnaire) = questionnaire_get_standard_page_items($id, 
 
 // ENVF MODIFICATIONS
 $studentquestionnairecourseid = get_config('theme_envf', 'studentcourseid');
-if ($course->id != $studentquestionnairecourseid ) {
+if ($course->id != $studentquestionnairecourseid && !str_starts_with('qcourse', $course->idnumber)) {
     return; // Back to calling function, so we display the choice activity as usual.
 }
 // END ENVF MODIFICATIONS

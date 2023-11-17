@@ -34,7 +34,7 @@ if (! $course = $DB->get_record("course", array("id" => $cm->course))) {
 
 // ENVF MODIFICATIONS
 $studentquestionnairecourseid = get_config('theme_envf', 'studentcourseid');
-if ($course->id != $studentquestionnairecourseid ) {
+if ($course->id != $studentquestionnairecourseid && !str_starts_with('qcourse', $course->idnumber)) {
     return; // Back to calling function, so we display the choice activity as usual.
 }
 // END ENVF MODIFICATIONS
