@@ -51,11 +51,12 @@ function theme_envf_pluginfile($course, $cm, $context, $filearea, $args, $forced
  */
 function theme_envf_extend_set_password_form(MoodleQuickForm $mform, $user) {
     $element = $mform->getElement('username2');
-    $element->setLabel(\auth_psup\utils::get_username_label($user->id));
+    $element->setAttributes(['class' => 'd-none'] + $element->getAttributes());
+    $psupidelement = $mform->createElement('static', 'psupid', \auth_psup\utils::get_username_label($user->id));
+    $psupidelement->setValue(auth_psup\utils::get_user_info_data($user->id, auth_psup\utils::AUTH_PSUP_USERNAME_FIELD));
+    $mform->insertElementBefore($psupidelement, 'username2');
     $email = $mform->createElement('static', 'email', get_string('email'), $user->email);
-
     $mform->insertElementBefore($email, 'username2');
-
 }
 
 /**
