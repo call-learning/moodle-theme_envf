@@ -59,16 +59,8 @@
 
 
     <div class="nav-left-region">
-        {{# additionalinfo.isloggedin }}
-            <button class="navbar-toggler aabtn d-block d-md-none px-1 my-1 mr-3 border-0" data-toggler="drawers" data-action="toggle" data-target="theme_boost-drawers-primary">
-                <span class="navbar-toggler-icon"></span>
-                <span class="sr-only">{{#str}}sidepanel, core{{/str}}</span>
-            </button>
-        {{/ additionalinfo.isloggedin }}
-        {{^ additionalinfo.isloggedin }}
-            <img class="rf-logo img-fluid" src="{{{ config.wwwroot }}}/theme/{{ additionalinfo.themename }}/pix/rf.png" role="presentation"
-                 alt="{{#str}}republiquefrancaise, theme_envf{{/str}}">
-        {{/ additionalinfo.isloggedin }}
+       <img class="rf-logo img-fluid" src="{{{ config.wwwroot }}}/theme/{{ additionalinfo.themename }}/pix/rf.png" role="presentation"
+         alt="{{#str}}republiquefrancaise, theme_envf{{/str}}">
     </div>
 
     <a href="{{{ config.homeurl }}}" class="d-flex logo align-items-center m-0 mr-4 p-0 aabtn">

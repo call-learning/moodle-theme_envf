@@ -41,7 +41,7 @@ class config extends \theme_clboost\local\config {
                 'defaultregion' => 'content',
         ];
         $layouts['mydashboard'] = [
-                'file' => 'columns2.php',
+                'file' => 'drawers.php',
                 'regions' => ['side-pre'],
                 'defaultregion' => 'side-pre',
                 'options' => ['nonavbar' => true, 'langmenu' => true],
