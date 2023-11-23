@@ -47,5 +47,11 @@ function xmldb_theme_envf_upgrade($oldversion) {
         // Envf savepoint reached.
         upgrade_plugin_savepoint(true, 2023091700, 'theme', 'envf');
     }
+    if ($oldversion < 2023112300) {
+        set_config('enabledashbyrole', 1);
+        set_config('forcedefaultmymoodle', 1);
+        // Envf savepoint reached.
+        upgrade_plugin_savepoint(true, 2023112300, 'theme', 'envf');
+    }
     return true;
 }
