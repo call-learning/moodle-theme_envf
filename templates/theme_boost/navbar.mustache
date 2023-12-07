@@ -57,9 +57,13 @@
 }}
 <nav class="navbar fixed-top navbar-light bg-white navbar-expand" aria-label="{{#str}}sitemenubar, admin{{/str}}">
 
+    <button class="navbar-toggler aabtn d-block d-md-none px-1 m-1 border-0" data-toggler="drawers" data-action="toggle" data-target="theme_boost-drawers-primary">
+        <span class="navbar-toggler-icon"></span>
+        <span class="sr-only">{{#str}}sidepanel, core{{/str}}</span>
+    </button>
 
     <div class="nav-left-region">
-       <img class="rf-logo img-fluid" src="{{{ config.wwwroot }}}/theme/{{ additionalinfo.themename }}/pix/rf.png" role="presentation"
+       <img class="rf-logo" src="{{{ config.wwwroot }}}/theme/{{ additionalinfo.themename }}/pix/rf.png" role="presentation"
          alt="{{#str}}republiquefrancaise, theme_envf{{/str}}">
     </div>
 
@@ -72,6 +76,7 @@
             {{{ sitename }}}
         {{/ output.should_display_navbar_logo }}
     </a>
+    <span class="d-none d-lg-inline-block text-truncate">{{{ sitename }}}</span>
 
     <ul class="navbar-nav d-none d-md-flex my-1 px-1">
         <!-- page_heading_menu -->
