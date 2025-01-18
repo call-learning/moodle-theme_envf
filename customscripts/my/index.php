@@ -175,6 +175,9 @@ if (core_userfeedback::should_display_reminder()) {
 if (class_exists('\auth_psup\utils')) {
     \auth_psup\utils::display_cta_send_new_email($USER);
 }
+if (class_exists('\local_envf\utils')) {
+    \local_envf\utils::display_dashboard_reports($USER);
+}
 // END ENVF Modifications.
 
 echo $OUTPUT->custom_block_region('content');
