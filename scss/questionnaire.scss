@@ -146,3 +146,8 @@ td {
 #page-mod-questionnaire-complete .message, #page-mod-questionnaire-preview .message, #page-mod-questionnaire-complete .thankbody, #page-mod-questionnaire-complete .thankhead {
     border-color: transparent;
 }
+
+// Avoid the question numbers being too wide.
+#page-mod-questionnaire-questions  .qnums ~ input  {
+    width: 1rem;
+}
