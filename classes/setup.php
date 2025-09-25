@@ -18,7 +18,6 @@ namespace theme_envf;
 use context_block;
 use context_system;
 use dml_exception;
-use local_dash_by_role\context_db_by_role;
 use moodle_page;
 use moodle_url;
 
@@ -49,108 +48,11 @@ class setup {
             'usetags' => true,
 
         ],
-        'local_mcms' => [
-            'rootmenuitems' => "Le concours|leconcours\r\nInfos complémentaires|infocompl\r\n",
-        ],
-        'block_contact_form' => [
-            'sendtoemail' => 'concours-veto-postbac@vet-alfort.fr',
-            'sendtoname' => 'Support',
-        ],
         'block_html' => [
             'allowcssclasses' => true,
         ],
-        'editor_atto' => [
-            'toolbar' => <<<EOD
-collapse = collapse
-style1 = title, bold, italic
-list = unorderedlist, orderedlist, indent
-links = link
-files = emojipicker, image, media, recordrtc, managefiles, h5p
-style2 = underline, strike, subscript, superscript
-style3= styles
-align = align
-insert = equation, charmap, table, clear
-undo = undo
-accessibility = accessibilitychecker, accessibilityhelper
-other = html
-EOD
-,
-        ],
         'tool_dataprivacy' => [
             'showdataretentionsummary' => false,
-        ],
-        'atto_styles' => [
-            'config' => <<<EOD
-[
-    {
-        "title": "Strong Primary",
-        "type": "inline",
-        "classes": "atto-strong-primary",
-        "preview": true
-    },
-    {
-        "title": "CTA Normal",
-        "type": "block",
-        "classes": "atto-envf-cta",
-        "preview": true
-    },
-    {
-        "title": "CTA Outline",
-        "type": "block",
-        "classes": "atto-envf-cta-outline",
-        "preview": true
-    },
-    {
-        "title": "CTA Outline White",
-        "type": "block",
-        "classes": "atto-envf-cta-outline-white",
-        "preview": true
-    },
-    {
-        "title": "Big Quote",
-        "type": "inline",
-        "classes": "atto-envf-quote",
-        "preview": false
-    },
-    {
-        "title": "Text white block",
-        "type": "block",
-        "classes": "atto-text-square-white",
-        "preview": true
-    },
-    {
-        "title": "Image shadow",
-        "type": "block",
-        "classes": "atto_image_shadow",
-        "preview": true
-    },
-    {
-        "title": "Button",
-        "type": "inline",
-        "classes": "atto-envf-btn",
-        "preview": true
-    },
-    {
-        "title": "Button Secondary",
-        "type": "inline",
-        "classes": "atto-envf-btn-secondary",
-        "preview": true
-    },
-    {
-        "title": "Button Secondary Outline",
-        "type": "inline",
-        "classes": "atto-envf-btn-secondary-outline",
-        "preview": true
-    },
-    {
-        "title": "Button Outline",
-        "type": "inline",
-        "classes": "atto-envf-btn-outline",
-        "preview": true
-    }
-]
-EOD
-,
         ],
     ];
 

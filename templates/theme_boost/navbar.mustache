@@ -78,18 +78,18 @@
     </a>
     <span class="d-none d-lg-inline-block text-truncate">{{{ sitename }}}</span>
 
+    {{#primarymoremenu}}
+        <div class="primary-navigation">
+            {{> core/moremenu}}
+        </div>
+    {{/primarymoremenu}}
+
     <ul class="navbar-nav d-none d-md-flex my-1 px-1">
         <!-- page_heading_menu -->
         {{{ output.page_heading_menu }}}
     </ul>
-    <ul class="primary-navigation navbar-nav ml-auto mr-3 d-none d-md-flex justify-content-around">
-        <!-- custom_menu -->
-        {{{ output.mcms_menu }}}
-        <!-- page_heading_menu -->
-        {{{ output.page_heading_menu }}}
-    </ul>
 
-    <div id="usernavigation" class="navbar-nav ml-auto ml-md-0">
+    <div id="usernavigation" class="navbar-nav ms-auto h-100">
         {{# output.search_box }}
             {{{ output.search_box }}}
             <div class="divider border-left h-75 align-self-center mx-1"></div>
