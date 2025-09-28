@@ -67,7 +67,7 @@
          alt="{{#str}}republiquefrancaise, theme_envf{{/str}}">
     </div>
 
-    <a href="{{{ config.homeurl }}}" class="d-flex logo align-items-center m-0 mr-4 p-0 aabtn">
+    <a href="{{{ config.homeurl }}}" class="d-flex logo align-items-center m-0 p-0 aabtn">
 
         {{# output.should_display_navbar_logo }}
             <img src="{{output.get_compact_logo_url}}" class="logo mr-1" alt="{{sitename}}">
@@ -76,7 +76,7 @@
             {{{ sitename }}}
         {{/ output.should_display_navbar_logo }}
     </a>
-    <span class="d-none d-lg-inline-block text-truncate">{{{ sitename }}}</span>
+    <span class="d-none d-lg-inline-block text-truncate mr-4 font-weight-bold">{{{ sitename }}}</span>
 
     {{#primarymoremenu}}
         <div class="primary-navigation">
