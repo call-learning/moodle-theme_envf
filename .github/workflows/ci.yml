@@ -60,14 +60,8 @@ jobs:
 
       - name: Install moodle-plugin-ci
         run: |
-          moodle-plugin-ci add-plugin call-learning/moodle-auth_psup --branch $MOODLE_BRANCH
           moodle-plugin-ci add-plugin call-learning/moodle-block_mcms --branch $MOODLE_BRANCH
-          moodle-plugin-ci add-plugin call-learning/moodle-block_sponsors --branch $MOODLE_BRANCH
-          moodle-plugin-ci add-plugin call-learning/moodle-block_featured_courses --branch $MOODLE_BRANCH
-          moodle-plugin-ci add-plugin call-learning/moodle-block_thumblinks_action --branch $MOODLE_BRANCH
-          moodle-plugin-ci add-plugin call-learning/moodle-filter_envf --branch $MOODLE_BRANCH
           moodle-plugin-ci add-plugin call-learning/moodle-local_mcms --branch $MOODLE_BRANCH
-          moodle-plugin-ci add-plugin call-learning/moodle-local_dash_by_role --branch $MOODLE_BRANCH  
           moodle-plugin-ci add-plugin call-learning/moodle-theme_clboost --branch $MOODLE_BRANCH
           moodle-plugin-ci add-plugin call-learning/moodle-tool_gdpr_plus --branch $MOODLE_BRANCH
           moodle-plugin-ci add-plugin PoetOS/moodle-mod_questionnaire --branch $MOODLE_BRANCH
