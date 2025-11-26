@@ -60,17 +60,22 @@
 
 @font-face {
     font-family: 'Spectral';
-    src: url([[font:theme|Spectral-Regular.woff]]) format('woff2'),
-    url([[font:theme|Spectral-Regular.woff]]) format('woff');
-    font-weight: bold;
+    src: url([[font:theme|Spectral-SemiBold.ttf]]);
+    font-weight: normal;
     font-style: normal;
 }
 
 
 @font-face {
     font-family: 'Spectral';
-    src: url([[font:theme|Spectral-Bold.woff]]) format('woff2'),
-    url([[font:theme|Spectral-Bold.woff]]) format('woff');
+    src: url([[font:theme|Spectral-Bold.ttf]]);
     font-weight: bold;
     font-style: normal;
+}
+
+@font-face {
+    font-family: 'Spectral';
+    src: url([[font:theme|Spectral-Italic.ttf]]);
+    font-weight: normal;
+    font-style: italic;
 }
