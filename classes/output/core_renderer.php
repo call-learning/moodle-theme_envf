@@ -42,17 +42,6 @@ use theme_envf\local\utils;
  */
 class core_renderer extends \theme_clboost\output\core_renderer {
     /**
-     * Return false (no compact logo)
-     *
-     * @param int $maxwidth The maximum width, or null when the maximum width does not matter.
-     * @param int $maxheight The maximum height, or null when the maximum height does not matter.
-     * @return moodle_url|false
-     */
-    public function get_compact_logo_url($maxwidth = 300, $maxheight = 300) {
-        return $this->get_logo_url($maxwidth, $maxheight); // No compact logo here.
-    }
-
-    /**
      * Get additional global information that can be used in this template
      *
      * @return stdClass

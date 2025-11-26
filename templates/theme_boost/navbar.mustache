@@ -63,14 +63,15 @@
     </button>
 
     <div class="nav-left-region">
-       <img class="rf-logo" src="{{{ config.wwwroot }}}/theme/{{ additionalinfo.themename }}/pix/rf.png" role="presentation"
+       <img class="rf-logo d-none d-sm-block" src="{{{ config.wwwroot }}}/theme/{{ additionalinfo.themename }}/pix/rf.png" role="presentation"
          alt="{{#str}}republiquefrancaise, theme_envf{{/str}}">
     </div>
 
     <a href="{{{ config.homeurl }}}" class="d-flex logo align-items-center m-0 p-0 aabtn">
 
         {{# output.should_display_navbar_logo }}
-            <img src="{{output.get_compact_logo_url}}" class="logo mr-1" alt="{{sitename}}">
+            <img src="{{output.get_compact_logo_url}}" class="logo mr-1 d-sm-none" alt="{{sitename}}">
+            <img src="{{output.get_logo_url}}" class="logo mr-1 d-none d-sm-block" alt="{{sitename}}">
         {{/ output.should_display_navbar_logo }}
         {{^ output.should_display_navbar_logo }}
             {{{ sitename }}}

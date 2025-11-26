@@ -55,18 +55,8 @@ nav.navbar.fixed-top {
     .rf-logo {
         height: 90px;
         width: 100px;
-        padding: 5px 5px 0px 0px;
+        padding: 10px 5px 0px 0px; // Align top with ENVF logo.
         vertical-align: top;
-    }
-
-    // .moremenu {
-    //     height: auto;
-    // }
-
-    @include media-breakpoint-down(sm) {
-        .rf-logo {
-            padding-top: 0px;
-        }
     }
 }
 [data-region="drawer"] {

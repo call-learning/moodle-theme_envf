@@ -20,26 +20,13 @@
         color: $gray-900;
     }
 
-
-    .logos-footer {
-        padding-top: 3em;
-        padding-bottom: 3em;
-    }
-
-    // Hide starting at `min-width: 0`, and then show at the `sm` breakpoint
-    @include media-breakpoint-up(sm) {
-        .logos-footer {
-            padding-top: 120px;
-            padding-bottom: 120px;
+    .logos-header {
+        :first-child {
+            width: 100px;
+            img {
+                max-height: 70px;
+            }
         }
-    }
-
-    .logos-footer img {
-        padding: 1em;
-    }
-
-    img.ma-logo {
-        width: 221px;
     }
 
     img.envf-logo {
@@ -68,6 +55,11 @@
         width: 660px;
         right: -170px;
         top: -60px;
+    }
+    .school-org-list {
+        .school-item img {
+            width: 100px;
+        }
     }
 }
 

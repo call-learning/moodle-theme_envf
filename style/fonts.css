@@ -40,3 +40,37 @@
     font-weight: bold;
     font-style: normal;
 }
+
+
+@font-face {
+    font-family: 'Marianne';
+    src: url([[font:theme|Marianne-Regular.woff]]) format('woff2'),
+    url([[font:theme|Marianne-Regular.woff]]) format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Marianne';
+    src: url([[font:theme|Marianne-Bold.woff]]) format('woff2'),
+    url([[font:theme|Marianne-Bold.woff]]) format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Spectral';
+    src: url([[font:theme|Spectral-Regular.woff]]) format('woff2'),
+    url([[font:theme|Spectral-Regular.woff]]) format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Spectral';
+    src: url([[font:theme|Spectral-Bold.woff]]) format('woff2'),
+    url([[font:theme|Spectral-Bold.woff]]) format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
