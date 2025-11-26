@@ -1,0 +1,122 @@
+/*
+============================================
+=            Wave Navigation Styles        =
+============================================
+*/
+
+/* Wave colors (opacity-based layers). */
+$wave-back-opacity: 1 !default;      // Arrière-plan (le plus opaque)
+$wave-mid-opacity: 0.5 !default;     // Milieu
+$wave-front-opacity: 0.3 !default;   // Avant-plan (le plus transparent)
+
+$wave-back-color: rgba($primary, $wave-back-opacity);
+$wave-mid-color: rgba($primary, $wave-mid-opacity);
+$wave-front-color: rgba($primary, $wave-front-opacity);
+
+// Wave heights.
+$wave-back-height: 20px !default;
+$wave-mid-height: 18px !default;
+$wave-front-height: 50px !default;
+
+// Wave offsets (vertical spacing).
+$wave-back-offset: 0 !default;       // Commence juste après l'en-tête
+$wave-mid-offset: 6px !default;      // Décalage vers le bas
+$wave-front-offset: 6px !default;   // Plus décalé vers le bas
+
+// ============================================
+// Wave Shape Mixin
+// ============================================
+
+// Generic wave shape mixin with customizable polygon points
+@mixin wave-shape($points) {
+    clip-path: polygon($points);
+    transform: scaleY(-1);
+    transform-origin: center;
+}
+
+// ============================================
+// Wave Shape Definitions (Predefined)
+// ============================================
+// stylelint-disable-next-line max-line-length
+$wave-back-points: "0% 58%, 3% 56%, 7% 53%, 11% 51%, 15% 54%, 19% 58%, 23% 61%, 27% 59%, 31% 56%, 35% 54%, 39% 56%, 43% 59%, 47% 61%, 51% 59%, 55% 57%, 59% 55%, 63% 57%, 67% 60%, 71% 62%, 75% 60%, 79% 58%, 83% 56%, 87% 58%, 91% 61%, 95% 59%, 98% 57%, 100% 56%, 100% 100%, 0% 100%" !default;
+
+// stylelint-disable-next-line max-line-length
+$wave-mid-points: "0% 55%, 4% 53%, 8% 50%, 12% 48%, 16% 51%, 20% 55%, 24% 58%, 28% 56%, 32% 53%, 36% 51%, 40% 53%, 44% 56%, 48% 59%, 52% 57%, 56% 54%, 60% 52%, 64% 54%, 68% 57%, 72% 60%, 76% 58%, 80% 55%, 84% 53%, 88% 55%, 92% 58%, 96% 56%, 100% 54%, 100% 100%, 0% 100%" !default;
+
+// stylelint-disable-next-line max-line-length
+$wave-front-points: "0% 52%, 3.5% 50%, 7.5% 48%, 11.5% 46%, 15.5% 49%, 19.5% 52%, 23.5% 55%, 27.5% 53%, 31.5% 50%, 35.5% 48%, 39.5% 50%, 43.5% 53%, 47.5% 56%, 51.5% 54%, 55.5% 51%, 59.5% 49%, 63.5% 51%, 67.5% 54%, 71.5% 57%, 75.5% 55%, 79.5% 52%, 83.5% 50%, 87.5% 52%, 91.5% 55%, 95.5% 53%, 99% 51%, 100% 50%, 100% 100%, 0% 100%" !default;
+
+// ============================================
+// Wave Pattern Mixins
+// ============================================
+
+@mixin wave-back {
+    @include wave-shape(unquote($wave-back-points));
+}
+
+@mixin wave-mid {
+    @include wave-shape(unquote($wave-mid-points));
+}
+
+@mixin wave-front {
+    @include wave-shape(unquote($wave-front-points));
+}
+
+.wave-header {
+    position: relative;
+    overflow: visible;
+
+    > * {
+        position: relative;
+        z-index: 5;
+    }
+
+
+    // BACK wave (le plus opaque) — commence juste après la navbar.
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        height: $wave-back-height;
+        background: $wave-back-color;
+        margin-top: $wave-back-offset;
+        z-index: 0;
+        pointer-events: none;
+        @include wave-back;
+    }
+
+    // MIDDLE wave — en dessous de la vague arrière.
+    .wave-band {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        height: $wave-mid-height;
+        background: $wave-mid-color;
+        margin-top: $wave-mid-offset;
+        z-index: 1;
+        pointer-events: none;
+        display: block;
+        @include wave-mid;
+    }
+
+    // FRONT wave — la plus basse.
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        height: $wave-front-height;
+        background: $wave-front-color;
+        margin-top: $wave-front-offset;
+        z-index: 2;
+        pointer-events: none;
+        @include wave-front;
+    }
+
+    // Espace pour les vagues.
+    padding-bottom: $wave-back-height;
+}

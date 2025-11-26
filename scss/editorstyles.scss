@@ -1,0 +1,33 @@
+.editor-style-corner-title {
+    position: relative;
+    display: inline-block;
+    padding: 24px 36px;
+    text-align: center;
+    border-radius: 4px;
+
+    // tweak these to taste
+    $corner-size: 38px; // length of each leg
+    $corner-thick: 5px; // thickness of the line
+    $corner-offset: 6px; // how far corners sit outside
+
+    // 8 gradients = 2 legs × 4 corners
+    background: /* top-left */
+            linear-gradient(#ff2a2a 0 0) top left / $corner-size $corner-thick no-repeat,
+            linear-gradient(#ff2a2a 0 0) top left / $corner-thick $corner-size no-repeat,
+                /* top-right */
+            linear-gradient(#66d9ff 0 0) top right / $corner-size $corner-thick no-repeat,
+            linear-gradient(#66d9ff 0 0) top right / $corner-thick $corner-size no-repeat,
+                /* bottom-left */
+            linear-gradient(#7dff66 0 0) bottom left / $corner-size $corner-thick no-repeat,
+            linear-gradient(#7dff66 0 0) bottom left / $corner-thick $corner-size no-repeat,
+                /* bottom-right */
+            linear-gradient(#b56cff 0 0) bottom right / $corner-size $corner-thick no-repeat,
+            linear-gradient(#b56cff 0 0) bottom right / $corner-thick $corner-size no-repeat;
+
+    h2 {
+        margin: 0;
+        font-size: 1.6rem;
+        font-weight: 600;
+        letter-spacing: .02em;
+    }
+}

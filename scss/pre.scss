@@ -4,6 +4,8 @@
 // Color system
 //
 
+
+// Grays & basics
 $white:    #fff !default;
 $gray-100: #f8f9fa !default;
 $gray-200: #eee !default;
@@ -16,6 +18,7 @@ $gray-800: #333 !default;
 $gray-900: #222 !default;
 $black:    #000 !default;
 
+// Core colors
 $blue:    #002182 !default;
 $indigo:  #6610f2 !default;
 $purple:  #6f42c1 !default;
@@ -27,31 +30,36 @@ $green:   #22b24c !default;
 $teal:    #20c997 !default;
 $cyan:    #369 !default;
 
+// Custom tints/shades
 $light-blue: #4a49b3;
-$light-red: #ff5448;
-$dark-blue: #000054;
-$dark-red: #a50000;
+$light-red:  #ff5448;
+$dark-blue:  #000054;
+$dark-red:   #a50000;
 
-$primary:       #0e847b !default;
-$secondary:     #ccc !default;
-$success:       #16bbaf !default;
-$info:          #508564 !default;
-$warning: #ab6d47 !default;
-$danger: #ab4747 !default;
-$light:         #d9f8f3 !default;
-$dark: #085956 !default;
+// Theme colors (adaptés à primaire/secondaire/tertiaire)
+$primary:   #008272 !default;  // primaire
+$primary-light: lighten($primary, 10%)!default;
+$primary-dark: darken($primary, 10%) !default;
+$secondary: lighten(desaturate($primary,70%),60%) !default;  // secondaire
+$success:   #008272 !default;  // aligné sur primaire
+$info:      #86bd40 !default;
+$warning:   #fbdbde !default;  // tertiaire
+$danger:    #e6332a !default;
+$light:    mix(#fff, $primary, 70%)  !default;
+$dark: mix(#000, $primary, 30%) !default;
 
-$enva: #913493 !default;
-$oniris: #3697d9 !default;
-$vetagrosup: #cad516 !default;
-$envt: #e6332a !default;
+// Brand / schools
+$enva:       #642682 !default;
+$oniris:     #4da9df !default;
+$vetagrosup: #86bd40 !default;
+$envt:       #e6332a !default;
 
 // Other
 $info-outline:    #1f994d;
 $warning-outline: #99441f;
 
 // Tables
-$table-accent-bg:             rgba($black, .03) !default;
+$table-accent-bg: rgba($black, .03) !default;
 
 // Options
 $enable-responsive-font-sizes: true !default;
@@ -63,7 +71,7 @@ $rfs-base-font-size: 1rem !default;
 $headings-font-weight:   700 !default;
 
 $font-family-sans-serif:        "Marianne", sans-serif !default;
-$font-family-button:            "Spectral", sans-serif !default;
+$font-family-button:            "Marianne", sans-serif !default;
 
 $headings-font-family:        "Marianne", sans-serif !default;
 $headings-font-weight:        600 !default;
@@ -119,14 +127,16 @@ button {
 
 // stylelint-disable
 $theme-colors: () !default;
-$theme-colors: map-merge((
-        primary: $primary,
-        secondary: $secondary,
-        success: $success,
-        info: $info,
-        warning: $warning,
-        danger: $danger,
-), $theme-colors);
+$theme-colors: (
+        "primary":   $primary,
+        "secondary": $secondary,
+        "success":   $success,
+        "info":      $info,
+        "warning":   $warning,
+        "danger":    $danger,
+        "light":     $light,
+        "dark":      $dark
+) !default;
 
 $drawer-height: 140px !default;
 $moremenu-height: 42px;

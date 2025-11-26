@@ -33,20 +33,9 @@
         }
 
     }
-
-    .logos-header {
-        :first-child {
-            width: 100px;
-            img {
-                max-height: 70px;
-            }
-        }
+    .logo {
+        max-height: 80px;
     }
-
-    img.envf-logo {
-        max-height: 70px;
-    }
-
     .infos-footer {
         border-top: 1px solid $gray-300;
         padding-top: 2em;

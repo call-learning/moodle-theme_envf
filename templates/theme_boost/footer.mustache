@@ -28,34 +28,6 @@
         <div class="mcms-square square-dual-blue d-none d-lg-block"></div>
         <div class="container-fluid infos-footer">
             <div class="row justify-content-between">
-                <div class="col-12 col-lg-8 align-self-start">
-                    <div class="container mt-3">
-                        <div class="row">
-                            <div class="col d-none d-md-flex">
-                                <div class="d-flex flex-column align-items-center">
-                                    <div class="d-flex flex-row justify-content-between align-items-center w-100 logos-header">
-                                        <div class="align-self-start mx-3 mb-auto">
-                                            <img src="{{{ config.wwwroot }}}/theme/envf/pix/rf.png" role="presentation"
-                                                 alt="{{#str}}ministereagriculture, theme_envf{{/str}}">
-                                        </div>
-                                        <div class="flex-grow-1 font-weight-bold text-center mx-3 mb-auto">
-                                            {{#str}} envf, theme_envf {{/str}}
-                                        </div>
-                                    </div>
-
-                                    <ul class="list-unstyled pt-3 d-flex flex-column addresses school-org-list">
-                                        {{# additionalinfo.orglist }}
-                                            <li class="d-flex school-item">
-                                                <img src="{{url}}" role="presentation" alt="{{ label }}" class="mx-3 align-self-start"/>
-                                                <a href="{{link}}" class="align-self-center mx-3" target="_blank">{{ address }} </a>
-                                            </li>
-                                        {{/ additionalinfo.orglist }}
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="col-12 col-lg-4 d-flex align-self-start">
                     <nav class="nav navbar-nav custom-menu-footer mt-3 ml-3" aria-label="{{#str}}custommenu, admin{{/str}}">
                         {{# output.mcms_menu_menu_flat }}
@@ -65,7 +37,9 @@
                         {{/ output.mcms_menu_menu_flat }}
                     </nav>
                 </div>
-
+                <div class="col-12 col-lg-8 align-self-center d-flex justify-content-start">
+                    <img src="{{output.get_logo_url}}" class="logo" alt="{{sitename}}">
+                </div>
             </div>
         </div>
     </div>
