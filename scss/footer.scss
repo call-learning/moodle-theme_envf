@@ -17,7 +17,21 @@
     }
 
     a:focus {
-        color: $gray-900;
+        color: $gray-700;
+    }
+
+    .footer-dark {
+        a,
+        a:hover,
+        a:active,
+        a:visited {
+            color: $gray-200;
+        }
+
+        a:focus {
+            color: $gray-300;
+        }
+
     }
 
     .logos-header {
