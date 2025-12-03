@@ -24,7 +24,6 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['nobootswatch'] = 'None';
 $string['additionalinfo'] = 'Additional information';
 $string['addresses'] = 'Addresses for Footer';
 $string['addresses_desc'] = 'Addresses for Footer.  <br/>Structure:
@@ -33,40 +32,41 @@ $string['addresses_desc'] = 'Addresses for Footer.  <br/>Structure:
      <li>Exemple: Oniris;[[pix:theme_envf|logos/oniris]];https://www.oniris-nantes.fr/;Rue de la Géraudière 44322 NANTES
       Cedex 3</li>
      </ul>';
+$string['configtitle'] = 'ENV Theme';
+$string['cookiesrgpd'] = 'Gestion des cookies et des données';
+$string['copyright'] = '© ENVF  2023';
+$string['envf'] = 'Écoles nationales vétérinaires de France';
+$string['envf:calendarview'] = 'View course breadcrumb';
 $string['envf:manage'] = 'Manage ENVF Theme settings';
 $string['envf:viewcoursebreadcrumb'] = 'View course breadcrumb';
-$string['envf:calendarview'] = 'View course breadcrumb';
 $string['envfothersettings'] = 'Other settings';
-$string['pluginname'] = 'ENVF';
-$string['configtitle'] = 'ENV Theme';
+$string['ganalytics'] = 'Google Analytics';
+$string['ganalytics_desc'] = 'Google Analytics ID (UA-XXXXX-1)';
 $string['getcustomcert'] = 'Get certificate';
-$string['envf'] = 'Écoles nationales vétérinaires de France';
-$string['republiquefrancaise'] = 'République Française';
-$string['ministereagriculture'] = 'Ministère de l\'agriculture et de l\'alimentation';
-$string['logos'] = 'Logos';
-$string['logos_desc'] = 'Logos from associated organisations, mostly displayed on the footer.';
-
 $string['legallinks'] = 'Legal links';
 $string['legallinks_desc'] = 'Legal links for Footer.  <br/>Structure:
      <ul>
      <li>languagestringid|url</li>
      <li>Exemple:  mentionlegales|local/mcms/index.php?p=mentions-legales</li>
      </ul>';
-$string['nonavcoursepagetag'] = 'Course tag name specifiying that this course has non activity navigation';
-$string['ganalytics'] = 'Google Analytics';
-$string['ganalytics_desc'] = 'Google Analytics ID (UA-XXXXX-1)';
-
-$string['cookiesrgpd'] = 'Gestion des cookies et des données';
+$string['logos'] = 'Logos';
+$string['logos_desc'] = 'Logos from associated organisations, mostly displayed on the footer.';
 $string['mentionlegales'] = 'Mentions légales';
-$string['copyright'] = '© ENVF  2023';
-
-$string['region-side-pre'] = 'Right';
+$string['ministereagriculture'] = 'Ministère de l\'agriculture et de l\'alimentation';
+$string['nobootswatch'] = 'None';
+$string['nonavcoursepagetag'] = 'Course tag name specifiying that this course has non activity navigation';
+$string['pluginname'] = 'ENVF';
 $string['region-content'] = 'Content';
+$string['region-side-pre'] = 'Right';
+$string['republiquefrancaise'] = 'République Française';
 
-$string['signuptitle'] = 'Create new account';
+
+
+
 $string['signupdesc'] = 'Account creation is reserved to Parcoursup candidates. Further information will be
 asked later on.';
+$string['signuptitle'] = 'Create new account';
 $string['studentcourseid'] = 'Student course ID for questionnaire';
+$string['totop'] = 'Go to top';
 $string['updatemyprofile'] = 'Update my profile';
 $string['welcomedashboard'] = 'Welcome {$a}!';
-$string['totop'] = 'Go to top';

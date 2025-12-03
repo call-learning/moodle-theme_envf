@@ -17,7 +17,7 @@
 /**
  * Presets management
  *
- * @package   theme_clboost
+ * @package   theme_envf
  * @copyright 2020 - CALL Learning - Laurent David <laurent@call-learning.fr>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

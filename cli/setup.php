@@ -29,7 +29,7 @@ global $CFG;
 require_once($CFG->libdir . '/clilib.php');
 
 // Get the cli options.
-list($options, $unrecognised) = cli_get_params([
+[$options, $unrecognised] = cli_get_params([
     'help' => false,
     'name' => null,
 ], [
@@ -60,7 +60,7 @@ if ($options['help']) {
 $setupclass = new ReflectionClass('\theme_envf\setup');
 
 $refpossiblefunctions = $setupclass->getMethods(ReflectionMethod::IS_PUBLIC | ReflectionMethod::IS_STATIC);
-$possiblefunctions = array_map(function($f) {
+$possiblefunctions = array_map(function ($f) {
     return $f->name;
 }, $refpossiblefunctions);
 

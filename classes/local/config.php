@@ -14,14 +14,6 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-/**
- * All constant in one place
- *
- * @package   theme_envf
- * @copyright 2020 - CALL Learning - Laurent David <laurent@call-learning.fr>
- * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
-
 namespace theme_envf\local;
 use local_mcms\page_utils;
 
@@ -33,6 +25,11 @@ use local_mcms\page_utils;
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class config extends \theme_clboost\local\config {
+    /**
+     * Get the layouts.
+     *
+     * @return array
+     */
     public static function get_layouts() {
         $layouts = parent::get_layouts();
         $layouts[page_utils::PAGE_LAYOUT_NAME] = [
@@ -48,6 +45,13 @@ class config extends \theme_clboost\local\config {
         ];
         return $layouts;
     }
+    /**
+     * Setup the theme config.
+     *
+     * @param \theme_config $theme
+     * @param string $themeparentname
+     * @return \theme_config
+     */
     public static function setup_config(&$theme, $themeparentname = 'clboost') {
         $theme = parent::setup_config($theme, $themeparentname);
         $theme->usescourseindex = false;

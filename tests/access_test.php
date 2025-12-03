@@ -13,6 +13,7 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 namespace theme_envf;
 
 use advanced_testcase;
@@ -24,9 +25,9 @@ use context_system;
  *
  * @copyright 2020 - CALL Learning - Laurent David <laurent@call-learning.fr>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ * @package theme_envf
  */
-class access_test extends advanced_testcase {
-
+final class access_test extends advanced_testcase {
     /**
      * Capability checks for different roles
      */
@@ -87,7 +88,7 @@ class access_test extends advanced_testcase {
         array $coursedef,
         string $systemrole,
         string $courserole
-    ) {
+    ): void {
         // Check if plugin installed and if it is skip the test as it will fail.
         if (!empty(\core_plugin_manager::instance()->get_installed_plugins('local')['envf'])) {
             $this->markTestSkipped('This cannot be run with the local/envf plugin installed.');
@@ -103,7 +104,7 @@ class access_test extends advanced_testcase {
         $contexts['course'] = context_course::instance($course->id);
         $contexts['system'] = context_system::instance();
 
-        $rolesbyshortname = array_map(function($r) {
+        $rolesbyshortname = array_map(function ($r) {
             return $r->shortname;
         }, $allroles);
 
@@ -115,9 +116,12 @@ class access_test extends advanced_testcase {
         $this->setUser($user);
         foreach (['system' => $systemdef, 'course' => $coursedef] as $contextname => $capabiltiychecks) {
             foreach ($capabiltiychecks as $capname => $cancannot) {
-                $this->assertEquals($cancannot, has_capability($capname, $contexts[$contextname]),
+                $this->assertEquals(
+                    $cancannot,
+                    has_capability($capname, $contexts[$contextname]),
                     "User $rolename "
-                    . ($cancannot ? 'should' : 'should not') . " be able to $capname in $contextname");
+                    . ($cancannot ? 'should' : 'should not') . " be able to $capname in $contextname"
+                );
             }
         }
     }
@@ -148,7 +152,7 @@ class access_test extends advanced_testcase {
      * @return array
      */
     protected function roles_shortnames($rolearray) {
-        return array_map(function($r) {
+        return array_map(function ($r) {
             return $r->shortname;
         }, $rolearray);
     }

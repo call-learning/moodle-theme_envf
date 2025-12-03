@@ -23,7 +23,6 @@
  */
 
 defined('MOODLE_INTERNAL') || die();
-$string['nobootswatch'] = 'Aucun';
 $string['additionalinfo'] = 'Informations additionnelles';
 $string['addresses'] = 'Adresses sur le bas de page';
 $string['addresses_desc'] = 'Adresses sur le bas de page.  <br/>Structure:
@@ -32,38 +31,37 @@ $string['addresses_desc'] = 'Adresses sur le bas de page.  <br/>Structure:
      <li>Exemple: Oniris;[[pix:theme_envf|logos/oniris]];https://www.oniris-nantes.fr/;Rue de la Géraudière 44322 NANTES
       Cedex 3</li>
      </ul>';
+$string['configtitle'] = 'ENV Theme';
+$string['cookiesrgpd'] = 'Gestion des cookies et des données';
+$string['copyright'] = '© ENVF  2023';
+$string['envf'] = 'Écoles nationales vétérinaires de France';
+$string['envf:calendarview'] = 'Peut voir le calendrier dans le cours';
 $string['envf:manage'] = 'Gestion des paramètres Concours ENVF';
 $string['envf:viewcoursebreadcrumb'] = 'Peut voir le fil d\'ariane dans le cours';
-$string['envf:calendarview'] = 'Peut voir le calendrier dans le cours';
-$string['pluginname'] = 'ENVF';
-$string['configtitle'] = 'ENV Theme';
-$string['envf'] = 'Écoles nationales vétérinaires de France';
 $string['envfothersettings'] = 'Autres paramètres';
+$string['ganalytics'] = 'Google Analytics';
+$string['ganalytics_desc'] = 'Google Analytics ID (UA-XXXXX-1)';
 $string['getcustomcert'] = 'Télécharger l\'attestation';
-$string['republiquefrancaise'] = 'République Française';
-$string['ministereagriculture'] = 'Ministère de l\'agriculture et de l\'alimentation';
-$string['logos'] = 'Logos';
-$string['logos_desc'] = 'Logo des organisations associées, affiché sur le bas de page.';
-
 $string['legallinks'] = 'Liens légaux';
 $string['legallinks_desc'] = 'Liens légaux pour le bas de page.  <br/>Structure:
      <ul>
      <li>languagestringid|url</li>
      <li>Exemple:  mentionlegales|local/mcms/index.php?p=mentions-legales</li>
      </ul>';
-$string['nonavcoursepagetag'] = 'Tag de cours marquant le fait qu\'il n\'y a pas de navigation dans ce cours entre activités';
-$string['ganalytics'] = 'Google Analytics';
-$string['ganalytics_desc'] = 'Google Analytics ID (UA-XXXXX-1)';
-
-$string['cookiesrgpd'] = 'Gestion des cookies et des données';
+$string['logos'] = 'Logos';
+$string['logos_desc'] = 'Logo des organisations associées, affiché sur le bas de page.';
 $string['mentionlegales'] = 'Mentions légales';
-$string['copyright'] = '© ENVF  2023';
-
-$string['region-side-pre'] = 'Droit';
+$string['ministereagriculture'] = 'Ministère de l\'agriculture et de l\'alimentation';
+$string['nobootswatch'] = 'Aucun';
+$string['nonavcoursepagetag'] = 'Tag de cours marquant le fait qu\'il n\'y a pas de navigation dans ce cours entre activités';
+$string['pluginname'] = 'ENVF';
 $string['region-content'] = 'Contenu';
+$string['region-side-pre'] = 'Droit';
+$string['republiquefrancaise'] = 'République Française';
 
-$string['signuptitle'] = 'Créer un compte';
-$string['studentcourseid'] = 'ID du cours étudiant pour questionnaire';
+
+
+
 $string['signupdesc'] = 'La création d’un compte est réservée aux candidats qui postulent pour le concours véto post-bac.
 Elle est obligatoire pour accéder à l’espace candidat et au questionnaire de pré-orientation.<br>
 En cas d’admissibilité aux entretiens, ce compte est également utilisé pour obtenir des informations précises sur l’organisation
@@ -71,6 +69,8 @@ et le déroulement des épreuves. Les informations que vous donnez (Nom, Prénom
   doivent <strong>impérativement être exactement les mêmes</strong> que sur la plateforme "Parcoursup".
 Vous ne pourrez plus modifier ces informations si nécessaire.<br>
 Vérifiez bien vos données avant de cliquer sur "Créer mon compte".';
+$string['signuptitle'] = 'Créer un compte';
+$string['studentcourseid'] = 'ID du cours étudiant pour questionnaire';
+$string['totop'] = 'Aller en haut';
 $string['updatemyprofile'] = 'Mettre à jour mes informations';
 $string['welcomedashboard'] = 'Bienvenue {$a}!';
-$string['totop'] = 'Aller en haut';

@@ -13,11 +13,15 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 use theme_envf\setup;
 
 /**
  * Custom code to be run on installing the plugin.
  * @return bool
+ * @package theme_envf
+ * @copyright 2020 - CALL Learning - Laurent David <laurent@call-learning.fr>
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 function xmldb_theme_envf_install() {
     setup::install_update();

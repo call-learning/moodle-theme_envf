@@ -45,13 +45,15 @@ class single_renderer extends qtype_multichoice_single_renderer {
      * @param question_display_options $options
      * @return string
      */
-    public function formulation_and_controls(question_attempt $qa,
-            question_display_options $options) {
+    public function formulation_and_controls(
+        question_attempt $qa,
+        question_display_options $options
+    ) {
         $question = $qa->get_question();
         $tags = core_tag_tag::get_item_tags_array('core_question', 'question', $question->id);
         $classes = '';
         if (!empty($tags)) {
-            $tags = array_map(function($tag) {
+            $tags = array_map(function ($tag) {
                 return trim(strtolower($tag));
             }, $tags);
             $classes = join(' ', $tags);

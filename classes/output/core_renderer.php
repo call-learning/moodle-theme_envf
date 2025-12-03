@@ -17,7 +17,7 @@
 /**
  * Presets management
  *
- * @package   theme_clboost
+ * @package   theme_envf
  * @copyright 2020 - CALL Learning - Laurent David <laurent@call-learning.fr>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -106,16 +106,16 @@ class core_renderer extends \theme_clboost\output\core_renderer {
         $menu = new action_menu();
 
         if ($context->contextlevel == CONTEXT_MODULE) {
-
             $this->page->navigation->initialise();
             $node = $this->page->navigation->find_active_node();
             $buildmenu = false;
             // If the settings menu has been forced then show the menu.
             if ($this->page->is_settings_menu_forced()) {
                 $buildmenu = true;
-            } else if (!empty($node) && ($node->type == navigation_node::TYPE_ACTIVITY ||
-                    $node->type == navigation_node::TYPE_RESOURCE)) {
-
+            } else if (
+                !empty($node) && ($node->type == navigation_node::TYPE_ACTIVITY ||
+                    $node->type == navigation_node::TYPE_RESOURCE)
+            ) {
                 $items = $this->page->navbar->get_items();
                 $navbarnode = end($items);
                 // We only want to show the menu on the first page of the activity. This means
@@ -125,7 +125,7 @@ class core_renderer extends \theme_clboost\output\core_renderer {
                 }
             }
             // ENVF Modifications.
-            require_once($CFG->dirroot.'/course/lib.php');
+            require_once($CFG->dirroot . '/course/lib.php');
             $courseformat = course_get_format($this->page->course);
             $buildmenu = $buildmenu && (
                 (($courseformat->get_format() == 'envfpsup') &&
@@ -141,7 +141,6 @@ class core_renderer extends \theme_clboost\output\core_renderer {
                     $this->build_action_menu_from_navigation($menu, $node);
                 }
             }
-
         } else if ($context->contextlevel == CONTEXT_COURSECAT) {
             // For course category context, show category settings menu, if we're on the course category page.
             if ($this->page->pagetype === 'course-index-category') {
@@ -151,7 +150,6 @@ class core_renderer extends \theme_clboost\output\core_renderer {
                     $this->build_action_menu_from_navigation($menu, $node);
                 }
             }
-
         } else {
             $items = $this->page->navbar->get_items();
             $navbarnode = end($items);
@@ -162,7 +160,6 @@ class core_renderer extends \theme_clboost\output\core_renderer {
                     // Build an action menu based on the visible nodes from this navigation tree.
                     $this->build_action_menu_from_navigation($menu, $node);
                 }
-
             }
         }
         return $this->render($menu);

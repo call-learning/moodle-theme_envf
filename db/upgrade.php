@@ -18,7 +18,7 @@
  * This file keeps track of upgrades to the theme.
  *
  *
- * @package   theme_clboost
+ * @package   theme_envf
  * @copyright 2020 - CALL Learning - Laurent David <laurent@call-learning.fr>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

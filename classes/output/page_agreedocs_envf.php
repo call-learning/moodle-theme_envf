@@ -13,6 +13,7 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 namespace theme_envf\output;
 
 use cache;
@@ -69,7 +70,7 @@ class page_agreedocs_envf extends page_agreedocs {
         $myurl = new moodle_url('/admin/tool/policy/index.php', $myparams);
 
         // Redirect to policy docs before the consent page.
-        $this->redirect_to_policies($userid, $myurl); // TODO: Check that this is still Good for ENVF.
+        $this->redirect_to_policies($userid, $myurl);
 
         // Page setup.
         $PAGE->set_context(context_system::instance());

@@ -13,6 +13,7 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+
 namespace theme_envf\local;
 use core\session\manager;
 use core_user;
@@ -47,7 +48,7 @@ class utils {
     public static function convert_address_config($page) {
         $configtext = get_config('theme_envf', 'addresses');
 
-        $lineparser = function($setting, $index, &$currentobject) use ($page) {
+        $lineparser = function ($setting, $index, &$currentobject) use ($page) {
             if (!empty($setting)) {
                 switch ($index) {
                     case 0:
@@ -60,7 +61,6 @@ class utils {
                             if ($matches) {
                                 $currentobject->url = $page->theme->image_url($matches[2], $matches[1]);
                             }
-
                         } else {
                             try {
                                 $currentobject->path = (new moodle_url($setting))->out();
@@ -104,7 +104,7 @@ class utils {
     public static function convert_legallinks_config() {
         $configtext = get_config('theme_envf', 'legallinks');
 
-        $lineparser = function($setting, $index, &$currentobject) {
+        $lineparser = function ($setting, $index, &$currentobject) {
             if (!empty($setting)) {
                 switch ($index) {
                     case 0:

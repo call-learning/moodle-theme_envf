@@ -35,7 +35,7 @@ require_once($CFG->libdir . '/clilib.php');
 require_once($CFG->libdir . '/tcpdf/tcpdf.php');
 
 // Get the cli options.
-list($options, $unrecognised) = cli_get_params([
+[$options, $unrecognised] = cli_get_params([
     'help' => false,
     'fonts' => null,
     'outpath' => null,
