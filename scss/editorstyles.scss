@@ -1,33 +1,110 @@
-.editor-style-corner-title {
-    position: relative;
-    display: inline-block;
-    padding: 24px 36px;
-    text-align: center;
-    border-radius: 4px;
+/**
+ * Editor Styles for TinyMCE
+ */
 
-    // tweak these to taste
-    $corner-size: 38px; // length of each leg
-    $corner-thick: 5px; // thickness of the line
-    $corner-offset: 6px; // how far corners sit outside
+/* The HTML block from tiny do not allow several classes
+in the wrapper so we use a single class for each style */
+$angled-color-top: $oniris;
+$angled-color-left: $enva;
+$angled-color-bottom: $vetagrosup;
+$angled-color-right: $envt;
+$angled-size: 100px;
+$angled-thick: 12px;
+$angled-margin: 10px;
+$angled-offset-start: $angled-size + $angled-margin;
+$angled-offset-end: $angled-size - $angled-margin;
+$angled-full-size: $angled-size + $angled-margin * 2;
 
-    // 8 gradients = 2 legs × 4 corners
-    background: /* top-left */
-            linear-gradient(#ff2a2a 0 0) top left / $corner-size $corner-thick no-repeat,
-            linear-gradient(#ff2a2a 0 0) top left / $corner-thick $corner-size no-repeat,
-                /* top-right */
-            linear-gradient(#66d9ff 0 0) top right / $corner-size $corner-thick no-repeat,
-            linear-gradient(#66d9ff 0 0) top right / $corner-thick $corner-size no-repeat,
-                /* bottom-left */
-            linear-gradient(#7dff66 0 0) bottom left / $corner-size $corner-thick no-repeat,
-            linear-gradient(#7dff66 0 0) bottom left / $corner-thick $corner-size no-repeat,
-                /* bottom-right */
-            linear-gradient(#b56cff 0 0) bottom right / $corner-size $corner-thick no-repeat,
-            linear-gradient(#b56cff 0 0) bottom right / $corner-thick $corner-size no-repeat;
+.editor-styles {
+    &.corner-title {
+        position: relative;
+        display: inline-block;
+        padding: 24px 36px;
+        text-align: center;
+        border-radius: 4px;
 
-    h2 {
-        margin: 0;
-        font-size: 1.6rem;
-        font-weight: 600;
-        letter-spacing: .02em;
+        // tweak these to taste
+        $corner-size: 38px; // length of each leg
+        $corner-thick: 5px; // thickness of the line
+        $corner-offset: 6px; // how far corners sit outside
+
+        // 8 gradients = 2 legs × 4 corners
+        background: /* top-left */
+                linear-gradient($angled-color-right, $angled-color-right) top left / $corner-size $corner-thick no-repeat,
+                linear-gradient($angled-color-top, $angled-color-top) top right / $corner-size $corner-thick no-repeat,
+                linear-gradient($angled-color-bottom, $angled-color-bottom) bottom left / $corner-size $corner-thick no-repeat,
+                linear-gradient($angled-color-left, $angled-color-left) bottom right / $corner-size $corner-thick no-repeat;
+        h2 {
+            margin: 0;
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: .02em;
+        }
+    }
+
+
+    &.angled-wrap {
+        margin: $angled-full-size;
+        position: relative;
+        display: inline-block;
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            width: $angled-size;
+            height: $angled-size;
+            border: $angled-thick solid;
+            transform: rotate(45deg);
+            pointer-events: none;
+        }
+
+        &::before {
+            top: -$angled-offset-end / 2;
+            left: 50%;
+            transform: translateX(-50%) rotate(45deg);
+            border-color: $angled-color-top transparent transparent $angled-color-top;
+        }
+
+        &::after {
+            left: -$angled-offset-end / 2;
+            top: 50%;
+            transform: translateY(-50%) rotate(135deg);
+            border-color: transparent $angled-color-left $angled-color-left transparent;
+        }
+        .angled-corners {
+            margin: $angled-thick;
+            align-content: center;
+            height: $angled-size * 1.5;
+
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                width: $angled-size;
+                height: $angled-size;
+                border: $angled-thick solid;
+                pointer-events: none;
+            }
+
+            &::before {
+                bottom: -$angled-offset-end / 2;
+                left: 50%;
+                transform: translateX(-50%) rotate(-45deg);
+                border-color: transparent transparent $angled-color-bottom $angled-color-bottom;
+            }
+
+            &::after {
+                right: -$angled-offset-end / 2;
+                top: 50%;
+                transform: translateY(-50%) rotate(45deg);
+                border-color: $angled-color-right $angled-color-right transparent transparent;
+            }
+
+            .angled-container {
+                width: $angled-size * 1.5;
+                text-align: center;
+            }
+        }
     }
 }

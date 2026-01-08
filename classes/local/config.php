@@ -55,6 +55,7 @@ class config extends \theme_clboost\local\config {
     public static function setup_config(&$theme, $themeparentname = 'clboost') {
         $theme = parent::setup_config($theme, $themeparentname);
         $theme->usescourseindex = false;
+        $theme->editor_scss = ['editor'];
         return $theme;
     }
 }
