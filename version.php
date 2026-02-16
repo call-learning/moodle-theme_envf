@@ -24,7 +24,7 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version   = 2025092500; /* This is the version number to increment when changes needing an update are made */
+$plugin->version   = 2026021601; /* This is the version number to increment when changes needing an update are made */
 $plugin->requires  = 2019111800;
 $plugin->release   = '0.1.0';
 $plugin->maturity  = MATURITY_ALPHA;

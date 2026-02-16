@@ -35,6 +35,9 @@
     }
     .logo {
         max-height: 80px;
+        &.org-logo {
+            max-width: 80px;
+        }
     }
     .infos-footer {
         border-top: 1px solid $gray-300;

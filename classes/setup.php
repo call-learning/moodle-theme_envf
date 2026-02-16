@@ -16,12 +16,9 @@
 
 namespace theme_envf;
 
-use context_block;
 use context_course;
-use context_system;
 use dml_exception;
 use moodle_page;
-use moodle_url;
 use theme_clboost\setup_utils;
 
 /**
@@ -85,6 +82,7 @@ class setup {
         }
         filter_set_global_state("envf", TEXTFILTER_ON);
     }
+
     /**
      * Homepage block definition
      */
@@ -132,5 +130,47 @@ class setup {
         $PAGE = $page;
         setup_utils::setup_page_blocks($page, self::HOMEPAGE_BLOCK_DEFINITION);
         $PAGE = $oldpage;
+    }
+
+    const TINY_HTML_BLOCKS_DEFINITION = [
+        [
+            'html' => '<div class="editor-styles corner-title">
+  <h2>Nice title here</h2>
+</div>',
+            'cat' => [0],
+            'name' => 'NiceTitle',
+        ],
+        [
+            'html' => '<div class="editor-styles angled-wrap">
+  <div class="angled-corners">
+    <div class="angled-container">
+      <h3>Text here</h3>
+    </div>
+  </div>
+</div>',
+            'cat' => [0],
+            'name' => 'Corner Title',
+        ],
+        [
+            'html' => '<div class="editor-styles wiggly-box">
+  <p>Item 1</p>
+  <p>Item 2</p>
+</div>',
+            'cat' => [0],
+            'name' => 'Wiggly box',
+        ],
+    ];
+
+    /**
+     * Setup tiny html blocks for editor
+     */
+    public static function setup_tiny_html_blocks() {
+        $currentconfig =get_config('tiny_htmlblock', 'items');
+        $currentitems = $currentconfig ? json_decode($currentconfig, true) : [];
+        $currentitems = array_column($currentitems, null, 'name');
+        $newitems = array_column(self::TINY_HTML_BLOCKS_DEFINITION, null, 'name');
+        //$newitems = array_merge($currentitems, $newitems);
+        set_config('items', json_encode(array_values($newitems)), 'tiny_htmlblock');
+
     }
 }

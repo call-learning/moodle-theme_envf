@@ -38,9 +38,18 @@
                     </nav>
                 </div>
                 <div class="col-12 col-lg-8 align-self-center d-flex justify-content-start">
-                    <img src="{{output.get_logo_url}}" class="logo" alt="{{sitename}}">
-                </div>
-            </div>
+                    <div class="container-fluid d-flex flex-column align-items-center">
+                        <div class="p-2 mx-auto">
+                            <img src="{{output.get_logo_url}}" class="img-fluid logo bg-white" alt="{{sitename}}">
+                        </div>
+                        <div class="d-flex flex-row flex-wrap align-items-center bg-white justify-content-start">
+                            {{# additionalinfo.orglist }}
+                                <div class="justify-self-start p-2 m-auto">
+                                    <a href="{{link}}" target="_blank"><img class="logo org-logo" src="{{ url }}" alt="{{fullname}}"/></a>
+                                </div>
+                            {{/ additionalinfo.orglist }}
+                        </div>
+                    </div>
         </div>
     </div>
     <div data-region="footer-container-popover">

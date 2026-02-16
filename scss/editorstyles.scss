@@ -107,4 +107,44 @@ $angled-full-size: $angled-size + $angled-margin * 2;
             }
         }
     }
+    &.wiggly-box {
+        display: inline-block; // Important if used on span/a.
+        position: relative;
+        box-sizing: border-box;
+
+        margin: 4em;
+        padding: 4em;
+        border-radius: 5em;
+        background: #fff;
+
+        /* optional */
+        line-height: 1.35;
+        & > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        &::before {
+            margin: -2em; /* half of the padding + border thickness */
+            content: "";
+            position: absolute;
+            pointer-events: none;
+
+            /* Makes the border sit slightly outside */
+            inset: -10px;
+
+            /* Must be a bit larger than the box radius */
+            border-radius: 60px;
+
+            /* Border color */
+            background: $primary-dark;
+
+            /* SVG mask (Moodle pix URL) */
+            -webkit-mask: url([[pix:theme|bg/wiggly-border]]) center / 100% 100% no-repeat;
+            mask: url([[pix:theme|bg/wiggly-border]]) center / 100% 100% no-repeat;
+
+            /* keep it behind content */
+            z-index: 0;
+        }
+    }
 }

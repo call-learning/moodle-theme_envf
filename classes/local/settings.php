@@ -36,6 +36,13 @@ class settings extends \theme_clboost\local\settings {
      */
     const COURSE_MAX_COURSES_PER_DROPDOWN = 1000;
 
+    const DEFAULT_ADDRESSES = "Ecole Nationale Vétérinaire d'Alfort;[[pix:theme_envf|logos/enva]];https://www.vet-alfort.fr/;"
+    . "7, avenue du Général de Gaulle, 94700 Maisons-Alfort\n"
+    . "VetAgro Sup;[[pix:theme_envf|logos/vetagro]];http://www.vetagro-sup.fr/;1 avenue Bourgelat, 69280 Marcy-l'Etoile\n"
+    . "Oniris;[[pix:theme_envf|logos/oniris]];https://www.oniris-nantes.fr/;Rue de la Géraudière 44322 NANTES Cedex 3\n"
+    . "Ecole Nationale Vétérinaire de Toulouse;[[pix:theme_envf|logos/envt]];http://www.envt.fr/;23 Chemin des Capelles "
+    . "– BP 87614 – 31 076 – Toulouse Cedex 3 – France\n";
+
     /**
      * Additional settings
      *
@@ -47,20 +54,11 @@ class settings extends \theme_clboost\local\settings {
         // Advanced settings.
         $page = new admin_settingpage('additionalinfo', static::get_string('additionalinfo', 'theme_envf'));
 
-        $defaultvalue = "Ecole Nationale Vétérinaire d'Alfort;[[pix:theme_envf|logos/enva]];https://www.vet-alfort.fr/;"
-            . "7, avenue du Général de Gaulle, 94700 Maisons-Alfort\n"
-            . "Oniris;[[pix:theme_envf|logos/oniris]];https://www.oniris-nantes.fr/;Rue de la Géraudière 44322 NANTES Cedex 3\n"
-            .
-            "Ecole Nationale Vétérinaire de Toulouse;[[pix:theme_envf|logos/envt]];http://www.envt.fr/;23 Chemin des Capelles "
-            . "– BP 87614 – 31 076 – Toulouse Cedex 3 – France\n"
-            .
-            "VetAgro Sup;[[pix:theme_envf|logos/vetagro]];http://www.vetagro-sup.fr/;1 avenue Bourgelat, 69280 Marcy-l'Etoile\n";
-
         $setting = new admin_setting_configtextarea(
             'theme_envf/addresses',
             static::get_string('addresses', 'theme_envf'),
             static::get_string('addresses_desc', 'theme_envf'),
-            $defaultvalue,
+            self::DEFAULT_ADDRESSES,
             PARAM_RAW
         );
         $page->add($setting);

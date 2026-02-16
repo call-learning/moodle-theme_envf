@@ -53,5 +53,15 @@ function xmldb_theme_envf_upgrade($oldversion) {
         // Envf savepoint reached.
         upgrade_plugin_savepoint(true, 2023112300, 'theme', 'envf');
     }
+    if ($oldversion < 2026021500) {
+        \theme_envf\setup::setup_tiny_html_blocks();
+        // Envf savepoint reached.
+        upgrade_plugin_savepoint(true, 2026021500, 'theme', 'envf');
+    }
+    if ($oldversion < 2026021601) {
+        set_config('addresses', \theme_envf\local\settings::DEFAULT_ADDRESSES, 'theme_envf');
+        // Envf savepoint reached.
+        upgrade_plugin_savepoint(true, 2026021601, 'theme', 'envf');
+    }
     return true;
 }
